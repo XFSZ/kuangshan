@@ -2,30 +2,33 @@
 var id = location.search;
 let params = decodeURI(id).replace(/[^\d]/g, "");
 
-let animArr = [
-    { name: "XuanHuiPoSuiJi",  val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" } },
-     { name: "YuanZhuiPoSuiJi", val: {exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" } },
-    { name: "ZhiShaJi", val: {exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" } }]
+var animArr = [
+    { name: "XuanHuiPoSuiJi", val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" } },
+    { name: "YuanZhuiPoSuiJi", val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" } },
+    { name: "ZhiShaJi", val: { exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" } }]
 
 
-
-function startAnimation(animationName) {
+function initAnimation(animationName) {
     setTimeout(function () {
         let ag = scene.getAnimationGroupByName(animationName);
         ag.start()
     }, 500);
 
 }
+function startAnimation(animationName) {
+    let ag = scene.getAnimationGroupByName(animationName);
+    ag.start()
+}
 window.onload = function () {
     (function () {
         if (params == '1') {
-            startAnimation('XuanHuiPoSuiJi_inout');
+            initAnimation('XuanHuiPoSuiJi_inout');
         }
         if (params == '2') {
-            startAnimation('YuanZhuiPoSuiJi_inout');
+            initAnimation('YuanZhuiPoSuiJi_inout');
         }
         if (params == '3') {
-            startAnimation('ZhiShaJi_inout');
+            initAnimation('ZhiShaJi_inout');
         }
     })()
 }
