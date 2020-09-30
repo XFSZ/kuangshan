@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ui {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.top_logo img{
+    width: 100%;
+}
+.colorForm img {
+    display: block;
+    margin: 0 auto;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 2em;
+    margin:0 auto;
+    left: 0;
+    right: 0;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-between;
+    width: 80%;
+}
+
+.menu li img {
+    width: 38px;
+    border: solid 2px #CCCCCC;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto;
+}
+
+.menu li img:hover {
+    border: solid 3px #5190bd;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 480px) {
+
+    .top_logo img{
+        width: 100%;
+    }
+
+    /*.colorForm {*/
+        /*margin-top: 10%;*/
+    /*}*/
+
+    .colorForm img {
+        margin-top: 30px;
+        width: 216px;
+    }
+
+    .menu-container {
+        bottom: 2em;
+    }
+
+    .menu {
+        width: 80%;
+    }
+
+    .menu li {
+        box-sizing: border-box;
+        flex: 0 0 25%;
+    }
+
+    .menu li img {
+        width: 48px;
+        margin: 10px auto;
+    }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 480px) and (max-width: 960px) {
+    .top_logo img{
+        width: 500px;
+    }
+
+    .colorForm {
+        margin-top: 0;
+    }
+
+    .colorForm img {
+        width: 300px;
+    }
+
+    .menu-container {
+        bottom: 6em;
+    }
+
+    .menu {
+        width: 60%;
+    }
+
+    .menu li {
+        box-sizing: border-box;
+        flex: 0 0 25%;
+    }
+
+    .menu li img {
+        width: 48px;
+        margin: 10px auto;
+    }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+    .top_logo img{
+        width: 620px;
+    }
+
+    .colorForm {
+        margin-top: 0;
+    }
+
+    .colorForm img {
+        width: 400px;
+    }
+
+    .menu-container {
+        bottom: 8em;
+    }
+
+    .menu {
+        flex-wrap: nowrap;
+        width: 35%;
+    }
+
+    .menu li img {
+        width: 48px;
+        margin: 0 20px;
+    }
+
+}
+
+#loadingScreen_Container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #f8f8f8;
+    visibility: visible;
+    opacity: 100;
+    transition: all 0.5s ease-out;
+}
+
+.loadingLogo {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    -webkit-transform: translate(-50%,-50%);
+}
+
+.loadingLogo img {
+    width: 200px;
+}
+
+@keyframes progress {
+    0% {
+        width: 0;
+    }
+    25% {
+        width: 25%;
+    }
+    50% {
+        width: 50%;
+    }
+    100% {
+        width: 100%;
+    }
+  }
+
+.progressBar {
+    animation-duration: 1s;
+    animation-name: progress;
+    margin: 20px auto 0 0;
+    height: 2px;
+    width: 100%;
+    background-color: #1bafd4;
+    text-align: center;
+}
+
+.progressBar-container {
+    /*position: absolute;*/
+    margin: 20px auto 0 auto;
+    height: 2px;
+    width: 100%;
+    background-color: #1d292c;
+    text-align: center;
+}
+
+
+#ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+#shuju {
+    position: absolute;
+    right: -50px;
+    height: 100%;
+    top: 10% ;
+}
+
+#shuju img {
+    height: 90%;
+}
+
+#shuju {
+    position: absolute;
+    height: 100%;
+    top: 10%;
+    text-align: right;
+    right: 10px;
+}
+
+#shuju img {
+    height: 90%;
+}
+
+#tb {
+    position: absolute;
+    top: 2%;
+    width: 100%;
+    text-align: center;
+}
+
+#tb img {
+    width: 95%;
+}
+
+
+#sldt {
+    position: absolute;
+    text-align: left;
+    bottom: 10px;
+}
+
+#czjg {
+    position: absolute;
+    text-align: right;
+    right: 20%;
+    bottom: 10px;
+}

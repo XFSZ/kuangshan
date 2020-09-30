@@ -1,0 +1,81 @@
+@font-face {
+  font-family: "OPPOSans";
+  src: "./fonts/OPPOSans-B.ttf";
+}
+.fontcss {
+  font-family: OPPOSans;
+  color: rgb(233, 27, 151);
+}
+html {
+  /* overflow: hidden; */
+  width: 100%;
+  height: 100%;
+
+}
+body {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../pic/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.divbox {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.blankbox {
+  /* margin-bottom: calc(-10% - 8px);
+    height: 100px; */
+}
+.btn1 {
+
+  background-image: url(../pic/bg/z1.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.btn2 {
+    background-image: url(../pic/bg/z2.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+.btn3 {
+    background-image: url(../pic/bg/z3.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+.move-left {
+  margin-left: calc(-11% );
+
+}
+.imgbg {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  opacity:0.5
+}
+/* .img1-transparency{
+   
+} */
+.img1-transparency:hover{
+    transition: all 0.5s; 
+    opacity: 0 !important;
+}
+.img2-transparency:hover{
+    transition: all 0.5s; 
+    opacity: 0 !important;
+}
+.img3-transparency:hover{
+    transition: all 0.5s; 
+    opacity: 0 !important;
+}
+.bodydiv {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
