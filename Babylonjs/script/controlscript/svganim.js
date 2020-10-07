@@ -1,45 +1,153 @@
 "use strict"
 var idw = location.search;
 let paramsw = decodeURI(idw).replace(/[^\d]/g, "");
-var coloranim=[];
-var modelanim=[];
-var displayanim=[];
-function animDirection(anim,val) {
+let nextModelAnim = paramsw - 1;      //目前是第几个model动画
+let currenModelAnim = nextModelAnim;  //上一个动画
+let init = true;                     //是否为初始化事件
+var coloranim = [];               //颜色动画
+var modelanim = [];               //模型动画
+var displayanim = [];             //爆炸动画
+
+// 模型 事件 对照关系 
+let animationArr = [
+    { btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false, val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" } },
+    { btnName: "modelbtn2", name: "YuanZhuiPoSuiJi", exploitd: false, val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" } },
+    { btnName: "modelbtn3", name: "ZhiShaJi", exploitd: false, val: { exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" } }]
+
+let colorArr = [
+    { btnName: 'colorbtn1', name: 'blue', color: 'blue' },
+    { btnName: 'colorbtn2', name: 'yellow', color: 'yellow' },
+    { btnName: 'colorbtn3', name: 'grey', color: 'grey' }
+]
+
+// 入场动画
+function animDirection(anim, val) {
     anim.setDirection(val)
     anim.play()
 }
+// 爆炸动画
+function animationStart(animationName, keys) {
+    let ag = scene.getAnimationGroupByName(animationName);
+    ag.start(false, 1, ...keys)
+}
+// 退场动画
+function animationInOut(animationName, keys) {
+    let ag = scene.getAnimationGroupByName(animationName);
+    ag.start(false, 1, ...keys)
+}
+// 退场逻辑   已爆炸的执行 爆炸退场  未爆炸的执行 普通退场
+function modelChange(currenModelAnim, nextModelAnim) {
+    // 退场
+    let animOut = animationArr.filter((value, index) => { if (value.btnName == currenModelAnim) { return value } })
 
-function animfunc(name,anims){
-    for(let i = 0;i<anims.length;i++){
-         if(name ==anims[i].name){
-            let direction = anims[i].mouse_event ? 1 : -1
-            animDirection(anims[i].anim,direction)
-            anims[i].mouse_event = !anims[i].mouse_event
-         }
-         else{
-            let direction = -1
-            animDirection(anims[i].anim,direction)
-            anims[i].mouse_event = true
-         }
+    if (animOut[0].exploitd) {
+        let outKeys = [0, 2.67]
+        animationInOut(animOut[0].val.exploitout, outKeys)
+        animOut[0].exploitd = false;
+        resetExploitBtn();    // 重置 爆炸按钮 
+
+    } else {
+        let outKeys = [2, 0]
+        animationInOut(animOut[0].val.inout, outKeys)
+    }
+
+    // resetColorBtn();   // 重置 颜色按钮
+    //入场
+    let animIn = animationArr.filter((value, index) => { if (value.btnName == nextModelAnim) { return value } })
+    let inKeys = [0, 2.67]
+    animationInOut(animIn[0].val.inout, inKeys)
+
+}
+// 爆炸按钮复位
+function resetExploitBtn() {
+    let direction = -1;
+    animDirection(displayanim[0].anim, direction);
+    displayanim[0].mouse_event = true;
+
+}
+// 颜色复位
+function resetColorBtn() {
+    // let direction = -1;
+    // animDirection(displayanim[0].anim, direction);
+    // displayanim[0].mouse_event = true;
+    animfunc('colorbtn2', coloranim)
+}
+
+// 爆炸动画逻辑  
+function modelExploit(name) {
+
+    let animIndex = animationArr.filter((value, index) => { if (value.btnName == name) { return value } })
+    let keys = animIndex[0].exploitd ? [2.6, 0] : [0, 2.67];
+    animIndex[0].exploitd = !animIndex[0].exploitd;
+    animationStart(animIndex[0].val.exploit, keys)
+    // animIndex[0].exploitd = true;
+}
+// 入场动画逻辑  入场的打开 其他都关闭
+function animfunc(name, anims) {
+    for (let i = 0; i < anims.length; i++) {
+        if (name == anims[i].name) {
+            let direction = anims[i].mouse_event ? 1 : -1;
+            animDirection(anims[i].anim, direction);
+            anims[i].mouse_event = !anims[i].mouse_event;
+        }
+        else {
+            let direction = -1;
+            animDirection(anims[i].anim, direction);
+            anims[i].mouse_event = true;
+        }
     }
 }
 
-function mouseup(type,name) {
-    let animdata =[];
-    if(type=="color"){
+// 颜色按钮点击事件 
+function onColorBtn(name) {
+    if (name == 'colorbtn1') {
+        materialYuanZhuiPoSuiJiBlue();
+        materialXuanHuiPoSuiJiBlue();
+        materialZhiShaJiBlue();
+    }
+    if (name == 'colorbtn2') {
+        materialYuanZhuiPoSuiJiYellow();
+        materialXuanHuiPoSuiJiYellow();
+        materialZhiShaJiYellow();
+    }
+    if (name == 'colorbtn3') {
+        materialYuanZhuiPoSuiJiBlack();
+        materialXuanHuiPoSuiJiBlack();
+        materialZhiShaJiYellow();
+    }
+}
+
+//按钮点击事件
+function mouseup(type, name) {
+    let animdata = [];
+    //执行 颜色 切换时执行的动作
+    if (type == "color") {
         animdata = coloranim;
+        if (!init) {
+            onColorBtn(name)
+        }
+        init = false;
     }
-    if(type=="model"){
+    //点击model切换按钮时执行的动作
+    if (type == "model") {
         animdata = modelanim;
+        currenModelAnim = nextModelAnim;
+        nextModelAnim = name;
+        if (!init) {
+            modelChange(currenModelAnim, nextModelAnim);
+        }
+        
     }
-    if(type=="display"){
+    // 点击爆炸按钮时执行的动作
+    if (type == "display") {
         animdata = displayanim;
+        modelExploit(nextModelAnim)
     }
-    animfunc(name,animdata)
+    animfunc(name, animdata)
 
 };
-
-function btnrander(type,name, path) {
+// svg按钮 渲染
+function btnrander(type, name, path) {
     let animData = {
         wrapper: document.getElementById(name),
         animType: "svg",
@@ -49,31 +157,216 @@ function btnrander(type,name, path) {
         path: path
     };
     let anim = bodymovin.loadAnimation(animData);
-    if(type=="color"){
+    if (type == "color") {
         coloranim.push({ name: name, mouse_event: true, anim: anim })
     }
-    if(type=="model"){
+    if (type == "model") {
         modelanim.push({ name: name, mouse_event: true, anim: anim })
     }
-    if(type=="display"){
+    if (type == "display") {
         displayanim.push({ name: name, mouse_event: true, anim: anim })
     }
-   
+
+}
+//材质调整 XuanHuiPoSuiJi Black
+function materialXuanHuiPoSuiJiBlack() {
+
+    let M_XuanHuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Screw_Steel");
+    let M_XuanHuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_Screw_Steel");
+    let M_XuanHuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_XuanHuiPoSuiJi_Paint_Main");
+
+    M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
+    M_XuanHuiPoSuiJi_Paint_Main.metallic = 1;
+    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.2;
+    M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.02;
+
+    M_XuanHuiPoSuiJi_AN_Screw_Steel.albedoColor = new BABYLON.Color3(0.1411764705882353, 0.09411764705882353, 0);
+    M_XuanHuiPoSuiJi_AN_Screw_Steel.roughness = 0.24;
+
+    M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.1411764705882353, 0.09411764705882353, 0);
+    M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
+}
+//材质调整 XuanHuiPoSuiJi Blue
+function materialXuanHuiPoSuiJiBlue() {
+    let M_XuanHuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Screw_Steel");
+    let M_XuanHuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_Screw_Steel");
+    let M_XuanHuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_XuanHuiPoSuiJi_Paint_Main");
+    M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.00784313725490196, 0.047058823529411764, 0.11372549019607843);
+    M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
+    M_XuanHuiPoSuiJi_Paint_Main.metallic = 0.27;
+    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.19;
+
+    M_XuanHuiPoSuiJi_AN_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
+    M_XuanHuiPoSuiJi_AN_Screw_Steel.roughness = 0.24;
+
+    M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
+    M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
+}
+//材质调整  XuanHuiPoSuiJi Yellow
+function materialXuanHuiPoSuiJiYellow() {
+    let M_XuanHuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Screw_Steel");
+    let M_XuanHuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_Screw_Steel");
+    let M_XuanHuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_XuanHuiPoSuiJi_Paint_Main");
+    M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
+    M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.45;
+    M_XuanHuiPoSuiJi_Paint_Main.metallic = 0.2;
+    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.14;
+
+    M_XuanHuiPoSuiJi_AN_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
+    M_XuanHuiPoSuiJi_AN_Screw_Steel.roughness = 0.24;
+
+    M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
+    M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
+}
+//材质调整 ZhiShaJi Black
+function materialZhiShaJiBlack() {
+
+    let M_Paint_Less = scene.getMaterialByID("M_Paint_Less");
+    let M_Paint_Main = scene.getMaterialByID("M_Paint_Main");
+    M_Paint_Main.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
+    M_Paint_Main.metallic = 1;
+    M_Paint_Main.roughness = 0.2;
+    M_Paint_Main.bumpTexture.level = 0.02;
+
+    M_Paint_Less.albedoColor = new BABYLON.Color3(0.34901960784313724, 0.34901960784313724, 0.34901960784313724);
+    M_Paint_Less.metallic = 0;
+    M_Paint_Less.roughness = 0.35;
+    M_Paint_Less.metallicF0Factor = 0.62;
+    M_Paint_Less.bumpTexture.level = 0.15;
+}
+//材质调整 ZhiShaJi Blue
+function materialZhiShaJiBlue() {
+    let M_Paint_Less = scene.getMaterialByID("M_Paint_Less");
+    let M_Paint_Main = scene.getMaterialByID("M_Paint_Main");
+    M_Paint_Main.albedoColor = new BABYLON.Color3(0.00784313725490196, 0.047058823529411764, 0.11372549019607843);
+    M_Paint_Main.bumpTexture.level = 0.5;
+    M_Paint_Main.metallic = 0.27;
+    M_Paint_Main.roughness = 0.19;
+
+
+    M_Paint_Less.albedoColor = new BABYLON.Color3(0.09803921568627451, 0, 0);
+    M_Paint_Less.metallic = 0;
+    M_Paint_Less.roughness = 0.35;
+    M_Paint_Less.metallicF0Factor = 0.62;
+    M_Paint_Less.bumpTexture.level = 0.15;
+
+}
+//材质调整 ZhiShaJi Yellow
+function materialZhiShaJiYellow() {
+    let M_Paint_Less = scene.getMaterialByID("M_Paint_Less");
+    let M_Paint_Main = scene.getMaterialByID("M_Paint_Main");
+    M_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
+    M_Paint_Main.bumpTexture.level = 0.45;
+    M_Paint_Main.metallic = 0.2;
+    M_Paint_Main.roughness = 0.14;
+
+    M_Paint_Less.albedoColor = new BABYLON.Color3(0.23921568627450981, 0.23921568627450981, 0.23921568627450981);
+    M_Paint_Less.metallic = 1;
+    M_Paint_Less.roughness = 0.05;
+    M_Paint_Less.metallicF0Factor = 0.5;
+    M_Paint_Less.bumpTexture.level = 0.15;
 }
 
-(function () {
-    btnrander('model','modelbtn1', '../../../animation/datam1.json');
-    btnrander('model','modelbtn2', '../../../animation/datam2.json');
-    btnrander('model','modelbtn3', '../../../animation/datam3.json');
-    btnrander('color','colorbtn1', '../../../animation/datac1.json');
-    btnrander('color','colorbtn2', '../../../animation/datac2.json');
-    btnrander('color','colorbtn3', '../../../animation/datac3.json');
-    btnrander('display','displaybtn1', '../../../animation/dataplus.json');
-    let modelname ="modelbtn" + paramsw
-    // let colorname ="colorbtn" + paramsw
-    mouseup('model',modelname);
-    mouseup('color','colorbtn2');
-})()
+
+//材质调整 YuanZhuiPoSuiJi  Black
+function materialYuanZhuiPoSuiJiBlack() {
+
+    let M_YuanZhuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Main");
+    let M_YuanZhuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Texture");
+    let M_YuanZhuiPoSuiJi_Metal_Steel_Silver = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Steel_Silver");
+    let M_YuanZhuiPoSuiJi_Paint_Less = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Less");
+
+    M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
+    M_YuanZhuiPoSuiJi_Paint_Main.metallic = 1;
+    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.2;
+    M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.02;
+
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.41568627450980394, 0.28627450980392155, 0.00392156862745098);
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.26;
+
+    M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.34901960784313724, 0.34901960784313724, 0.34901960784313724);
+    M_YuanZhuiPoSuiJi_Paint_Less.metallic = 0;
+    M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.35;
+    M_YuanZhuiPoSuiJi_Paint_Less.metallicF0Factor = 0.62;
+    M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
+
+    M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.4392156862745098, 0.4392156862745098, 0.4392156862745098);
+    M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.14;
+}
+//材质调整 YuanZhuiPoSuiJi  Blue
+function materialYuanZhuiPoSuiJiBlue() {
+
+    let M_YuanZhuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Main");
+    let M_YuanZhuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Texture");
+    let M_YuanZhuiPoSuiJi_Metal_Steel_Silver = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Steel_Silver");
+    let M_YuanZhuiPoSuiJi_Paint_Less = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Less");
+
+    M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.00784313725490196, 0.047058823529411764, 0.11372549019607843);
+    M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
+    M_YuanZhuiPoSuiJi_Paint_Main.metallic = 0.27;
+    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.19;
+
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.1803921568627451, 0.1803921568627451, 0.1803921568627451);
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.18;
+
+    M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.09803921568627451, 0, 0);
+    M_YuanZhuiPoSuiJi_Paint_Less.metallic = 0;
+    M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.35;
+    M_YuanZhuiPoSuiJi_Paint_Less.metallicF0Factor = 0.62;
+    M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
+
+    M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.4392156862745098, 0.4392156862745098, 0.4392156862745098);
+    M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.14;
+}
+
+//材质调整 YuanZhuiPoSuiJi  Yellow
+function materialYuanZhuiPoSuiJiYellow() {
+
+    let M_YuanZhuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Main");
+    let M_YuanZhuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Texture");
+    let M_YuanZhuiPoSuiJi_Metal_Steel_Silver = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Steel_Silver");
+    let M_YuanZhuiPoSuiJi_Paint_Less = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Less");
+
+    M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
+    M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.45;
+    M_YuanZhuiPoSuiJi_Paint_Main.metallic = 0.2;
+    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.14;
+
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.metallic = 1;
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.05;
+
+    M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.23921568627450981, 0.23921568627450981, 0.23921568627450981);
+    M_YuanZhuiPoSuiJi_Paint_Less.metallic = 1;
+    M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.05;
+    M_YuanZhuiPoSuiJi_Paint_Less.metallicF0Factor = 0.5;
+    M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
+
+    M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
+    M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.5;
+}
+
+
+
+
+
+(
+    function () {
+
+        btnrander('model', 'modelbtn1', '../../../animation/datam1.json');
+        btnrander('model', 'modelbtn2', '../../../animation/datam2.json');
+        btnrander('model', 'modelbtn3', '../../../animation/datam3.json');
+        btnrander('color', 'colorbtn1', '../../../animation/datac1.json');
+        btnrander('color', 'colorbtn2', '../../../animation/datac2.json');
+        btnrander('color', 'colorbtn3', '../../../animation/datac3.json');
+        btnrander('display', 'displaybtn1', '../../../animation/dataplus.json');
+        let modelname = "modelbtn" + paramsw
+        // let colorname ="colorbtn" + paramsw
+        nextModelAnim = modelname;
+        currenModelAnim = nextModelAnim;
+        mouseup('model', modelname);
+        mouseup('color', 'colorbtn2');
+
+    })()
 
 
 

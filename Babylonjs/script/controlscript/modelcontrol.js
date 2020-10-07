@@ -15,10 +15,10 @@ function initAnimation(animationName) {
     }, 500);
 
 }
-function startAnimation(animationName) {
-    let ag = scene.getAnimationGroupByName(animationName);
-    ag.start()
-}
+// function startAnimation(animationName) {
+//     let ag = scene.getAnimationGroupByName(animationName);
+//     ag.start()
+// }
 window.onload = function () {
     (function () {
         if (params == '1') {
