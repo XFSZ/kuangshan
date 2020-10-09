@@ -133,7 +133,7 @@ function onColorBtn(name) {
     if (name == 'colorbtn3') {
         materialYuanZhuiPoSuiJiBlack();
         materialXuanHuiPoSuiJiBlack();
-        materialZhiShaJiYellow();
+        materialZhiShaJiBlack();
     }
 }
 
@@ -248,7 +248,7 @@ function materialZhiShaJiBlack() {
     M_Paint_Main.metallic = 1;
     M_Paint_Main.roughness = 0.2;
     M_Paint_Main.bumpTexture.level = 0.02;
-
+    
     M_Paint_Less.albedoColor = new BABYLON.Color3(0.34901960784313724, 0.34901960784313724, 0.34901960784313724);
     M_Paint_Less.metallic = 0;
     M_Paint_Less.roughness = 0.35;
