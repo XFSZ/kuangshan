@@ -24,13 +24,12 @@
         width: 100%;
         height: 100%;
         touch-action: none;
-        background-image:
-                url('./textures/sebastian-pichler-ly2T4vul_SE-unsplash.jpg');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size:  auto auto;
+        background-image: url("./textures/sebastian-pichler-ly2T4vul_SE-unsplash.jpg");
+        
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto auto;
       }
-      /* babylonjs debug */
       #scene-explorer-host,
       #inspector-host {
         z-index: 50;
@@ -57,7 +56,17 @@
   </head>
   <body>
     <!-- <div class="UITest"><img src="./textures/UI.png" alt=""></div> -->
-    <iframe id="ifr"  name="indexIfr" width="100%" height="100%" class="iframe"  frameborder = "0" marginheight="0" marginwidth="0" src="./index/index.html"></iframe>
+    <iframe
+      id="ifr"
+      name="indexIfr"
+      width="100%"
+      height="100%"
+      class="iframe"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      src="./index/index.html"
+    ></iframe>
     <canvas id="renderCanvas"></canvas>
     <script src="script/main.js"></script>
     <div id="loadingScreen_Container">
@@ -70,18 +79,46 @@
     </div>
     <div class="button-box">
       <div class="leftbtn">
-        <div class="btn" id="modelbtn1" onclick="mouseup('model','modelbtn1')"></div>
-        <div class="btn" id="modelbtn2" onclick="mouseup('model','modelbtn2')"></div>
-        <div class="btn" id="modelbtn3" onclick="mouseup('model','modelbtn3')"></div>
+        <div
+          class="btn"
+          id="modelbtn1"
+          onclick="mouseup('model','modelbtn1')"
+        ></div>
+        <div
+          class="btn"
+          id="modelbtn2"
+          onclick="mouseup('model','modelbtn2')"
+        ></div>
+        <div
+          class="btn"
+          id="modelbtn3"
+          onclick="mouseup('model','modelbtn3')"
+        ></div>
       </div>
       <div class="rightbtn">
-        <div class="btn" id="colorbtn1" onclick="mouseup('color','colorbtn1')"></div>
-        <div class="btn" id="colorbtn2" onclick="mouseup('color','colorbtn2')"></div>
-        <div class="btn" id="colorbtn3" onclick="mouseup('color','colorbtn3')"></div>
+        <div
+          class="btn"
+          id="colorbtn1"
+          onclick="mouseup('color','colorbtn1')"
+        ></div>
+        <div
+          class="btn"
+          id="colorbtn2"
+          onclick="mouseup('color','colorbtn2')"
+        ></div>
+        <div
+          class="btn"
+          id="colorbtn3"
+          onclick="mouseup('color','colorbtn3')"
+        ></div>
       </div>
     </div>
     <div class="buttom-box">
-        <div class="btn" id="displaybtn1" onclick="mouseup('display','displaybtn1')"></div>
+      <div
+        class="btn"
+        id="displaybtn1"
+        onclick="mouseup('display','displaybtn1')"
+      ></div>
     </div>
   </body>
   <script src="script/controlscript/modelcontrol.js"></script>
