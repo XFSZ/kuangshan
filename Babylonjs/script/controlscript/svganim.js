@@ -323,10 +323,10 @@ function materialYuanZhuiPoSuiJiBlack() {
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.41568627450980394, 0.28627450980392155, 0.00392156862745098);
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.26;
 
-    M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.34901960784313724, 0.34901960784313724, 0.34901960784313724);
-    M_YuanZhuiPoSuiJi_Paint_Less.metallic = 0;
-    M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.35;
-    M_YuanZhuiPoSuiJi_Paint_Less.metallicF0Factor = 0.62;
+    M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.23921568627450981, 0.23921568627450981, 0.23921568627450981);
+    M_YuanZhuiPoSuiJi_Paint_Less.metallic = 1;
+    M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.05;
+    M_YuanZhuiPoSuiJi_Paint_Less.metallicF0Factor = 0.5;
     M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
 
     M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.4392156862745098, 0.4392156862745098, 0.4392156862745098);

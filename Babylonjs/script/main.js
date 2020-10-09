@@ -64,12 +64,9 @@ var createScene = function () {
     camera.minZ = 0.1;
     camera.maxZ = 10000;
 
-    /*     camera.lowerAlphaLimit = 7.3;
-        camera.upperAlphaLimit = 8.47;
-        camera.lowerBetaLimit = 1.59;//1.45;*/
     camera.upperBetaLimit = 1.5;
-    camera.lowerRadiusLimit = 0;
-    camera.upperRadiusLimit = 20;
+    camera.lowerRadiusLimit = 1.5;
+    camera.upperRadiusLimit = 7;
 
     //相机惯性
     camera.angularSensibilityX = 2000;
@@ -77,7 +74,6 @@ var createScene = function () {
     camera.panningSensibility = 2000;
     camera.wheelDeltaPercentage = 0.008;
     camera.pinchDeltaPercentage = 0.0005;
-
 
 
     // Environment Texture
@@ -436,8 +432,10 @@ var createScene = function () {
         M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black.albedoColor = new BABYLON.Color3(0, 0, 0);
         M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black.metallic = 1;
         M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black.roughness = 0.24;
+        M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black.transparencyMode = 2;
     
         M_YuanZhuiPoSuiJi_AN_Line_Rubber_Black.roughness = 0.27;
+        M_YuanZhuiPoSuiJi_AN_Line_Rubber_Black.transparencyMode = 2;
     
         M_YuanZhuiPoSuiJi_AN_Line_Steel.albedoColor = new BABYLON.Color3(0.18823529411764706, 0.18823529411764706, 0.18823529411764706);
         M_YuanZhuiPoSuiJi_AN_Line_Steel.metallic = 1;
@@ -463,7 +461,33 @@ var createScene = function () {
         shadowGenerator.getShadowMap().renderList.push(scene.getMeshByID("YuanZhuiPoSuiJi_Shelf"));
         let ag = scene.getAnimationGroupByName('YuanZhuiPoSuiJi_BaoZha' );
         ag.stop();
-    
+        
+        var an_ShelfAlpha = new BABYLON.Animation("an_ShelfAlpha", "alpha", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
+        var ShelfAlphaKeys = [];
+
+        ShelfAlphaKeys.push({
+            frame: 0,
+            value: 1
+        });
+
+        ShelfAlphaKeys.push({
+            frame: 30,
+            value: 0
+        });
+
+/*         //创建换动函数
+        var easingFunction = new BABYLON.CircleEase();
+        //选择缓动的方式
+        easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
+        //将缓动添加给动画
+        an_ShelfAlpha.setEasingFunction(easingFunction);
+ */
+        //将动画数组添加到动画对象：
+        an_ShelfAlpha.setKeys(ShelfAlphaKeys);
+        //将此动画链接到相机的radius上；
+        camera.animations.push(an_ShelfAlpha);
+
+        scene.getAnimationGroupByName("YuanZhuiPoSuiJi_BaoZha").addTargetedAnimation(an_ShelfAlpha, scene.getMaterialByID("M_YuanZhuiPoSuiJi_AN_Line_Rubber_Black"));
     });
 
 /*     //地面 
