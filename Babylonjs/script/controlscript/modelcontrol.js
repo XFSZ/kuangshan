@@ -1,7 +1,8 @@
 "use strict"
-var id = location.search;
-let params = decodeURI(id).replace(/[^\d]/g, "");
-
+// var id = location.search;
+// let params = decodeURI(id).replace(/[^\d]/g, "");
+var id = localStorage.getItem("id")
+let params = id
 var animArr = [
     { name: "XuanHuiPoSuiJi", val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" } },
     { name: "YuanZhuiPoSuiJi", val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" } },

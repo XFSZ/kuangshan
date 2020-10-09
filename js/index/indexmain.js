@@ -1,9 +1,13 @@
 function openOne(){
-    window.location.href="Babylonjs/index.html?id=" +encodeURI("1")
+    localStorage.setItem("id","1")
+    window.location.href="Babylonjs/index.html"
 }
 function openTwo(){
-    window.location.href="Babylonjs/index.html?id=" +encodeURI("2")
+    localStorage.setItem("id","2")
+    window.location.href="Babylonjs/index.html"
 }
 function openThree(){
-    window.location.href="Babylonjs/index.html?id=" +encodeURI("3")
+    localStorage.setItem("id","3")
+ //   window.location.href="Babylonjs/index.html?id=" +encodeURI("3")
+    window.location.href="Babylonjs/index.html"
 }

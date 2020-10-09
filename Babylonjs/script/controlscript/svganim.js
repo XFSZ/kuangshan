@@ -1,6 +1,8 @@
 "use strict"
-var idw = location.search;
-let paramsw = decodeURI(idw).replace(/[^\d]/g, "");
+// var idw = location.search;
+// let paramsw = decodeURI(idw).replace(/[^\d]/g, "");
+var id = localStorage.getItem("id")
+let paramsw = id;
 let nextModelAnim = paramsw - 1;      //目前是第几个model动画
 let currenModelAnim = nextModelAnim;  //上一个动画
 let nextColor = "";      //目前是第几个model动画
@@ -381,10 +383,6 @@ function materialYuanZhuiPoSuiJiYellow() {
     M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
     M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.5;
 }
-
-
-
-
 
 (
     function () {
