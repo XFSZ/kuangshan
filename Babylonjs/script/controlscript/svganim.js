@@ -27,35 +27,52 @@ function animDirection(anim, val) {
 }
 // 爆炸动画
 function animationStart(animationName, keys) {
+
     let ag = scene.getAnimationGroupByName(animationName);
-    ag.start(false, 1, ...keys)
+    
+    if(keys){
+        ag.start(false, 1, ag.from,ag.to)
+    }
+    else{
+        ag.start(false, 1, ag.to, ag.from)
+    }
 }
 // 退场动画
 function animationInOut(animationName, keys) {
     let ag = scene.getAnimationGroupByName(animationName);
-    ag.start(false, 1, ...keys)
+    if(keys=="in"){
+        ag.start(false, 1, ag.from,ag.to)
+        return ag.to *1000
+    }
+    if(keys=="out")
+    {
+        ag.start(false, 1, ag.to,ag.from)
+        return ag.to *1000
+    }
+    if(keys =="exploitd" ){
+        ag.start(false, 1, ag.from,ag.to)
+        return ag.to *1000
+    }
 }
 // 退场逻辑   已爆炸的执行 爆炸退场  未爆炸的执行 普通退场
 function modelChange(currenModelAnim, nextModelAnim) {
     // 退场
     let animOut = animationArr.filter((value, index) => { if (value.btnName == currenModelAnim) { return value } })
-
     if (animOut[0].exploitd) {
-        let outKeys = [0, 2.67]
-        animationInOut(animOut[0].val.exploitout, outKeys)
+        // 已爆炸
+        animationInOut(animOut[0].val.exploitout, "exploitd")
         animOut[0].exploitd = false;
         resetExploitBtn();    // 重置 爆炸按钮 
 
     } else {
-        let outKeys = [2, 0]
-        animationInOut(animOut[0].val.inout, outKeys)
+        //未爆炸
+        animationInOut(animOut[0].val.inout, "out")
     }
 
     // resetColorBtn();   // 重置 颜色按钮
     //入场
     let animIn = animationArr.filter((value, index) => { if (value.btnName == nextModelAnim) { return value } })
-    let inKeys = [0, 2.67]
-    animationInOut(animIn[0].val.inout, inKeys)
+    animationInOut(animIn[0].val.inout, "in")
 
 }
 // 爆炸按钮复位
@@ -77,10 +94,9 @@ function resetColorBtn() {
 function modelExploit(name) {
 
     let animIndex = animationArr.filter((value, index) => { if (value.btnName == name) { return value } })
-    let keys = animIndex[0].exploitd ? [2.6, 0] : [0, 2.67];
     animIndex[0].exploitd = !animIndex[0].exploitd;
-    animationStart(animIndex[0].val.exploit, keys)
-    // animIndex[0].exploitd = true;
+    animationStart(animIndex[0].val.exploit, animIndex[0].exploitd)
+    
 }
 // 入场动画逻辑  入场的打开 其他都关闭
 function animfunc(name, anims) {
