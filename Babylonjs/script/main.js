@@ -514,7 +514,7 @@ var createScene = function () {
 
     keys.push({
         frame: 80,
-        value: 3.5
+        value: 2.5
     });
 
     //创建换动函数

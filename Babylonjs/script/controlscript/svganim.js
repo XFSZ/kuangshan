@@ -173,7 +173,7 @@ function mouseup(type, name) {
             if(init){
                 mouseEvenTimeOut = true
                 init = false
-                setTimeout(()=>{mouseEvenTimeOut = false},4000)
+                setTimeout(()=>{mouseEvenTimeOut = false},2000)
             }
 
         }
@@ -388,26 +388,45 @@ function materialYuanZhuiPoSuiJiYellow() {
     M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.5;
 }
 
-(
-    function () {
-
-        btnrander('model', 'modelbtn1', '../../../animation/datam1.json');
-        btnrander('model', 'modelbtn2', '../../../animation/datam2.json');
-        btnrander('model', 'modelbtn3', '../../../animation/datam3.json');
-        btnrander('color', 'colorbtn1', '../../../animation/datac1.json');
-        btnrander('color', 'colorbtn2', '../../../animation/datac2.json');
-        btnrander('color', 'colorbtn3', '../../../animation/datac3.json');
-        btnrander('display', 'displaybtn1', '../../../animation/dataplus.json');
-        let modelname = "modelbtn" + paramsw
-        // let colorname ="colorbtn" + paramsw
-        nextModelAnim = modelname;
-        currenModelAnim = nextModelAnim;
-        nextColor = 'colorbtn2';
-        currenColor = nextColor;
-        mouseup('model', modelname);
-        mouseup('color', 'colorbtn2');
-        // setTimeout(()=>{mouseEvenTimeOut = false},2000)
-    })()
+function initscene() {
+    btnrander('model', 'modelbtn1', './animation/datam1.json');
+    btnrander('model', 'modelbtn2', './animation/datam2.json');
+    btnrander('model', 'modelbtn3', './animation/datam3.json');
+    btnrander('color', 'colorbtn1', './animation/datac1.json');
+    btnrander('color', 'colorbtn2', './animation/datac2.json');
+    btnrander('color', 'colorbtn3', './animation/datac3.json');
+    btnrander('display', 'displaybtn1', './animation/dataplus.json');
+    id = localStorage.getItem("id")
+    paramsw = id;
+    console.log(paramsw);
+    let modelname = "modelbtn" + paramsw;
+    // let colorname ="colorbtn" + paramsw
+    nextModelAnim = modelname;
+    currenModelAnim = nextModelAnim;
+    nextColor = 'colorbtn2';
+    currenColor = nextColor;
+    mouseup('model', modelname);
+    mouseup('color', 'colorbtn2');
+    initCamera();
+    initAnim(nextModelAnim);
+    // setTimeout(()=>{mouseEvenTimeOut = false},2000)
+}
+function initCamera(){
+    let animName = "camera_in";
+    let ag = scene.getAnimationGroupByName(animName);
+    ag.start(false, 1, ag.from, ag.to)
+        // setTimeout(function () {
+    //     let ag = scene.getAnimationGroupByName(animName);
+    //     ag.start(false, 1, ag.from, ag.to)
+    // }, 2000);
+}
+function initAnim(nextModelAnim){
+    // let inTimeOut = 1000;
+    let animIn = animationArr.filter((value, index) => { if (value.btnName == nextModelAnim) { return value } })
+    animationInOut(animIn[0].val.inout, "in")
+    // inTimeOut = animationInOut(animIn[0].val.inout, "in")
+    // setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
+}
 
 
 
