@@ -97,11 +97,11 @@ function resetColorBtn() {
 
 // 爆炸动画逻辑  
 function modelExploit(name) {
-
+    let timeout = 1000;
     let animIndex = animationArr.filter((value, index) => { if (value.btnName == name) { return value } })
     animIndex[0].exploitd = !animIndex[0].exploitd;
-    animationStart(animIndex[0].val.exploit, animIndex[0].exploitd)
-    setTimeout(()=>{mouseEvenTimeOut = false},3000)
+    timeout =  animationStart(animIndex[0].val.exploit, animIndex[0].exploitd)
+    setTimeout(()=>{mouseEvenTimeOut = false},timeout)
 
 }
 // 入场动画逻辑  入场的打开 其他都关闭
@@ -178,7 +178,6 @@ function mouseup(type, name) {
             mouseEvenTimeOut = true
         }
         animfunc(name, animdata, type)
-        // setTimeout(()=>{},3000)
     }
 
 
