@@ -32,17 +32,17 @@ body {
 }
 .btn1 {
 
-  background-image: url(../pic/bg/z1.png);
+  background-image: url(../pic/newbg/z1.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
 .btn2 {
-    background-image: url(../pic/bg/z2.png);
+    background-image: url(../pic/newbg/z2.png);
     background-repeat: no-repeat;
     background-size: 100%;
   }
 .btn3 {
-    background-image: url(../pic/bg/z3.png);
+    background-image: url(../pic/newbg/z3.png);
     background-repeat: no-repeat;
     background-size: 100%;
   }
