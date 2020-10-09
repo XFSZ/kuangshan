@@ -12,7 +12,8 @@ var animArr = [
 function initAnimation(animationName) {
     setTimeout(function () {
         let ag = scene.getAnimationGroupByName(animationName);
-        ag.start()
+        ag.start(false, 2, ag.from, ag.to)
+        // setTimeout(()=>{mouseEvenTimeOut=false})
     }, 1000);
 
 }
