@@ -33,26 +33,26 @@ function animationStart(animationName, keys) {
 
     let ag = scene.getAnimationGroupByName(animationName);
     if (keys) {
-        ag.start(false, 1, ag.from, ag.to)
+        ag.start(false, 4, ag.from, ag.to)
     }
     else {
-        ag.start(false, 1, ag.to, ag.from)
+        ag.start(false, 4, ag.to, ag.from)
     }
-    return ag.to * 1000
+    return ag.to * 1000/4
 }
 // 退场动画
 function animationInOut(animationName, keys) {
     let ag = scene.getAnimationGroupByName(animationName);
     if (keys == "in") {
-        ag.start(false, 1, ag.from, ag.to)
+        ag.start(false, 4, ag.from, ag.to)
     }
     if (keys == "out") {
-        ag.start(false, 1, ag.to, ag.from)
+        ag.start(false, 4, ag.to, ag.from)
     }
     if (keys == "exploitd") {
-        ag.start(false, 1, ag.from, ag.to)
+        ag.start(false, 4, ag.from, ag.to)
     }
-    return ag.to * 1000
+    return ag.to * 1000 / 4
 }
 // 退场逻辑   已爆炸的执行 爆炸退场  未爆炸的执行 普通退场
 function modelChange(currenModelAnim, nextModelAnim) {

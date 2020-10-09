@@ -186,7 +186,7 @@ var createScene = function () {
 
 
     BABYLON.SceneLoader.Append("model/SheBei/", "XuanHuiPoSuiJi.gltf", scene, function (meshes) {
-        scene.getTransformNodeByID("XuanHuiPoSuiJi").position = new BABYLON.Vector3(-2, 0, 0);
+        // scene.getTransformNodeByID("XuanHuiPoSuiJi").position = new BABYLON.Vector3(-2, 0, 0);
     
         let aoTexture = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao.jpg", scene);
         // aoTexture.coordinatesIndex = 1;
@@ -280,7 +280,7 @@ var createScene = function () {
 
 
     BABYLON.SceneLoader.Append("model/SheBei/", "ZhiShaJi.gltf", scene, function (meshes) {
-        scene.getTransformNodeByID("ZhiShaJi").position = new BABYLON.Vector3(2, 0, 0);
+        // scene.getTransformNodeByID("ZhiShaJi").position = new BABYLON.Vector3(2, 0, 0);
 
         let aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_AO.jpg", scene);
         aoTexture.vScale = -1;
