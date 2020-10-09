@@ -2,7 +2,7 @@
 // var idw = location.search;
 // let paramsw = decodeURI(idw).replace(/[^\d]/g, "");
 var id = localStorage.getItem("id")
-let paramsw = id;
+var paramsw = id;
 let nextModelAnim = paramsw - 1;      //目前是第几个model动画
 let currenModelAnim = nextModelAnim;  //上一个动画
 let nextColor = "";      //目前是第几个model动画
@@ -10,7 +10,8 @@ let currenColor = nextColor;  //上一个动画
 var coloranim = [];               //颜色动画
 var modelanim = [];               //模型动画
 var displayanim = [];             //爆炸动画
-
+let mouseEvenTimeOut = false     //按钮点击事件
+let  init = true // 是否为初始化
 // 模型 事件 对照关系 
 let animationArr = [
     { btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false, val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" } },
@@ -38,7 +39,7 @@ function animationStart(animationName, keys) {
     else {
         ag.start(false, 4, ag.to, ag.from)
     }
-    return ag.to * 1000/4
+    return ag.to * (1000 / 4) + 100
 }
 // 退场动画
 function animationInOut(animationName, keys) {
@@ -52,13 +53,12 @@ function animationInOut(animationName, keys) {
     if (keys == "exploitd") {
         ag.start(false, 4, ag.from, ag.to)
     }
-    return ag.to * 1000 / 4
+    return ag.to * (1000 / 4) + 100
 }
 // 退场逻辑   已爆炸的执行 爆炸退场  未爆炸的执行 普通退场
 function modelChange(currenModelAnim, nextModelAnim) {
     // 退场
     let timeout = 1000;
-
     let animOut = animationArr.filter((value, index) => { if (value.btnName == currenModelAnim) { return value } })
     if (animOut[0].exploitd) {
         // 已爆炸
@@ -75,9 +75,9 @@ function modelChange(currenModelAnim, nextModelAnim) {
         //入场
         let inTimeOut = 1000;
         let animIn = animationArr.filter((value, index) => { if (value.btnName == nextModelAnim) { return value } })
-        inTimeOut =  animationInOut(animIn[0].val.inout, "in")
-        setTimeout(() => {mouseEvenTimeOut = false},inTimeOut)
-        
+        inTimeOut = animationInOut(animIn[0].val.inout, "in")
+        setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
+
     }, timeout)
 
 
@@ -102,8 +102,8 @@ function modelExploit(name) {
     let timeout = 1000;
     let animIndex = animationArr.filter((value, index) => { if (value.btnName == name) { return value } })
     animIndex[0].exploitd = !animIndex[0].exploitd;
-    timeout =  animationStart(animIndex[0].val.exploit, animIndex[0].exploitd)
-    setTimeout(()=>{mouseEvenTimeOut = false},timeout)
+    timeout = animationStart(animIndex[0].val.exploit, animIndex[0].exploitd)
+    setTimeout(() => { mouseEvenTimeOut = false }, timeout)
 
 }
 // 入场动画逻辑  入场的打开 其他都关闭
@@ -145,8 +145,7 @@ function onColorBtn(name) {
     }
 }
 
-//按钮点击事件
-let mouseEvenTimeOut = false
+
 function mouseup(type, name) {
     let animdata = [];
     //执行 颜色 切换时执行的动作
@@ -162,7 +161,7 @@ function mouseup(type, name) {
     //是否被点击
     if (!mouseEvenTimeOut) {
         //点击model切换按钮时执行的动作
-       
+
         if (type == "model") {
             animdata = modelanim;
             currenModelAnim = nextModelAnim;
@@ -170,6 +169,11 @@ function mouseup(type, name) {
             if (currenModelAnim !== nextModelAnim) {
                 modelChange(currenModelAnim, nextModelAnim);
                 mouseEvenTimeOut = true
+            }
+            if(init){
+                mouseEvenTimeOut = true
+                init = false
+                setTimeout(()=>{mouseEvenTimeOut = false},4000)
             }
 
         }
@@ -402,7 +406,7 @@ function materialYuanZhuiPoSuiJiYellow() {
         currenColor = nextColor;
         mouseup('model', modelname);
         mouseup('color', 'colorbtn2');
-
+        // setTimeout(()=>{mouseEvenTimeOut = false},2000)
     })()
 
 
