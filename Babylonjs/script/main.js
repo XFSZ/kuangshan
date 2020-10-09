@@ -65,7 +65,7 @@ var createScene = function () {
     camera.maxZ = 10000;
 
     camera.upperBetaLimit = 1.5;
-    camera.lowerRadiusLimit = 1.5;
+    camera.lowerRadiusLimit = 1;
     camera.upperRadiusLimit = 7;
 
     //相机惯性
@@ -459,35 +459,9 @@ var createScene = function () {
         shadowGenerator.getShadowMap().renderList.push(scene.getMeshByID("YuanZhuiPoSuiJi_Module_5_primitive1"));
         shadowGenerator.getShadowMap().renderList.push(scene.getMeshByID("YuanZhuiPoSuiJi_Module_5_primitive2"));
         shadowGenerator.getShadowMap().renderList.push(scene.getMeshByID("YuanZhuiPoSuiJi_Shelf"));
+       
         let ag = scene.getAnimationGroupByName('YuanZhuiPoSuiJi_BaoZha' );
         ag.stop();
-        
-        var an_ShelfAlpha = new BABYLON.Animation("an_ShelfAlpha", "alpha", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
-        var ShelfAlphaKeys = [];
-
-        ShelfAlphaKeys.push({
-            frame: 0,
-            value: 1
-        });
-
-        ShelfAlphaKeys.push({
-            frame: 30,
-            value: 0
-        });
-
-/*         //创建换动函数
-        var easingFunction = new BABYLON.CircleEase();
-        //选择缓动的方式
-        easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
-        //将缓动添加给动画
-        an_ShelfAlpha.setEasingFunction(easingFunction);
- */
-        //将动画数组添加到动画对象：
-        an_ShelfAlpha.setKeys(ShelfAlphaKeys);
-        //将此动画链接到相机的radius上；
-        camera.animations.push(an_ShelfAlpha);
-
-        scene.getAnimationGroupByName("YuanZhuiPoSuiJi_BaoZha").addTargetedAnimation(an_ShelfAlpha, scene.getMaterialByID("M_YuanZhuiPoSuiJi_AN_Line_Rubber_Black"));
     });
 
 /*     //地面 
