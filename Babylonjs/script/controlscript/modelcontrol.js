@@ -13,7 +13,7 @@ function initAnimation(animationName) {
     setTimeout(function () {
         let ag = scene.getAnimationGroupByName(animationName);
         ag.start()
-    }, 500);
+    }, 1000);
 
 }
 // function startAnimation(animationName) {
