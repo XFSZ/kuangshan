@@ -30,49 +30,54 @@ function animDirection(anim, val) {
 function animationStart(animationName, keys) {
 
     let ag = scene.getAnimationGroupByName(animationName);
-
     if (keys) {
         ag.start(false, 1, ag.from, ag.to)
     }
     else {
         ag.start(false, 1, ag.to, ag.from)
     }
+    return ag.to * 1000
 }
 // 退场动画
 function animationInOut(animationName, keys) {
     let ag = scene.getAnimationGroupByName(animationName);
     if (keys == "in") {
         ag.start(false, 1, ag.from, ag.to)
-        return ag.to * 1000
     }
     if (keys == "out") {
         ag.start(false, 1, ag.to, ag.from)
-        return ag.to * 1000
     }
     if (keys == "exploitd") {
         ag.start(false, 1, ag.from, ag.to)
-        return ag.to * 1000
     }
+    return ag.to * 1000
 }
 // 退场逻辑   已爆炸的执行 爆炸退场  未爆炸的执行 普通退场
 function modelChange(currenModelAnim, nextModelAnim) {
     // 退场
+    let timeout = 1000;
+
     let animOut = animationArr.filter((value, index) => { if (value.btnName == currenModelAnim) { return value } })
     if (animOut[0].exploitd) {
         // 已爆炸
-        animationInOut(animOut[0].val.exploitout, "exploitd")
+        timeout = animationInOut(animOut[0].val.exploitout, "exploitd")
         animOut[0].exploitd = false;
         resetExploitBtn();    // 重置 爆炸按钮 
 
     } else {
         //未爆炸
-        animationInOut(animOut[0].val.inout, "out")
+        timeout = animationInOut(animOut[0].val.inout, "out")
     }
+    setTimeout(() => {
+        // resetColorBtn();   // 重置 颜色按钮
+        //入场
+        let inTimeOut = 1000;
+        let animIn = animationArr.filter((value, index) => { if (value.btnName == nextModelAnim) { return value } })
+        inTimeOut =  animationInOut(animIn[0].val.inout, "in")
+        setTimeout(() => {mouseEvenTimeOut = false},inTimeOut)
+        
+    }, timeout)
 
-    // resetColorBtn();   // 重置 颜色按钮
-    //入场
-    let animIn = animationArr.filter((value, index) => { if (value.btnName == nextModelAnim) { return value } })
-    animationInOut(animIn[0].val.inout, "in")
 
 }
 // 爆炸按钮复位
@@ -96,6 +101,7 @@ function modelExploit(name) {
     let animIndex = animationArr.filter((value, index) => { if (value.btnName == name) { return value } })
     animIndex[0].exploitd = !animIndex[0].exploitd;
     animationStart(animIndex[0].val.exploit, animIndex[0].exploitd)
+    setTimeout(()=>{mouseEvenTimeOut = false},3000)
 
 }
 // 入场动画逻辑  入场的打开 其他都关闭
@@ -106,7 +112,7 @@ function animfunc(name, anims, type) {
             let direction = 1
             if (type == "display") {
                 direction = anims[i].mouse_event ? 1 : -1;
-            } 
+            }
             animDirection(anims[i].anim, direction);
             anims[i].mouse_event = !anims[i].mouse_event;
         }
@@ -138,6 +144,7 @@ function onColorBtn(name) {
 }
 
 //按钮点击事件
+let mouseEvenTimeOut = false
 function mouseup(type, name) {
     let animdata = [];
     //执行 颜色 切换时执行的动作
@@ -148,23 +155,33 @@ function mouseup(type, name) {
         if (currenColor !== nextColor) {
             onColorBtn(nextColor)
         }
+        animfunc(name, animdata, type)
     }
-    //点击model切换按钮时执行的动作
-    if (type == "model") {
-        animdata = modelanim;
-        currenModelAnim = nextModelAnim;
-        nextModelAnim = name;
-        if (currenModelAnim !== nextModelAnim) {
-            modelChange(currenModelAnim, nextModelAnim);
-        }
+    //是否被点击
+    if (!mouseEvenTimeOut) {
+        //点击model切换按钮时执行的动作
+       
+        if (type == "model") {
+            animdata = modelanim;
+            currenModelAnim = nextModelAnim;
+            nextModelAnim = name;
+            if (currenModelAnim !== nextModelAnim) {
+                modelChange(currenModelAnim, nextModelAnim);
+                mouseEvenTimeOut = true
+            }
 
+        }
+        // 点击爆炸按钮时执行的动作
+        if (type == "display") {
+            animdata = displayanim;
+            modelExploit(nextModelAnim)
+            mouseEvenTimeOut = true
+        }
+        animfunc(name, animdata, type)
+        // setTimeout(()=>{},3000)
     }
-    // 点击爆炸按钮时执行的动作
-    if (type == "display") {
-        animdata = displayanim;
-        modelExploit(nextModelAnim)
-    }
-    animfunc(name, animdata, type)
+
+
 
 };
 // svg按钮 渲染
@@ -248,7 +265,7 @@ function materialZhiShaJiBlack() {
     M_Paint_Main.metallic = 1;
     M_Paint_Main.roughness = 0.2;
     M_Paint_Main.bumpTexture.level = 0.02;
-    
+
     M_Paint_Less.albedoColor = new BABYLON.Color3(0.34901960784313724, 0.34901960784313724, 0.34901960784313724);
     M_Paint_Less.metallic = 0;
     M_Paint_Less.roughness = 0.35;
@@ -384,8 +401,8 @@ function materialYuanZhuiPoSuiJiYellow() {
         // let colorname ="colorbtn" + paramsw
         nextModelAnim = modelname;
         currenModelAnim = nextModelAnim;
-        nextColor = 'colorbtn2';      
-        currenColor = nextColor;  
+        nextColor = 'colorbtn2';
+        currenColor = nextColor;
         mouseup('model', modelname);
         mouseup('color', 'colorbtn2');
 
