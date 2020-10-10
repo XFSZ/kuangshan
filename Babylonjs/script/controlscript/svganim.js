@@ -49,6 +49,7 @@ let colorArr = [
 // 入场动画
 function animDirection(anim, val) {
     anim.setDirection(val)
+    anim.setSpeed(1.2)
     anim.play()
 }
 // 爆炸动画
@@ -228,6 +229,7 @@ function btnrander(type, name, path) {
         loop: false,
         prerender: true,
         autoplay: false,
+        // speed:2,
         path: path
     };
     let anim = bodymovin.loadAnimation(animData);

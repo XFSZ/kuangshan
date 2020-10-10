@@ -22,11 +22,12 @@
  .btn{
   pointer-events: auto;
    /* width: 20%; */
-   margin-left: 16px;
+  
  }
   .leftbtn{
     display: flex;
     flex-direction: column;
+    margin-left: 16px;
   }
   .rightbtn{
     display: flex;
