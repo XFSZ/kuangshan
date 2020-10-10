@@ -17,20 +17,26 @@ let animationArr = [
     {
         btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false,
         val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" },
-        cameraAnimNormolPosition: [10, 60, new BABYLON.Vector3(10, 10, 20)],
-        cameraAnimExploitPosition: [10, 60, new BABYLON.Vector3(100, 10, 200)]
+        cameraAnimNormolPosition: [60, 60, new BABYLON.Vector3(0, 0, 2.5)],
+        cameraAnimExploitPosition: [60, 60, new BABYLON.Vector3(0, 0, 2.865)],
+        cameraAnimTargetNormolPosition: [60, 60, new BABYLON.Vector3(0, 0.5, 0)],
+        cameraAnimTargetExploitPosition: [60, 60, new BABYLON.Vector3(0, 0.846, 0)]
     },
     {
         btnName: "modelbtn2", name: "YuanZhuiPoSuiJi", exploitd: false,
         val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" },
-        cameraAnimNormolPosition: [10, 60, new BABYLON.Vector3(10, 100, 200)],
-        cameraAnimExploitPosition: [10, 60, new BABYLON.Vector3(100, 100, 20)]
+        cameraAnimNormolPosition: [60, 60, new BABYLON.Vector3(0, 0, 2)],
+        cameraAnimExploitPosition: [60, 60, new BABYLON.Vector3(0, 0, 1.8)],
+        cameraAnimTargetNormolPosition: [60, 60, new BABYLON.Vector3(0, 0.5, 0)],
+        cameraAnimTargetExploitPosition: [60, 60, new BABYLON.Vector3(0, 0.6, 0)]
     },
     {
         btnName: "modelbtn3", name: "ZhiShaJi", exploitd: false,
         val: { exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" },
-        cameraAnimNormolPosition: [10, 60, new BABYLON.Vector3(700, 100, 200)],
-        cameraAnimExploitPosition: [10, 60, new BABYLON.Vector3(10, 100, 20)]
+        cameraAnimNormolPosition: [60, 60, new BABYLON.Vector3(0, 0, 2.5)],
+        cameraAnimExploitPosition: [60, 60, new BABYLON.Vector3(0, 0, 2.865)],
+        cameraAnimTargetNormolPosition: [60, 60, new BABYLON.Vector3(0, 0.3, 0)],
+        cameraAnimTargetExploitPosition: [60, 60, new BABYLON.Vector3(0, 0.3, 0)]
     }
 ]
 
@@ -51,11 +57,13 @@ function animationStart(animationName, keys,animCamera) {
     let ag = scene.getAnimationGroupByName(animationName);
     if (keys) {
         ag.start(false, 4, ag.from, ag.to)
-        animateCameraToPosition(activecam,...animCamera.cameraAnimNormolPosition)
+        animateCameraToPosition(activecam,...animCamera.cameraAnimExploitPosition)
+        animateCameraTargetToPosition(activecam,...animCamera.cameraAnimTargetExploitPosition)
     }
     else {
         ag.start(false, 4, ag.to, ag.from)
-        animateCameraToPosition(activecam,...animCamera.cameraAnimExploitPosition)
+        animateCameraToPosition(activecam,...animCamera.cameraAnimNormolPosition)
+        animateCameraTargetToPosition(activecam,...animCamera.cameraAnimTargetNormolPosition)
     }
     return ag.to * (1000 / 4) + 100
 }
@@ -90,6 +98,7 @@ function modelChange(currenModelAnim, nextModelAnim) {
         timeout = animationInOut(animOut[0].val.inout, "out")
     }
     animateCameraToPosition(activecam,...animIn[0].cameraAnimNormolPosition)
+    animateCameraTargetToPosition(activecam,...animIn[0].cameraAnimTargetNormolPosition)
     setTimeout(() => {
         // resetColorBtn();   // 重置 颜色按钮
         //入场
