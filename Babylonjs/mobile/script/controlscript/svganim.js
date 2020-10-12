@@ -58,13 +58,13 @@ function animationStart(animationName, keys,animCamera) {
     let ag = scene.getAnimationGroupByName(animationName);
     if (keys) {
         ag.start(false, 4, ag.from, ag.to)
-        animateCameraToPosition(activecam,...animCamera.cameraAnimExploitPosition)
-        animateCameraTargetToPosition(activecam,...animCamera.cameraAnimTargetExploitPosition)
+        let activecam1 =  scene.getCameraByID("Camera") 
+        cameraAnimate(activecam1,...animCamera.cameraAnimExploitPosition,...animCamera.cameraAnimTargetExploitPosition)
     }
     else {
         ag.start(false, 4, ag.to, ag.from)
-        animateCameraToPosition(activecam,...animCamera.cameraAnimNormolPosition)
-        animateCameraTargetToPosition(activecam,...animCamera.cameraAnimTargetNormolPosition)
+        let activecam1 =  scene.getCameraByID("Camera") 
+        cameraAnimate(activecam1,...animCamera.cameraAnimNormolPosition,...animCamera.cameraAnimTargetNormolPosition)
     }
     return ag.to * (1000 / 4) + 100
 }
@@ -98,16 +98,11 @@ function modelChange(currenModelAnim, nextModelAnim) {
         //未爆炸
         timeout = animationInOut(animOut[0].val.inout, "out")
     }
-    animateCameraToPosition(activecam,...animIn[0].cameraAnimNormolPosition)
-    animateCameraTargetToPosition(activecam,...animIn[0].cameraAnimTargetNormolPosition)
-    setTimeout(() => {
-        // resetColorBtn();   // 重置 颜色按钮
-        //入场
-        let inTimeOut = 1000;
-        inTimeOut = animationInOut(animIn[0].val.inout, "in")
-        setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
-
-    }, timeout)
+    let activecam1 =  scene.getCameraByID("Camera") 
+    cameraAnimate(activecam1,...animIn[0].cameraAnimNormolPosition,...animIn[0].cameraAnimTargetNormolPosition)
+    let inTimeOut = 1000;
+    inTimeOut = animationInOut(animIn[0].val.inout, "in")
+    setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
 
 
 }
@@ -445,14 +440,9 @@ function initscene() {
     // setTimeout(()=>{mouseEvenTimeOut = false},2000)
 }
 function initCamera() {
-    let animName = "camera_in";
-    let ag = scene.getAnimationGroupByName(animName);
-    ag.start(false, 1, ag.from, ag.to)
-    getactivecamera()  //获取相机
-    // setTimeout(function () {
-    //     let ag = scene.getAnimationGroupByName(animName);
-    //     ag.start(false, 1, ag.from, ag.to)
-    // }, 2000);
+    let animIn = animationArr.filter((value, index) => { if (value.btnName == nextModelAnim) { return value } })
+    let activecam1 =  scene.getCameraByID("Camera") 
+    cameraAnimate(activecam1,...animIn[0].cameraAnimNormolPosition,...animIn[0].cameraAnimTargetNormolPosition)
 }
 function initAnim(nextModelAnim) {
     // let inTimeOut = 1000;
