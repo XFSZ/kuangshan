@@ -317,6 +317,8 @@ function materialZhiShaJiBlack() {
 
     let M_Paint_Less = scene.getMaterialByID("M_Paint_Less");
     let M_Paint_Main = scene.getMaterialByID("M_Paint_Main");
+    let M_Logo_Texture = scene.getMaterialByID("M_Logo_Texture");
+
     M_Paint_Main.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
     M_Paint_Main.metallic = 1;
     M_Paint_Main.roughness = 0.2;
@@ -327,11 +329,16 @@ function materialZhiShaJiBlack() {
     M_Paint_Less.roughness = 0.35;
     M_Paint_Less.metallicF0Factor = 0.62;
     M_Paint_Less.bumpTexture.level = 0.15;
+
+    M_Logo_Texture.albedoColor = new BABYLON.Color3(0.4392156862745098, 0.4392156862745098, 0.4392156862745098);
+    M_Logo_Texture.roughness = 0.14;
 }
 //材质调整 ZhiShaJi Blue
 function materialZhiShaJiBlue() {
     let M_Paint_Less = scene.getMaterialByID("M_Paint_Less");
     let M_Paint_Main = scene.getMaterialByID("M_Paint_Main");
+    let M_Logo_Texture = scene.getMaterialByID("M_Logo_Texture");
+
     M_Paint_Main.albedoColor = new BABYLON.Color3(0.00784313725490196, 0.047058823529411764, 0.11372549019607843);
     M_Paint_Main.bumpTexture.level = 0.5;
     M_Paint_Main.metallic = 0.27;
@@ -344,11 +351,16 @@ function materialZhiShaJiBlue() {
     M_Paint_Less.metallicF0Factor = 0.62;
     M_Paint_Less.bumpTexture.level = 0.15;
 
+    M_Logo_Texture.albedoColor = new BABYLON.Color3(0.4392156862745098, 0.4392156862745098, 0.4392156862745098);
+    M_Logo_Texture.roughness = 0.14;
+
 }
 //材质调整 ZhiShaJi Yellow
 function materialZhiShaJiYellow() {
     let M_Paint_Less = scene.getMaterialByID("M_Paint_Less");
     let M_Paint_Main = scene.getMaterialByID("M_Paint_Main");
+    let M_Logo_Texture = scene.getMaterialByID("M_Logo_Texture");
+
     M_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
     M_Paint_Main.bumpTexture.level = 0.45;
     M_Paint_Main.metallic = 0.2;
@@ -359,6 +371,9 @@ function materialZhiShaJiYellow() {
     M_Paint_Less.roughness = 0.05;
     M_Paint_Less.metallicF0Factor = 0.5;
     M_Paint_Less.bumpTexture.level = 0.15;
+
+    M_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
+    M_Logo_Texture.roughness = 0;
 }
 
 
