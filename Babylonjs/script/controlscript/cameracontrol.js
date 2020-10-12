@@ -16,7 +16,7 @@ function cameraAnimate(activecam,movepostion,targetposition){
         ];
       
         // start both animations
-        scene.beginDirectAnimation(activecam, animations, 0, 120, false, 0.5);
+        scene.beginDirectAnimation(activecam, animations, 0, 120, false, 0.8);
 }
 
 
@@ -42,9 +42,9 @@ function cameraAnimate(activecam,movepostion,targetposition){
         {frame: 120, value: pos},
     ]);
     // easing
-    // const easingFun = new BABYLON.CubicEase();
-    // easingFun.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
-    // anim.setEasingFunction(easingFun);
+    const easingFun = new BABYLON.CubicEase();
+    easingFun.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
+    anim.setEasingFunction(easingFun);
     return anim;
 }
 
@@ -55,9 +55,9 @@ function animLookAt(camera, lookAt) {
         {frame: 120, value: lookAt},
     ]);
     // easing 
-    // const easingFun = new BABYLON.CubicEase();
-    // easingFun.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
-    // anim.setEasingFunction(easingFun);
+    const easingFun = new BABYLON.CubicEase();
+    easingFun.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
+    anim.setEasingFunction(easingFun);
     return anim;
 }
 

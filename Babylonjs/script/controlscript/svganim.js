@@ -59,7 +59,7 @@ function animationStart(animationName, keys,animCamera) {
     if (keys) {
         ag.start(false, 4, ag.from, ag.to)
         let activecam1 =  scene.getCameraByID("Camera") 
-        cameraAnimate(activecam1,...animCamera.cameraAnimNormolPosition,...animCamera.cameraAnimTargetNormolPosition)
+        cameraAnimate(activecam1,...animCamera.cameraAnimExploitPosition,...animCamera.cameraAnimTargetExploitPosition)
     }
     else {
         ag.start(false, 4, ag.to, ag.from)
@@ -101,14 +101,17 @@ function modelChange(currenModelAnim, nextModelAnim) {
 
     let activecam1 =  scene.getCameraByID("Camera") 
     cameraAnimate(activecam1,...animIn[0].cameraAnimNormolPosition,...animIn[0].cameraAnimTargetNormolPosition)
-    setTimeout(() => {
-        // resetColorBtn();   // 重置 颜色按钮
-        //入场
-        let inTimeOut = 1000;
-        inTimeOut = animationInOut(animIn[0].val.inout, "in")
-        setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
+    let inTimeOut = 1000;
+    inTimeOut = animationInOut(animIn[0].val.inout, "in")
+    setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
+    // setTimeout(() => {
+    //     // resetColorBtn();   // 重置 颜色按钮
+    //     //入场
+    //     let inTimeOut = 1000;
+    //     inTimeOut = animationInOut(animIn[0].val.inout, "in")
+    //     setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
 
-    }, timeout)
+    // }, timeout)
 
 
 }
