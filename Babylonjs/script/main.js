@@ -506,36 +506,36 @@ var createScene = function () {
 
 
     //动画
-    var zoomIn = new BABYLON.Animation("zoomIn", "radius", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
-    var keys = [];
+    // var zoomIn = new BABYLON.Animation("zoomIn", "radius", 30, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
+    // var keys = [];
 
-    keys.push({
-        frame: 0,
-        value: 12
-    });
+    // keys.push({
+    //     frame: 0,
+    //     value: 12
+    // });
 
-    keys.push({
-        frame: 80,
-        value: 2.5
-    });
+    // keys.push({
+    //     frame: 80,
+    //     value: 2.5
+    // });
 
-    //创建换动函数
-    var easingFunction = new BABYLON.CircleEase();
-    //选择缓动的方式
-    easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
-    //将缓动添加给动画
-    zoomIn.setEasingFunction(easingFunction);
+    // //创建换动函数
+    // var easingFunction = new BABYLON.CircleEase();
+    // //选择缓动的方式
+    // easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
+    // //将缓动添加给动画
+    // zoomIn.setEasingFunction(easingFunction);
 
-    //将动画数组添加到动画对象：
-    zoomIn.setKeys(keys);
-    //将此动画链接到相机的radius上；
-    camera.animations.push(zoomIn);
+    // //将动画数组添加到动画对象：
+    // zoomIn.setKeys(keys);
+    // //将此动画链接到相机的radius上；
+    // camera.animations.push(zoomIn);
 
 
-    var animationGroup1 = new BABYLON.AnimationGroup("camera_in");
-    animationGroup1.addTargetedAnimation(zoomIn, camera);
+    // var animationGroup1 = new BABYLON.AnimationGroup("camera_in");
+    // animationGroup1.addTargetedAnimation(zoomIn, camera);
 
-    animationGroup1.play(false);
+    // animationGroup1.play(false);
      
 
     // BABYLON.Animation.CreateAndStartAnimation('light', scene.environmentTexture, 'rotationY', 30, 1000, 0, Math.PI * 2);
