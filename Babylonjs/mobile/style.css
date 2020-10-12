@@ -187,7 +187,7 @@
 }
 
 .progressBar {
-  animation-duration: 1s;
+  animation-duration: 5s;
   animation-name: progress;
   margin: 20px auto 0 0;
   height: 2px;
