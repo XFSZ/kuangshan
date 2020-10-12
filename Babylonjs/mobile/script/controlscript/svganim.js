@@ -440,9 +440,9 @@ function materialYuanZhuiPoSuiJiYellow() {
 }
 
 function initscene() {
-    btnrander('model', 'modelbtn1', './animation/datam1.json');
-    btnrander('model', 'modelbtn2', './animation/datam2.json');
-    btnrander('model', 'modelbtn3', './animation/datam3.json');
+    btnrander('model', 'modelbtn1', './animation/datamm1.json');
+    btnrander('model', 'modelbtn2', './animation/datamm2.json');
+    btnrander('model', 'modelbtn3', './animation/datamm3.json');
     btnrander('color', 'colorbtn1', './animation/datac1.json');
     btnrander('color', 'colorbtn2', './animation/datac2.json');
     btnrander('color', 'colorbtn3', './animation/datac3.json');
