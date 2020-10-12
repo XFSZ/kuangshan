@@ -22,8 +22,14 @@
  .btn{
   pointer-events: auto;
    /* width: 20%; */
-  
  }
+ .btnsize{
+   width: 50px;
+   height: 50px;
+ }
+ .btnposi{
+  margin-bottom: 22px;
+}
   .leftbtn{
     display: flex;
     flex-direction: column;
