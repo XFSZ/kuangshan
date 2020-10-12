@@ -254,6 +254,7 @@ function materialXuanHuiPoSuiJiBlack() {
     let M_XuanHuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Screw_Steel");
     let M_XuanHuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_Screw_Steel");
     let M_XuanHuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_XuanHuiPoSuiJi_Paint_Main");
+    let M_XuanHuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_XuanHuiPoSuiJi_Logo_Texture")
 
     M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
     M_XuanHuiPoSuiJi_Paint_Main.metallic = 1;
@@ -265,12 +266,17 @@ function materialXuanHuiPoSuiJiBlack() {
 
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.1411764705882353, 0.09411764705882353, 0);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
+
+    M_XuanHuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.4392156862745098, 0.4392156862745098, 0.4392156862745098);
+    M_XuanHuiPoSuiJi_Logo_Texture.roughness = 0.14;
 }
 //材质调整 XuanHuiPoSuiJi Blue
 function materialXuanHuiPoSuiJiBlue() {
     let M_XuanHuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Screw_Steel");
     let M_XuanHuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_Screw_Steel");
     let M_XuanHuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_XuanHuiPoSuiJi_Paint_Main");
+    let M_XuanHuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_XuanHuiPoSuiJi_Logo_Texture")
+
     M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.00784313725490196, 0.047058823529411764, 0.11372549019607843);
     M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
     M_XuanHuiPoSuiJi_Paint_Main.metallic = 0.27;
@@ -281,12 +287,17 @@ function materialXuanHuiPoSuiJiBlue() {
 
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
+
+    M_XuanHuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.4392156862745098, 0.4392156862745098, 0.4392156862745098);
+    M_XuanHuiPoSuiJi_Logo_Texture.roughness = 0.14;
 }
 //材质调整  XuanHuiPoSuiJi Yellow
 function materialXuanHuiPoSuiJiYellow() {
     let M_XuanHuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Screw_Steel");
     let M_XuanHuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_Screw_Steel");
     let M_XuanHuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_XuanHuiPoSuiJi_Paint_Main");
+    let M_XuanHuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_XuanHuiPoSuiJi_Logo_Texture")
+
     M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
     M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.45;
     M_XuanHuiPoSuiJi_Paint_Main.metallic = 0.2;
@@ -297,6 +308,9 @@ function materialXuanHuiPoSuiJiYellow() {
 
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
+
+    M_XuanHuiPoSuiJi_Logo_Texture.roughness = 0.5;
+    M_XuanHuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0, 0, 0);
 }
 //材质调整 ZhiShaJi Black
 function materialZhiShaJiBlack() {
