@@ -7,7 +7,6 @@ activecam =  scene.activeCamera
 
 function cameraAnimate(activecam,movepostion,targetposition){
           // create two animations that should happen simultaneously
-          console.log("thi")
           const animations = [
             // move the camera position
             animMove(activecam, movepostion),
