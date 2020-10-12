@@ -17,26 +17,26 @@ let animationArr = [
     {
         btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false,
         val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" },
-        cameraAnimNormolPosition: [60, 60, new BABYLON.Vector3(0, 0, 2.5)],
-        cameraAnimExploitPosition: [60, 60, new BABYLON.Vector3(0, 0, 2.865)],
-        cameraAnimTargetNormolPosition: [60, 60, new BABYLON.Vector3(0, 0.5, 0)],
-        cameraAnimTargetExploitPosition: [60, 60, new BABYLON.Vector3(0, 0.846, 0)]
+        cameraAnimNormolPosition: [60, 60, new BABYLON.Vector3(4, 1, 3.5)],
+        cameraAnimExploitPosition: [60, 60, new BABYLON.Vector3(4, 1.6, 5.4)],
+        cameraAnimTargetNormolPosition: [60, 60, new BABYLON.Vector3(4, 0.5, 0)],
+        cameraAnimTargetExploitPosition: [60, 60, new BABYLON.Vector3(4, 1.6, 0)]
     },
     {
         btnName: "modelbtn2", name: "YuanZhuiPoSuiJi", exploitd: false,
         val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" },
-        cameraAnimNormolPosition: [60, 60, new BABYLON.Vector3(0, 0, 2)],
-        cameraAnimExploitPosition: [60, 60, new BABYLON.Vector3(0, 0, 1.8)],
+        cameraAnimNormolPosition: [60, 60, new BABYLON.Vector3(0, 1, 3)],
+        cameraAnimExploitPosition: [60, 60, new BABYLON.Vector3(0, 2, 5.8)],
         cameraAnimTargetNormolPosition: [60, 60, new BABYLON.Vector3(0, 0.5, 0)],
-        cameraAnimTargetExploitPosition: [60, 60, new BABYLON.Vector3(0, 0.6, 0)]
+        cameraAnimTargetExploitPosition: [60, 60, new BABYLON.Vector3(0, 1.84, 0)]
     },
     {
         btnName: "modelbtn3", name: "ZhiShaJi", exploitd: false,
         val: { exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" },
-        cameraAnimNormolPosition: [60, 60, new BABYLON.Vector3(0, 0, 2.5)],
-        cameraAnimExploitPosition: [60, 60, new BABYLON.Vector3(0, 0, 2.865)],
-        cameraAnimTargetNormolPosition: [60, 60, new BABYLON.Vector3(0, 0.3, 0)],
-        cameraAnimTargetExploitPosition: [60, 60, new BABYLON.Vector3(0, 0.3, 0)]
+        cameraAnimNormolPosition: [60, 60, new BABYLON.Vector3(-4, 1, 8)],
+        cameraAnimExploitPosition: [60, 60, new BABYLON.Vector3(-4, 0.5, 8)],
+        cameraAnimTargetNormolPosition: [60, 60, new BABYLON.Vector3(-4, 0.5, 0)],
+        cameraAnimTargetExploitPosition: [60, 60, new BABYLON.Vector3(-4, 0.5, 0)]
     }
 ]
 

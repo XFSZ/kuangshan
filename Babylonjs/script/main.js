@@ -64,7 +64,7 @@ var createScene = function () {
     camera.minZ = 0.1;
     camera.maxZ = 10000;
 
-    camera.upperBetaLimit = 1.5;
+    // camera.upperBetaLimit = 1.5;
     camera.lowerRadiusLimit = 1;
     camera.upperRadiusLimit = 7;
 
@@ -75,6 +75,8 @@ var createScene = function () {
     camera.wheelDeltaPercentage = 0.008;
     camera.pinchDeltaPercentage = 0.0005;
 
+    //自动旋转相机
+    // camera.useAutoRotationBehavior = true;
 
     // Environment Texture
     var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("textures/environment_cube_specular.env", scene);
@@ -182,7 +184,7 @@ var createScene = function () {
 
 
     BABYLON.SceneLoader.Append("model/SheBei/", "XuanHuiPoSuiJi.gltf", scene, function (meshes) {
-        // scene.getTransformNodeByID("XuanHuiPoSuiJi").position = new BABYLON.Vector3(-2, 0, 0);
+        scene.getTransformNodeByID("XuanHuiPoSuiJi_G").position = new BABYLON.Vector3(-4, 0, 0);
     
         let aoTexture = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao.jpg", scene);
         // aoTexture.coordinatesIndex = 1;
@@ -276,7 +278,7 @@ var createScene = function () {
 
 
     BABYLON.SceneLoader.Append("model/SheBei/", "ZhiShaJi.gltf", scene, function (meshes) {
-        // scene.getTransformNodeByID("ZhiShaJi").position = new BABYLON.Vector3(2, 0, 0);
+        scene.getTransformNodeByID("ZhiShaJi_G").position = new BABYLON.Vector3(4, 0, 0);
 
         let aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_AO.jpg", scene);
         aoTexture.vScale = -1;
@@ -393,8 +395,8 @@ var createScene = function () {
         M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
         M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture = new BABYLON.Texture("model/SheBei/Plastic_Polymer_256_normal.jpg", scene);
         M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.45;
-        M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.uScale = 30;
-        M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.vScale = 30;
+        M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.uScale = 25;
+        M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.vScale = 25;
         M_YuanZhuiPoSuiJi_Paint_Main.metallic = 0.2;
         M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.14;
     
@@ -404,9 +406,9 @@ var createScene = function () {
         M_YuanZhuiPoSuiJi_Paint_Less.metallic = 1;
         M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.05;
         M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture = new BABYLON.Texture("model/SheBei/Plastic_Polymer_256_normal.jpg", scene);
-        M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
-        M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.uScale = 30;
-        M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.vScale = 30;
+        M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.01;
+        M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.uScale = 25;
+        M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.vScale = 25;
     
         M_YuanZhuiPoSuiJi_Metal_Brass.albedoColor = new BABYLON.Color3(0.3411764705882353, 0.27058823529411763, 0.0784313725490196);
         M_YuanZhuiPoSuiJi_Metal_Brass.metallic = 1;
@@ -536,7 +538,7 @@ var createScene = function () {
     animationGroup1.play(false);
      
 
-    BABYLON.Animation.CreateAndStartAnimation('light', scene.environmentTexture, 'rotationY', 30, 1000, 0, Math.PI * 2);
+    // BABYLON.Animation.CreateAndStartAnimation('light', scene.environmentTexture, 'rotationY', 30, 1000, 0, Math.PI * 2);
   
     return scene;
 };
