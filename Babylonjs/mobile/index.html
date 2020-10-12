@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>沈阳矿山</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="control.css" />
+    <style>
+      html,
+      body {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #renderCanvas {
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+        /* background-image: url("./textures/sebastian-pichler-ly2T4vul_SE-unsplash.jpg"); */
+        background-image: linear-gradient(to bottom, #8b8b8b 0%, #0e0e0e 100%);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto auto;
+      }
+      #scene-explorer-host,
+      #inspector-host {
+        z-index: 50;
+      }
+
+      .UITest {
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        touch-action: none;
+        pointer-events: none;
+      }
+
+      .UITest img {
+        width: 100%;
+      }
+    </style>
+      <script type="text/javascript">
+        // try {
+        //     if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        //         window.location.href = "./mobile/index.html";
+        //     } 
+        // } catch (e) {}
+    </script>
+    <script src="../animation/player/lottie.js"></script>
+    <script src="../script/babylon.js"></script>
+    <script src="../script/babylonjs.loaders.min.js"></script>
+    <script src="../script/pep.js"></script>
+    <script src="../script/babylon.shadowOnlyMaterial.min.js"></script>
+    <script src="../script/babylon.inspector.bundle.js"></script>
+  </head>
+  <body>
+    <!-- <div class="UITest"><img src="./textures/UI.png" alt=""></div> -->
+    <iframe
+      id="ifr"
+      name="indexIfr"
+      width="100%"
+      height="100%"
+      class="iframe"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      src="./index/index.html"
+    ></iframe>
+    <canvas id="renderCanvas"></canvas>
+    <script src="script/main.js"></script>
+    <div id="loadingScreen_Container">
+      <div class="loadingLogo">
+        <div class="companyLogo"><img src="../ui/logo.png" /></div>
+        <div class="progressBar-container">
+          <div class="progressBar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="button-box">
+      <div class="leftbtn">
+        <div id="modelbtn1">
+          <div
+            class="btn modelbtnsize btnclick"
+            onclick="mouseup('model','modelbtn1')"
+          ></div>
+        </div>
+        <div id="modelbtn2">
+          <div
+            class="btn modelbtnsize btnclick"
+            onclick="mouseup('model','modelbtn2')"
+          ></div>
+        </div>
+        <div id="modelbtn3">
+          <div
+            class="btn modelbtnsize btnclick"
+            onclick="mouseup('model','modelbtn3')"
+          ></div>
+        </div>
+      </div>
+      <div class="rightbtn">
+        <div
+          class="btn btnsize"
+          id="colorbtn1"
+          onclick="mouseup('color','colorbtn1')"
+        ></div>
+        <div
+          class="btn btnsize"
+          id="colorbtn2"
+          onclick="mouseup('color','colorbtn2')"
+        ></div>
+        <div
+          class="btn btnsize"
+          id="colorbtn3"
+          onclick="mouseup('color','colorbtn3')"
+        ></div>
+      </div>
+    </div>
+    <div class="buttom-box">
+      <div
+        class="btn btnsize btnposi"
+        id="displaybtn1"
+        onclick="mouseup('display','displaybtn1')"
+      ></div>
+    </div>
+  </body>
+  <script src="script/controlscript/modelcontrol.js"></script>
+  <script src="script/controlscript/svganim.js"></script>
+  <script src="script/controlscript/cameracontrol.js"></script>
+</html>

@@ -1,0 +1,63 @@
+.button-box {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    pointer-events: none;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @font-face {
+    font-family: "OPPOSans";
+    src: "./fonts/OPPOSans-B.ttf";
+  }
+  .fontcss {
+    font-family: OPPOSans;
+    color: rgb(233, 27, 151);
+  }
+ .btn{
+  pointer-events: auto;
+   /* width: 20%; */
+ }
+ .btnclick{
+   position: absolute;
+
+ }
+ .modelbtnsize{
+   width: 60px;
+   height: 60px;
+ }
+ .btnsize{
+  width: 50px;
+  height: 50px;
+}
+ .btnposi{
+  margin-bottom: 22px;
+}
+  .leftbtn{
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+  }
+  .rightbtn{
+    display: flex;
+    flex-direction: column;
+  }
+  .buttom-box{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: flex-end;
+
+  }
