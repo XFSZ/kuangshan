@@ -9,7 +9,7 @@
     pointer-events: none;
     box-sizing: border-box;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;;
   }
   @font-face {
     font-family: "OPPOSans";
@@ -40,8 +40,8 @@
 }
   .leftbtn{
     display: flex;
-    flex-direction: column;
-    margin-left: 16px;
+    flex-direction: row;
+    /* margin-left: 16px; */
   }
   .rightbtn{
     display: flex;
@@ -61,3 +61,4 @@
     justify-content: flex-end;
 
   }
+ 
