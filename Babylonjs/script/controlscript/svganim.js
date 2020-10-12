@@ -466,8 +466,6 @@ function initscene() {
 }
 function initCamera() {
     // let animName = "camera_in";
-    // let ag = scene.getAnimationGroupByName(animName);
-    // ag.start(false, 1, ag.from, ag.to)
   //  getactivecamera()  //获取相机
    
     let animIn = animationArr.filter((value, index) => { if (value.btnName == nextModelAnim) { return value } })
