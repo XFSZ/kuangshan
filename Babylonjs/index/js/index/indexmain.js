@@ -20,7 +20,9 @@ function iframehidden(){
     iframeVal.height ="0%"
     iframeVal.hidden = true
 //    setTimeout(()=>{
-        window.parent.initscene()
+    window.parent.initscene()
+   
+   
 //    },2000)
   
 }

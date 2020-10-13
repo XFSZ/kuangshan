@@ -461,7 +461,7 @@ function initscene() {
     btnrander('color', 'colorbtn1', './animation/datac1.json');
     btnrander('color', 'colorbtn2', './animation/datac2.json');
     btnrander('color', 'colorbtn3', './animation/datac3.json');
-    btnrander('display', 'displaybtn1', './animation/dataplus.json');
+    btnrander('display', 'displaybtn1', './animation/dataplus2.json');
     id = localStorage.getItem("id")
     paramsw = id;
     console.log(paramsw);
@@ -499,6 +499,7 @@ function initAnim(nextModelAnim) {
     // inTimeOut = animationInOut(animIn[0].val.inout, "in")
     // setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
 }
+
 
 
 

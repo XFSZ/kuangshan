@@ -461,7 +461,7 @@ function initscene() {
     btnrander('color', 'colorbtn1', './animation/datac1.json');
     btnrander('color', 'colorbtn2', './animation/datac2.json');
     btnrander('color', 'colorbtn3', './animation/datac3.json');
-    btnrander('display', 'displaybtn1', './animation/dataplus.json');
+    btnrander('display', 'displaybtn1', './animation/dataplus2.json');
     id = localStorage.getItem("id")
     paramsw = id;
     console.log(paramsw);
@@ -502,5 +502,14 @@ function initAnim(nextModelAnim) {
     // setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
 }
 
-
+function initBotton(){
+    let arr =["modelBtnId1","modelBtnId2","modelBtnId3","displaybtn1"]
+    for(let i =0 ; i<arr.length;i++){
+         
+        let obj = document.getElementById(arr[i]);
+        obj.style.pointerEvents="auto"
+        // console.log(obj)
+        // obj.setAttribute("class", "btn");
+    }
+}
 

@@ -21,6 +21,7 @@ function iframehidden(){
     iframeVal.hidden = true
 //    setTimeout(()=>{
         window.parent.initscene()
+        window.parent.initBotton()
 //    },2000)
   
 }
