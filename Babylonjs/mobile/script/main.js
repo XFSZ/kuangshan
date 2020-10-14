@@ -66,7 +66,7 @@ var createScene = function () {
 
     // camera.upperBetaLimit = 1.5;
     camera.lowerRadiusLimit = 1;
-    camera.upperRadiusLimit = 7;
+    camera.upperRadiusLimit = 13;
 
     //相机惯性
     camera.angularSensibilityX = 2000;

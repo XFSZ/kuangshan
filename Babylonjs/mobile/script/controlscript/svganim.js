@@ -18,17 +18,17 @@ let animationArr = [
         btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false,
         val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" },
         cameraAnimNormolPosition: [ new BABYLON.Vector3(4, 1, 3.5)],
-        cameraAnimExploitPosition: [ new BABYLON.Vector3(4, 1.6, 5.4)],
-        cameraAnimTargetNormolPosition: [ new BABYLON.Vector3(4, 0.5, 0)],
-        cameraAnimTargetExploitPosition: [ new BABYLON.Vector3(4, 1.6, 0)]
+        cameraAnimExploitPosition: [ new BABYLON.Vector3(4, 4, 6)],
+        cameraAnimTargetNormolPosition: [ new BABYLON.Vector3(4, 0.3, 0)],
+        cameraAnimTargetExploitPosition: [ new BABYLON.Vector3(4, 0.7, 0)]
     },
     {
         btnName: "modelbtn2", name: "YuanZhuiPoSuiJi", exploitd: false,
         val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" },
         cameraAnimNormolPosition: [ new BABYLON.Vector3(0, 1, 3)],
-        cameraAnimExploitPosition: [ new BABYLON.Vector3(0, 2, 5.8)],
-        cameraAnimTargetNormolPosition: [ new BABYLON.Vector3(0, 0.5, 0)],
-        cameraAnimTargetExploitPosition: [ new BABYLON.Vector3(0, 1.84, 0)]
+        cameraAnimExploitPosition: [ new BABYLON.Vector3(0, 3.014, 6.1)],
+        cameraAnimTargetNormolPosition: [ new BABYLON.Vector3(0, 0.4, 0)],
+        cameraAnimTargetExploitPosition: [ new BABYLON.Vector3(0, 0.5, 0)]
     },
     {
         btnName: "modelbtn3", name: "ZhiShaJi", exploitd: false,
@@ -57,16 +57,16 @@ function animationStart(animationName, keys,animCamera) {
 
     let ag = scene.getAnimationGroupByName(animationName);
     if (keys) {
-        ag.start(false, 4, ag.from, ag.to)
+        ag.start(false, 2, ag.from, ag.to)
         let activecam1 =  scene.getCameraByID("Camera") 
         cameraAnimate(activecam1,...animCamera.cameraAnimExploitPosition,...animCamera.cameraAnimTargetExploitPosition)
     }
     else {
-        ag.start(false, 4, ag.to, ag.from)
+        ag.start(false, 2, ag.to, ag.from)
         let activecam1 =  scene.getCameraByID("Camera") 
         cameraAnimate(activecam1,...animCamera.cameraAnimNormolPosition,...animCamera.cameraAnimTargetNormolPosition)
     }
-    return ag.to * (1000 / 4) + 100
+    return ag.to * (1000 / 2) + 100
 }
 // 退场动画
 function animationInOut(animationName, keys) {
