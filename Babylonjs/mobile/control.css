@@ -55,6 +55,7 @@
   .rightbtn{
     display: flex;
     flex-direction: column;
+    
   }
   .buttom-box{
     position: absolute;

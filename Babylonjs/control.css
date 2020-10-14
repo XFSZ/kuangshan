@@ -21,6 +21,7 @@
   }
  .btn{
   pointer-events: auto;
+  cursor: pointer;
    /* width: 20%; */
  }
  .btnclick{
