@@ -33,10 +33,10 @@ let animationArr = [
     {
         btnName: "modelbtn3", name: "ZhiShaJi", exploitd: false,
         val: { exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" },
-        cameraAnimNormolPosition: [ new BABYLON.Vector3(-4, 1, 5.266)],
-        cameraAnimExploitPosition: [ new BABYLON.Vector3(-4, 0.5, 5.4)],
-        cameraAnimTargetNormolPosition: [ new BABYLON.Vector3(-4, 0.5, 0)],
-        cameraAnimTargetExploitPosition: [ new BABYLON.Vector3(-4, 0.5, 0)]
+        cameraAnimNormolPosition: [ new BABYLON.Vector3(-4, 1, 3.7)],
+        cameraAnimExploitPosition: [ new BABYLON.Vector3(-10.6, 2.0, 0)],
+        cameraAnimTargetNormolPosition: [ new BABYLON.Vector3(-4, 0.1, 0)],
+        cameraAnimTargetExploitPosition: [ new BABYLON.Vector3(-4, 0.9, 0)]
     }
 ]
 

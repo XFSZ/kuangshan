@@ -204,13 +204,13 @@ var createScene = function () {
     
         // 添加ao
     
-        M_XuanHuiPoSuiJi_Paint_Main.ambientTexture = aoTexture;
+/*         M_XuanHuiPoSuiJi_Paint_Main.ambientTexture = aoTexture;
         M_XuanHuiPoSuiJi_Metal_Iron.ambientTexture = aoTexture;
         M_XuanHuiPoSuiJi_Metal_Iron_Black.ambientTexture = aoTexture;
         M_XuanHuiPoSuiJi_Iron_Crimson.ambientTexture = aoTexture;
         M_XuanHuiPoSuiJi_Metal_Iron_Gray.ambientTexture = aoTexture;
         M_XuanHuiPoSuiJi_Metal_Steel_Silver.ambientTexture = aoTexture;
-        M_XuanHuiPoSuiJi_AN_Shelf_Steel_Black.ambientTexture = aoTexture;
+        M_XuanHuiPoSuiJi_AN_Shelf_Steel_Black.ambientTexture = aoTexture; */
     
     
         M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
