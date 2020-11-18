@@ -378,7 +378,7 @@ function materialXuanHuiPoSuiJiBlack() {
 
     M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0, 0, 0);
     M_XuanHuiPoSuiJi_Paint_Main.metallic = 1;
-    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.45;
+    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.35;
     M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.1411764705882353, 0.09411764705882353, 0);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
@@ -399,7 +399,7 @@ function materialXuanHuiPoSuiJiBlue() {
     M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.00784313725490196, 0.047058823529411764, 0.11372549019607843);
     M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
     M_XuanHuiPoSuiJi_Paint_Main.metallic = 1;
-    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.43;
+    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.35;
 
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
@@ -419,7 +419,7 @@ function materialXuanHuiPoSuiJiYellow() {
     M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
     M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.45;
     M_XuanHuiPoSuiJi_Paint_Main.metallic = 1;
-    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.45;
+    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.3;
 
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
@@ -506,7 +506,7 @@ function materialYuanZhuiPoSuiJiBlack() {
 
     M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0, 0, 0);
     M_YuanZhuiPoSuiJi_Paint_Main.metallic = 1;
-    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.45;
+    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.35;
     M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
 
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.41568627450980394, 0.28627450980392155, 0.00392156862745098);
@@ -540,7 +540,7 @@ function materialYuanZhuiPoSuiJiBlue() {
     M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.00784313725490196, 0.047058823529411764, 0.11372549019607843);
     M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
     M_YuanZhuiPoSuiJi_Paint_Main.metallic = 1;
-    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.43;
+    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.35;
 
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.2, 0.2, 0.2);
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.metallic = 1;
@@ -575,7 +575,7 @@ function materialYuanZhuiPoSuiJiYellow() {
     M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
     M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.45;
     M_YuanZhuiPoSuiJi_Paint_Main.metallic = 1;
-    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.45;
+    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.35;
 
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.2, 0.2, 0.2);
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.metallic = 1;
