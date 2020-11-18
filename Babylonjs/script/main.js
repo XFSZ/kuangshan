@@ -84,71 +84,6 @@ var createScene = function () {
     scene.getMeshByID("hdrSkyBox").setEnabled(false);
     // hdrTexture.level = 2;
 
-
-    // 后期效果
-    // var defaultPipeline = new BABYLON.DefaultRenderingPipeline("defaultPipeline", true, scene, [camera]);
-    // if (defaultPipeline.isSupported) {
-    //     /* MSAA */
-    //     defaultPipeline.samples = 8; // 1 by default
-
-    //     defaultPipeline.imageProcessingEnabled = false;
-    //     /* bloom */
-    //     defaultPipeline.bloomEnabled = true; // false by default
-    //     if (defaultPipeline.bloomEnabled) {
-    //         defaultPipeline.bloomKernel = 128; // 64 by default
-    //         defaultPipeline.bloomScale = 0.5; // 0.5 by default
-    //         defaultPipeline.bloomThreshold = 1; // 0.9 by default
-    //         defaultPipeline.bloomWeight = 0.65; // 0.15 by default
-    //     }
-    //     /* chromatic abberation */
-    //     defaultPipeline.chromaticAberrationEnabled = false; // false by default
-    //     if (defaultPipeline.chromaticAberrationEnabled) {
-    //         defaultPipeline.chromaticAberration.aberrationAmount = 30; // 30 by default
-    //         defaultPipeline.chromaticAberration.adaptScaleToCurrentViewport = false; // false by default
-    //         defaultPipeline.chromaticAberration.alphaMode = 0; // 0 by default
-    //         defaultPipeline.chromaticAberration.alwaysForcePOT = false; // false by default
-    //         defaultPipeline.chromaticAberration.enablePixelPerfectMode = false; // false by default
-    //         defaultPipeline.chromaticAberration.forceFullscreenViewport = true; // true by default
-    //     }
-    //     /* DOF */
-    //     defaultPipeline.depthOfFieldEnabled = true; // false by default
-    //     if (defaultPipeline.depthOfFieldEnabled && defaultPipeline.depthOfField.isSupported) {
-    //         defaultPipeline.depthOfFieldBlurLevel = 0; // 0 by default
-    //         defaultPipeline.depthOfField.fStop = 8.8; // 1.4 by default
-    //         defaultPipeline.depthOfField.focalLength = 50; // 50 by default, mm
-    //         defaultPipeline.depthOfField.focusDistance = 1000; // 2000 by default, mm
-    //         defaultPipeline.depthOfField.lensSize = 28; // 50 by default
-    //     }
-    //     /* FXAA */
-    //     defaultPipeline.fxaaEnabled = false; // false by default
-    //     if (defaultPipeline.fxaaEnabled) {
-    //         defaultPipeline.fxaa.samples = 1; // 1 by default
-    //         defaultPipeline.fxaa.adaptScaleToCurrentViewport = false; // false by default
-    //     }
-    //     /* glowLayer */
-    //     defaultPipeline.glowLayerEnabled = true;
-    //     if (defaultPipeline.glowLayerEnabled) {
-    //         defaultPipeline.glowLayer.blurKernelSize = 16; // 16 by default
-    //         defaultPipeline.glowLayer.intensity = 2.7; // 1 by default
-    //     }
-    //     /* grain */
-    //     defaultPipeline.grainEnabled = false;
-    //     if (defaultPipeline.grainEnabled) {
-    //         defaultPipeline.grain.adaptScaleToCurrentViewport = false; // false by default
-    //         defaultPipeline.grain.animated = false; // false by default
-    //         defaultPipeline.grain.intensity = 30; // 30 by default
-    //     }
-    //     /* sharpen */
-    //     defaultPipeline.sharpenEnabled = false;
-    //     if (defaultPipeline.sharpenEnabled) {
-    //         defaultPipeline.sharpen.adaptScaleToCurrentViewport = false; // false by default
-    //         defaultPipeline.sharpen.edgeAmount = 0.3; // 0.3 by default
-    //         defaultPipeline.sharpen.colorAmount = 1; // 1 by default
-    //     }
-    // }
-
-    // var light2 = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 1, 0), scene);
-
     // light1
     var light = new BABYLON.DirectionalLight("light", new BABYLON.Vector3(-1, -2, -1), scene);
     light.position = new BABYLON.Vector3(-0.5955874093676108, 1.463424720556741, 0.7257959743088755);
@@ -186,76 +121,80 @@ var createScene = function () {
     BABYLON.SceneLoader.Append("model/SheBei/", "XuanHuiPoSuiJi.gltf", scene, function (meshes) {
         scene.getTransformNodeByID("XuanHuiPoSuiJi_G").position = new BABYLON.Vector3(-4, 0, 0);
     
-        let aoTexture = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao.jpg", scene);
-        // aoTexture.coordinatesIndex = 1;
+        let aoTexture = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao2.jpg", scene);
         aoTexture.vScale = -1;
+        aoTexture.coordinatesIndex = 1;
+
+        let Logo_Alpha_Ao = new BABYLON.Texture("model/SheBei/Logo_Alpha_Ao.png", scene);
+        Logo_Alpha_Ao.vScale = -1;
+        Logo_Alpha_Ao.coordinatesIndex = 1;
+
     
         //材质调整
-        let M_XuanHuiPoSuiJi_AN_Shelf_Steel_Black = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Shelf_Steel_Black");
-        let M_XuanHuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Screw_Steel");
+        let M_XuanHuiPoSuiJi_Steel_Black = scene.getMaterialByID("M_XuanHuiPoSuiJi_Steel_Black");
         let M_XuanHuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_Screw_Steel");
         let M_XuanHuiPoSuiJi_Metal_Iron = scene.getMaterialByID("M_XuanHuiPoSuiJi_Metal_Iron");
         let M_XuanHuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_XuanHuiPoSuiJi_Paint_Main");
-        let M_XuanHuiPoSuiJi_Metal_Iron_Black = scene.getMaterialByID("M_XuanHuiPoSuiJi_Metal_Iron_Black");
-        let M_XuanHuiPoSuiJi_Iron_Crimson = scene.getMaterialByID("M_XuanHuiPoSuiJi_Metal_Iron_Crimson");
+        let M_XuanHuiPoSuiJi_Metal_Iron_Crimson = scene.getMaterialByID("M_XuanHuiPoSuiJi_Metal_Iron_Crimson");
         let M_XuanHuiPoSuiJi_Metal_Iron_Gray = scene.getMaterialByID("M_XuanHuiPoSuiJi_Metal_Iron_Gray");
         let M_XuanHuiPoSuiJi_Metal_Steel_Silver = scene.getMaterialByID("M_XuanHuiPoSuiJi_Metal_Steel_Silver");
-        let M_XuanHuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_XuanHuiPoSuiJi_Logo_Texture");
+        let M_XuanHuiPoSuiJi_Logo_Normal = scene.getMaterialByID("M_XuanHuiPoSuiJi_Logo_Normal");
+        let M_XuanHuiPoSuiJi_Plastic_Black = scene.getMaterialByID("M_XuanHuiPoSuiJi_Plastic_Black");
     
         // 添加ao
     
-/*         M_XuanHuiPoSuiJi_Paint_Main.ambientTexture = aoTexture;
+        M_XuanHuiPoSuiJi_Paint_Main.ambientTexture = aoTexture;
         M_XuanHuiPoSuiJi_Metal_Iron.ambientTexture = aoTexture;
-        M_XuanHuiPoSuiJi_Metal_Iron_Black.ambientTexture = aoTexture;
-        M_XuanHuiPoSuiJi_Iron_Crimson.ambientTexture = aoTexture;
+        M_XuanHuiPoSuiJi_Metal_Iron_Crimson.ambientTexture = aoTexture;
         M_XuanHuiPoSuiJi_Metal_Iron_Gray.ambientTexture = aoTexture;
         M_XuanHuiPoSuiJi_Metal_Steel_Silver.ambientTexture = aoTexture;
-        M_XuanHuiPoSuiJi_AN_Shelf_Steel_Black.ambientTexture = aoTexture; */
+        M_XuanHuiPoSuiJi_Steel_Black.ambientTexture = aoTexture;
+        M_XuanHuiPoSuiJi_Plastic_Black.ambientTexture = aoTexture;
+        M_XuanHuiPoSuiJi_Screw_Steel.ambientTexture = aoTexture;
+
+        M_XuanHuiPoSuiJi_Screw_Steel.ambientTexture = Logo_Alpha_Ao;
     
     
         M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
-        M_XuanHuiPoSuiJi_Paint_Main.bumpTexture = new BABYLON.Texture("model/SheBei/Plastic_Polymer_256_normal.jpg", scene);
+        M_XuanHuiPoSuiJi_Paint_Main.bumpTexture = new BABYLON.Texture("model/SheBei/Normal.jpg", scene);
         M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.45;
         M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.uScale = 30;
         M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.vScale = 30;
-        M_XuanHuiPoSuiJi_Paint_Main.metallic = 0.2;
-        M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.14;
+        M_XuanHuiPoSuiJi_Paint_Main.metallicTexture  = new BABYLON.Texture("model/SheBei/Specular.jpg", scene);
+        M_XuanHuiPoSuiJi_Paint_Main.metallic = 1;
+        M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.6;
+        M_XuanHuiPoSuiJi_Paint_Main.metallicF0Factor = 0.6;
     
         M_XuanHuiPoSuiJi_Metal_Iron.metallic = 1;
         M_XuanHuiPoSuiJi_Metal_Iron.roughness = 0.18;
         M_XuanHuiPoSuiJi_Metal_Iron.albedoColor = new BABYLON.Color3(0.18823529411764706, 0.18823529411764706, 0.18823529411764706);
     
-        M_XuanHuiPoSuiJi_Metal_Iron_Black.metallic = 1;
-        M_XuanHuiPoSuiJi_Metal_Iron_Black.roughness = 0.24;
-    
         M_XuanHuiPoSuiJi_Metal_Iron_Gray.metallic = 1;
         M_XuanHuiPoSuiJi_Metal_Iron_Gray.roughness = 0.64;
     
-        M_XuanHuiPoSuiJi_Iron_Crimson.metallic = 0;
-        M_XuanHuiPoSuiJi_Iron_Crimson.roughness = 0.4;
+        M_XuanHuiPoSuiJi_Metal_Iron_Crimson.metallic = 0;
+        M_XuanHuiPoSuiJi_Metal_Iron_Crimson.roughness = 0.4;
     
         M_XuanHuiPoSuiJi_Metal_Steel_Silver.metallic = 1;
         M_XuanHuiPoSuiJi_Metal_Steel_Silver.roughness = 0.05;
+        
+        M_XuanHuiPoSuiJi_Logo_Normal.albedoColor = M_XuanHuiPoSuiJi_Paint_Main.albedoColor;
+        M_XuanHuiPoSuiJi_Logo_Normal.opacityTexture = new BABYLON.Texture("model/SheBei/Logo_Alpha_Ao.png");
+        M_XuanHuiPoSuiJi_Logo_Normal.opacityTexture.vScale = -1;
+        M_XuanHuiPoSuiJi_Logo_Normal.bumpTexture = new BABYLON.Texture('model/SheBei/Logo_Normal.png')
+        M_XuanHuiPoSuiJi_Logo_Normal.bumpTexture.vScale = -1;
+        M_XuanHuiPoSuiJi_Logo_Normal.transparencyMode = 3;
+        M_XuanHuiPoSuiJi_Logo_Normal.roughness = 0.5;
     
-        M_XuanHuiPoSuiJi_Logo_Texture.opacityTexture = new BABYLON.Texture("model/SheBei/ShenYangShunDa_alpha_ShenYangShunDa.png");
-        M_XuanHuiPoSuiJi_Logo_Texture.opacityTexture.vScale = -1;
-        M_XuanHuiPoSuiJi_Logo_Texture.transparencyMode = 3;
-        M_XuanHuiPoSuiJi_Logo_Texture.roughness = 0.5;
-        M_XuanHuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0, 0, 0);
     
+        M_XuanHuiPoSuiJi_Metal_Iron_Crimson.albedoColor = new BABYLON.Color3(0.1333333, 0.027450980, 0.0274509);
+        M_XuanHuiPoSuiJi_Metal_Iron_Crimson.bumpTexture = new BABYLON.Texture("model/SheBei/Plastic_Polymer_256_normal.jpg", scene);
+        M_XuanHuiPoSuiJi_Metal_Iron_Crimson.bumpTexture.uScale = 20;
+        M_XuanHuiPoSuiJi_Metal_Iron_Crimson.bumpTexture.vScale = 20;
     
-        M_XuanHuiPoSuiJi_Iron_Crimson.albedoColor = new BABYLON.Color3(0.1333333, 0.027450980, 0.0274509);
-        M_XuanHuiPoSuiJi_Iron_Crimson.bumpTexture = new BABYLON.Texture("model/SheBei/Plastic_Polymer_256_normal.jpg", scene);
-        M_XuanHuiPoSuiJi_Iron_Crimson.bumpTexture.uScale = 20;
-        M_XuanHuiPoSuiJi_Iron_Crimson.bumpTexture.vScale = 20;
-    
-        M_XuanHuiPoSuiJi_AN_Shelf_Steel_Black.albedoColor = new BABYLON.Color3(0, 0, 0);
-        M_XuanHuiPoSuiJi_AN_Shelf_Steel_Black.metallic = 1;
-        M_XuanHuiPoSuiJi_AN_Shelf_Steel_Black.roughness = 0.24;
-    
-        M_XuanHuiPoSuiJi_AN_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
-        M_XuanHuiPoSuiJi_AN_Screw_Steel.metallic = 1;
-        M_XuanHuiPoSuiJi_AN_Screw_Steel.roughness = 0.24;
+        M_XuanHuiPoSuiJi_Steel_Black.albedoColor = new BABYLON.Color3(0, 0, 0);
+        M_XuanHuiPoSuiJi_Steel_Black.metallic = 1;
+        M_XuanHuiPoSuiJi_Steel_Black.roughness = 0.24;
 
         M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
         M_XuanHuiPoSuiJi_Screw_Steel.metallic = 1;
@@ -272,7 +211,7 @@ var createScene = function () {
         shadowGenerator.getShadowMap().renderList.push(scene.getMeshByID("XuanHuiPoSuiJi_Module_5_primitive3"));
         let ag = scene.getAnimationGroupByName('XuanHuiPoSuiJi_BaoZha');
         ag.stop();
-        // console.log(ag)
+        console.log("ag")
     
     });
 
@@ -280,62 +219,66 @@ var createScene = function () {
     BABYLON.SceneLoader.Append("model/SheBei/", "ZhiShaJi.gltf", scene, function (meshes) {
         scene.getTransformNodeByID("ZhiShaJi_G").position = new BABYLON.Vector3(4, 0, 0);
 
-        let aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_AO.jpg", scene);
+        let aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao2.jpg", scene);
+        let aoTextureSplit = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao.jpg", scene);
         aoTexture.vScale = -1;
+        aoTexture.coordinatesIndex = 1;
 
         //材质
-        let M_Logo_Texture = scene.getMaterialByID("M_Logo_Texture");
-        let M_Metal_Iron_Black = scene.getMaterialByID("M_Metal_Iron_Black");
-        let M_Metal_Iron_Gray = scene.getMaterialByID("M_Metal_Iron_Gray");
-        let M_Metal_Steel_Silver = scene.getMaterialByID("M_Metal_Steel_Silver");
-        let M_Paint_Less = scene.getMaterialByID("M_Paint_Less");
-        let M_Paint_Main = scene.getMaterialByID("M_Paint_Main");
+        let M_ZhiShaJi_Logo_Texture = scene.getMaterialByID("M_ZhiShaJi_Logo_Texture");
+        let M_ZhiShaJi_Metal_Iron_Black = scene.getMaterialByID("M_ZhiShaJi_Metal_Iron_Black");
+        let M_ZhiShaJi_Metal_Iron_Gray = scene.getMaterialByID("M_ZhiShaJi_Metal_Iron_Gray");
+        let M_ZhiShaJi_Metal_Steel_Silver = scene.getMaterialByID("M_ZhiShaJi_Metal_Steel_Silver");
+        let M_ZhiShaJi_Paint_Less = scene.getMaterialByID("M_ZhiShaJi_Paint_Less");
+        let M_ZhiShaJi_Paint_Main = scene.getMaterialByID("M_ZhiShaJi_Paint_Main");
+        let M_ZhiShaJi_Metal_Iron_Reseda = scene.getMaterialByID("M_ZhiShaJi_Metal_Iron_Reseda");
 
 
         //材质调整
-        M_Metal_Iron_Black.ambientTexture = aoTexture;
-        M_Metal_Iron_Gray.ambientTexture = aoTexture;
-        M_Metal_Steel_Silver.ambientTexture = aoTexture;
-        M_Paint_Less.ambientTexture = aoTexture;
-        M_Paint_Main.ambientTexture = aoTexture;
+        M_ZhiShaJi_Metal_Iron_Black.ambientTexture = aoTexture;
+        M_ZhiShaJi_Metal_Iron_Gray.ambientTexture = aoTexture;
+        M_ZhiShaJi_Metal_Steel_Silver.ambientTexture = aoTexture;
+        M_ZhiShaJi_Paint_Less.ambientTexture = aoTexture;
+        M_ZhiShaJi_Paint_Main.ambientTexture = aoTexture;
+        M_ZhiShaJi_Metal_Iron_Reseda.ambientTexture = aoTexture;
 
 
-        M_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
-        M_Logo_Texture.opacityTexture = new BABYLON.Texture("model/SheBei/ShenYangShunDa_alpha_ShenYangShunDa.png");
-        M_Logo_Texture.opacityTexture.vScale = -1;
-        M_Logo_Texture.transparencyMode = 3;
-        M_Logo_Texture.metallic = 1;
-        M_Logo_Texture.roughness = 0;
+        M_ZhiShaJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
+        M_ZhiShaJi_Logo_Texture.opacityTexture = new BABYLON.Texture("model/SheBei/ShenYangShunDa_alpha_ShenYangShunDa.png");
+        M_ZhiShaJi_Logo_Texture.opacityTexture.vScale = -1;
+        M_ZhiShaJi_Logo_Texture.transparencyMode = 3;
+        M_ZhiShaJi_Logo_Texture.metallic = 1;
+        M_ZhiShaJi_Logo_Texture.roughness = 0;
 
-        M_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
-        M_Paint_Main.bumpTexture = new BABYLON.Texture("model/SheBei/Plastic_Polymer_256_normal.jpg", scene);
-        M_Paint_Main.bumpTexture.level = 0.1;
-        M_Paint_Main.bumpTexture.uScale = 30;
-        M_Paint_Main.bumpTexture.vScale = 30;
-        M_Paint_Main.metallic = 0.2;
-        M_Paint_Main.roughness = 0.14;
-
-
-        M_Paint_Less.albedoColor = new BABYLON.Color3(0.1843137254901961, 0.058823529411764705, 0.058823529411764705);
-        M_Paint_Less.emissiveColor = new BABYLON.Color3(0, 0, 0);
-        M_Paint_Less.metallic = 0.47;
-        M_Paint_Less.roughness = 0.11;
-        M_Paint_Less.bumpTexture = new BABYLON.Texture("model/SheBei/Plastic_Polymer_256_normal.jpg", scene);
-        M_Paint_Less.bumpTexture.level = 0.15;
-        M_Paint_Less.bumpTexture.uScale = 30;
-        M_Paint_Less.bumpTexture.vScale = 30;
+        M_ZhiShaJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
+        M_ZhiShaJi_Paint_Main.bumpTexture = new BABYLON.Texture("model/SheBei/Plastic_Polymer_256_normal.jpg", scene);
+        M_ZhiShaJi_Paint_Main.bumpTexture.level = 0.1;
+        M_ZhiShaJi_Paint_Main.bumpTexture.uScale = 30;
+        M_ZhiShaJi_Paint_Main.bumpTexture.vScale = 30;
+        M_ZhiShaJi_Paint_Main.metallic = 0.2;
+        M_ZhiShaJi_Paint_Main.roughness = 0.14;
 
 
-        M_Metal_Iron_Black.albedoColor = new BABYLON.Color3(0.03137254901960784, 0.03137254901960784, 0.03137254901960784);
-        M_Metal_Iron_Black.metallic = 1;
-        M_Metal_Iron_Black.roughness = 0.38;
+        M_ZhiShaJi_Paint_Less.albedoColor = new BABYLON.Color3(0.1843137254901961, 0.058823529411764705, 0.058823529411764705);
+        M_ZhiShaJi_Paint_Less.emissiveColor = new BABYLON.Color3(0, 0, 0);
+        M_ZhiShaJi_Paint_Less.metallic = 0.47;
+        M_ZhiShaJi_Paint_Less.roughness = 0.11;
+        M_ZhiShaJi_Paint_Less.bumpTexture = new BABYLON.Texture("model/SheBei/Plastic_Polymer_256_normal.jpg", scene);
+        M_ZhiShaJi_Paint_Less.bumpTexture.level = 0.15;
+        M_ZhiShaJi_Paint_Less.bumpTexture.uScale = 30;
+        M_ZhiShaJi_Paint_Less.bumpTexture.vScale = 30;
 
-        M_Metal_Iron_Gray.albedoColor = new BABYLON.Color3(0.09019607843137255, 0.09019607843137255, 0.09019607843137255);
-        M_Metal_Iron_Gray.metallic = 1;
-        M_Metal_Iron_Gray.roughness = 0;
 
-        M_Metal_Steel_Silver.metallic = 1;
-        M_Metal_Steel_Silver.roughness = 0.05;
+        M_ZhiShaJi_Metal_Iron_Black.albedoColor = new BABYLON.Color3(0.03137254901960784, 0.03137254901960784, 0.03137254901960784);
+        M_ZhiShaJi_Metal_Iron_Black.metallic = 1;
+        M_ZhiShaJi_Metal_Iron_Black.roughness = 0.38;
+
+        M_ZhiShaJi_Metal_Iron_Gray.albedoColor = new BABYLON.Color3(0.09019607843137255, 0.09019607843137255, 0.09019607843137255);
+        M_ZhiShaJi_Metal_Iron_Gray.metallic = 1;
+        M_ZhiShaJi_Metal_Iron_Gray.roughness = 0;
+
+        M_ZhiShaJi_Metal_Steel_Silver.metallic = 1;
+        M_ZhiShaJi_Metal_Steel_Silver.roughness = 0.05;
 
 
         //创建只接受阴影的材质
@@ -345,24 +288,26 @@ var createScene = function () {
         shadowGenerator.getShadowMap().renderList.push(scene.getMeshByID("M_Metal_Iron_Black1"));
         let ag = scene.getAnimationGroupByName('ZhiShaJi_BaoZha');
         ag.stop();
-
+        
     });
 
     BABYLON.SceneLoader.Append("model/SheBei/", "YuanZhuiPoSuiJi.gltf", scene, function (meshes) {
 
-        let aoTexture = new BABYLON.Texture("model/SheBei/YuanZhuiPoSuiJi_AO.jpg", scene);
+        let aoTexture = new BABYLON.Texture("model/SheBei/YuanZhuiPoSuiJi_Ao2.jpg", scene);
+        let aoTextureSplit = new BABYLON.Texture("model/SheBei/YuanZhuiPoSuiJi_Ao.jpg", scene);
         aoTexture.vScale = -1;
+        aoTexture.coordinatesIndex = 1;
     
         //材质调整
-        let M_YuanZhuiPoSuiJi_AN_Line_Rubber_Black = scene.getMaterialByID("M_YuanZhuiPoSuiJi_AN_Line_Rubber_Black");
-        let M_YuanZhuiPoSuiJi_AN_Line_Steel = scene.getMaterialByID("M_YuanZhuiPoSuiJi_AN_Line_Steel");
-        let M_YuanZhuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_YuanZhuiPoSuiJi_AN_Screw_Steel");
-        let M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black = scene.getMaterialByID("M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black");
-    
+
         let M_YuanZhuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Main");
         let M_YuanZhuiPoSuiJi_Paint_Less = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Less");
     
         let M_YuanZhuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Texture");
+        let M_YuanZhuiPoSuiJi_Logo_Normal = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Normal");
+
+        let M_YuanZhuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Screw_Steel");
+        let M_YuanZhuiPoSuiJi_Metal_Iron = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Iron");
         let M_YuanZhuiPoSuiJi_Metal_Brass = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Brass");
         let M_YuanZhuiPoSuiJi_Metal_Iron_Black = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Iron_Black");
         let M_YuanZhuiPoSuiJi_Metal_Iron_Crimson = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Iron_Crimson");
@@ -371,10 +316,6 @@ var createScene = function () {
         let M_YuanZhuiPoSuiJi_Plastic_Black = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Plastic_Black");
     
         // 添加ao
-        M_YuanZhuiPoSuiJi_AN_Line_Rubber_Black.ambientTexture = aoTexture;
-        M_YuanZhuiPoSuiJi_AN_Line_Steel.ambientTexture = aoTexture;
-        M_YuanZhuiPoSuiJi_AN_Screw_Steel.ambientTexture = aoTexture;
-        M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black.ambientTexture = aoTexture;
         M_YuanZhuiPoSuiJi_Paint_Main.ambientTexture = aoTexture;
         M_YuanZhuiPoSuiJi_Paint_Less.ambientTexture = aoTexture;
         M_YuanZhuiPoSuiJi_Metal_Brass.ambientTexture = aoTexture;
@@ -382,6 +323,9 @@ var createScene = function () {
         M_YuanZhuiPoSuiJi_Metal_Iron_Gray.ambientTexture = aoTexture;
         M_YuanZhuiPoSuiJi_Metal_Steel_Silver.ambientTexture = aoTexture;
         M_YuanZhuiPoSuiJi_Plastic_Black.ambientTexture = aoTexture;
+        M_YuanZhuiPoSuiJi_Screw_Steel.ambientTexture = aoTexture;
+        M_YuanZhuiPoSuiJi_Metal_Iron.ambientTexture = aoTexture;
+        M_YuanZhuiPoSuiJi_Metal_Iron_Crimson.ambientTexture = aoTexture;
     
         //材质调整
         M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
@@ -430,22 +374,6 @@ var createScene = function () {
     
         M_YuanZhuiPoSuiJi_Metal_Steel_Silver.metallic = 1;
         M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.05;
-    
-        M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black.albedoColor = new BABYLON.Color3(0, 0, 0);
-        M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black.metallic = 1;
-        M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black.roughness = 0.24;
-        M_YuanZhuiPoSuiJi_AN_Shelf_Steel_Black.transparencyMode = 2;
-    
-        M_YuanZhuiPoSuiJi_AN_Line_Rubber_Black.roughness = 0.27;
-        M_YuanZhuiPoSuiJi_AN_Line_Rubber_Black.transparencyMode = 2;
-    
-        M_YuanZhuiPoSuiJi_AN_Line_Steel.albedoColor = new BABYLON.Color3(0.18823529411764706, 0.18823529411764706, 0.18823529411764706);
-        M_YuanZhuiPoSuiJi_AN_Line_Steel.metallic = 1;
-        M_YuanZhuiPoSuiJi_AN_Line_Steel.roughness = 0.18;
-    
-        M_YuanZhuiPoSuiJi_AN_Screw_Steel.albedoColor = new BABYLON.Color3(0, 0, 0);
-        M_YuanZhuiPoSuiJi_AN_Screw_Steel.metallic = 1;
-        M_YuanZhuiPoSuiJi_AN_Screw_Steel.roughness = 0.18;
     
     
         //创建只接受阴影的材质
