@@ -231,14 +231,17 @@
     checkitem()
     changeImgSrc(event.to)
     if(event.from==3 && event.to==2){
+      let ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao2.jpg", scene);
       modelExploitV2(nextModelAnim,false)
       $(".carousel-control-prev").removeAttr('data-slide');
       $(".carousel-control-next").removeAttr('data-slide');
       setTimeout(()=>{
       $(".carousel-control-prev").attr('data-slide','prev');
       $(".carousel-control-next").attr('data-slide','next');
-      },2000)
+      materialXuanHuiPoSuiJiChangeAoTexture(false)
+      },1500)
       $('#imageIntroductionBox').css("visibility","visible");
+     
     // mouseEvenTimeOut = false
     }
 })
@@ -287,7 +290,7 @@
       $(".carousel-control-prev").attr('data-slide','prev');
       $(".carousel-control-next").attr('data-slide','next');
       },2000)
-      
+      materialXuanHuiPoSuiJiChangeAoTexture(true)
       }
 
     }
@@ -296,6 +299,7 @@
       currentModelNum = args-1;
       if(currentModelNum != nextModelNum){
      // currentModelNum = args-1
+     materialXuanHuiPoSuiJiChangeAoTexture(false)
       changeImgSrc(0);
       $('.carousel').carousel(0)
       $('#imageIntroductionBox').css("visibility","visible");
