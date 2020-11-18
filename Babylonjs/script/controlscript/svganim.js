@@ -170,7 +170,7 @@ function animationStart(animationName, keys, animCamera) {
     if (keys) {
         ag.start(false, 2, ag.from, ag.to)
         let activecam1 = scene.getCameraByID("Camera")
-        console.log( "this is animCamera : ",animCamera)
+     //   console.log( "this is animCamera : ",animCamera)
         cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
         // cameraPostionAnimate(activecam1,...animCamera.cameraAnimExploitPosition,...animCamera.cameraAnimTargetExploitPosition)
     }
@@ -262,7 +262,7 @@ function modelExploitV2(num,name, isExploit) {
    // console.log("this is name : ",name);
     let timeout = 1000;
     let animIndex = animationChangeArr[num].filter((value, index) => { if (value.btnName == name) { return value } })
-    console.log("this is animIndex : ",animIndex)
+   // console.log("this is animIndex : ",animIndex)
     animIndex[0].exploitd = isExploit;
     timeout = animationStart(animIndex[0].val.exploit, animIndex[0].exploitd, animIndex[0])
     setTimeout(() => { mouseEvenTimeOut = false }, timeout)
@@ -330,7 +330,7 @@ function mouseup(type, name) {
             nextModelAnim = name;
             if (currenModelAnim !== nextModelAnim) {
                 modelChange(currenModelAnim, nextModelAnim);
-                console.log("123")
+           //     console.log("123")
                 // getactivecamera()
                 // animateCameraToPosition(activecam,10, 600,new BABYLON.Vector3(100, 100, 200))
                 mouseEvenTimeOut = true
