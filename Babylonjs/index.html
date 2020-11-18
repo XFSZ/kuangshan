@@ -255,7 +255,7 @@
       //$("#imgId").attr('src',imgpath[arg]);
       $("#imgId").attr('src',modelIntroImgPath[currentModelNum][arg]);
       let activecam1 = scene.getCameraByID("Camera")
-      let animCamera = animationChangeArr[currentModelNum-1][arg]
+      let animCamera = animationChangeArr[currentModelNum][arg]
         cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
     }
     function clickEvent(args){
