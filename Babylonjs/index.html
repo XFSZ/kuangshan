@@ -90,7 +90,7 @@
         </div>
       </div>
     </div>
-    <div class="button-box">
+    <div class="buttom-box">
       <div class="leftbtn">
 
         <div class="image-introduction-box">
@@ -131,11 +131,15 @@
               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
               <li data-target="#myCarousel" data-slide-to="1"></li>
               <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
             </ul>
   
             <!-- 轮播图片 -->
             <div class="carousel-inner">
               <div class="carousel-item active">
+                <div style="width: 300px; height: 100px"></div>
+              </div>
+              <div class="carousel-item">
                 <div style="width: 300px; height: 100px"></div>
               </div>
               <div class="carousel-item">
@@ -212,10 +216,10 @@
 
         
     let currentModelNum = 1;
-    let modelIntroImgPath=[["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"],["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"],["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"]];
+    let modelIntroImgPath=[["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"],["ui/pic/B1.png","ui/pic/B2.png","ui/pic/B3.png"],["ui/pic/C1.png","ui/pic/C2.png","ui/pic/C3.png"]];
     let imgpath=["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"]
     let iconpath=["ui/pic/l1.png","ui/pic/l2.png","ui/pic/l3.png"]
-    let icon2path=["ui/pic/l2.png","ui/pic/l3.png","ui/pic/l1.png"]
+    let icon2path=["ui/pic/lr1.png","ui/pic/lr2.png","ui/pic/lr3.png"]
     $(".carousel").carousel({
       interval: false,
       keyboard: false,
@@ -225,12 +229,16 @@
    $('#myCarousel').on('slid.bs.carousel', function (event) {
     checkitem()
     changeImgSrc(event.to)
+    if(event.from==3 && event.to==2){
+      modelExploitV2(nextModelAnim,false)
+    }
 })
 
     $(document).ready(function () {
      // initscene();
       checkitem();
-      changeImgSrc(0)
+      changeImgSrc(0);
+      clickEvent(1);
     });
 
     function checkitem() {
@@ -253,15 +261,23 @@
 
     function changeImgSrc(arg){
       //$("#imgId").attr('src',imgpath[arg]);
-      $("#imgId").attr('src',modelIntroImgPath[currentModelNum][arg]);
+      if(arg!=3){
+        
+        $("#imgId").attr('src',modelIntroImgPath[currentModelNum][arg]);
       let activecam1 = scene.getCameraByID("Camera")
-      let animCamera = animationChangeArr[currentModelNum-1][arg]
+      let animCamera = animationChangeArr[currentModelNum][arg]
         cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
+      }
+      else{
+        modelExploitV2(nextModelAnim,true)
+      }
+
     }
     function clickEvent(args){
       currentModelNum = args-1
       changeImgSrc(0);
       $('.carousel').carousel(0)
+     // modelExploit(nextModelAnim)
       for(let i =1;i<iconpath.length+1;i++){
              if(i==args){
                

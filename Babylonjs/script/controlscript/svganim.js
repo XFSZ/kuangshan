@@ -251,6 +251,16 @@ function modelExploit(name) {
     setTimeout(() => { mouseEvenTimeOut = false }, timeout)
 
 }
+
+// 第二版爆炸逻辑 
+function modelExploitV2(name,isExploit) {
+    let timeout = 1000;
+    let animIndex = animationArr.filter((value, index) => { if (value.btnName == name) { return value } })
+    animIndex[0].exploitd = isExploit;
+    timeout = animationStart(animIndex[0].val.exploit, animIndex[0].exploitd, animIndex[0])
+    setTimeout(() => { mouseEvenTimeOut = false }, timeout)
+
+}
 // 入场动画逻辑  入场的打开 其他都关闭
 function animfunc(name, anims, type) {
     // if(name )
