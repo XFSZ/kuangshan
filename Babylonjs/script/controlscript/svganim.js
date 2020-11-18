@@ -437,10 +437,10 @@ function materialZhiShaJiBlack() {
     let M_ZhiShaJi_Paint_Main = scene.getMaterialByID("M_ZhiShaJi_Paint_Main");
     let M_ZhiShaJi_Logo_Texture = scene.getMaterialByID("M_ZhiShaJi_Logo_Texture");
 
-    M_ZhiShaJi_Paint_Main.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
+    M_ZhiShaJi_Paint_Main.albedoColor = new BABYLON.Color3(0, 0, 0);
     M_ZhiShaJi_Paint_Main.metallic = 1;
-    M_ZhiShaJi_Paint_Main.roughness = 0.2;
-    M_ZhiShaJi_Paint_Main.bumpTexture.level = 0.02;
+    M_ZhiShaJi_Paint_Main.roughness = 0.35;
+    M_ZhiShaJi_Paint_Main.bumpTexture.level = 0.5;
 
     M_ZhiShaJi_Paint_Less.albedoColor = new BABYLON.Color3(0.34901960784313724, 0.34901960784313724, 0.34901960784313724);
     M_ZhiShaJi_Paint_Less.metallic = 0;
@@ -459,8 +459,8 @@ function materialZhiShaJiBlue() {
 
     M_ZhiShaJi_Paint_Main.albedoColor = new BABYLON.Color3(0.00784313725490196, 0.047058823529411764, 0.11372549019607843);
     M_ZhiShaJi_Paint_Main.bumpTexture.level = 0.5;
-    M_ZhiShaJi_Paint_Main.metallic = 0.27;
-    M_ZhiShaJi_Paint_Main.roughness = 0.19;
+    M_ZhiShaJi_Paint_Main.metallic = 1;
+    M_ZhiShaJi_Paint_Main.roughness = 0.35;
 
 
     M_ZhiShaJi_Paint_Less.albedoColor = new BABYLON.Color3(0.09803921568627451, 0, 0);
@@ -481,8 +481,8 @@ function materialZhiShaJiYellow() {
 
     M_ZhiShaJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
     M_ZhiShaJi_Paint_Main.bumpTexture.level = 0.45;
-    M_ZhiShaJi_Paint_Main.metallic = 0.2;
-    M_ZhiShaJi_Paint_Main.roughness = 0.14;
+    M_ZhiShaJi_Paint_Main.metallic = 1;
+    M_ZhiShaJi_Paint_Main.roughness = 0.3;
 
     M_ZhiShaJi_Paint_Less.albedoColor = new BABYLON.Color3(0.23921568627450981, 0.23921568627450981, 0.23921568627450981);
     M_ZhiShaJi_Paint_Less.metallic = 1;
