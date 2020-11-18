@@ -208,6 +208,8 @@
     </div> -->
   </body>
   <script>
+    let currentModelNum = 1;
+    let modelIntroImgPath=[["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"],["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"],["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"]];
     let imgpath=["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"]
     let iconpath=["ui/pic/l1.png","ui/pic/l2.png","ui/pic/l3.png"]
     let icon2path=["ui/pic/l2.png","ui/pic/l3.png","ui/pic/l1.png"]
@@ -247,18 +249,22 @@
     }
 
     function changeImgSrc(arg){
-      $("#imgId").attr('src',imgpath[arg]);
+      //$("#imgId").attr('src',imgpath[arg]);
+      $("#imgId").attr('src',modelIntroImgPath[currentModelNum][arg]);
+      
     }
     function clickEvent(args){
+      currentModelNum = args-1
+      changeImgSrc(0);
       for(let i =1;i<iconpath.length+1;i++){
              if(i==args){
+               
               $("#icon"+i).attr('src',icon2path[i-1]);
              }
              else{
               $("#icon"+i).attr('src',iconpath[i-1]);
              }
       }
-      
     }
   </script>
   
