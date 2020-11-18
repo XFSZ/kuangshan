@@ -296,13 +296,14 @@ function inithtml(){
       else{
         $('#imageIntroductionBox').css("visibility","hidden");
         modelExploitV2(currentModelNum,nextModelAnim,true)
-        hotSpotControl(currentModelNum,1);
+       
         $(".carousel-control-prev").removeAttr('data-slide');
       $(".carousel-control-next").removeAttr('data-slide');
       setTimeout(()=>{
       $(".carousel-control-prev").attr('data-slide','prev');
       $(".carousel-control-next").attr('data-slide','next');
-      },2000)
+      hotSpotControl(currentModelNum,1);
+      },1500)
       materialXuanHuiPoSuiJiChangeAoTexture(true)
       materialZhiShaJiChangeAoTexture(true)
       materialYuanZhuiPoSuiJiChangeAoTexture(true)
