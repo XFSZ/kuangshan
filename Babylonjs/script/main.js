@@ -10,23 +10,23 @@ let ZhiShaJi_aoTexture2 = null;
 let YuanZhuiPoSuiJi_aoTexture1 = null;
 let YuanZhuiPoSuiJi_aoTexture2 = null;
 //debug快捷键 shift+alt+d
-function togglerDebugLayer() {
-    var scene = engine.scenes[0];
-    if (scene.debugLayer.isVisible()) {
-        scene.debugLayer.hide();
-    }
-    else {
-        scene.debugLayer.show({
-            overlay: true,//覆盖模式打开
-        });
-    }
-}
+// function togglerDebugLayer() {
+//     var scene = engine.scenes[0];
+//     if (scene.debugLayer.isVisible()) {
+//         scene.debugLayer.hide();
+//     }
+//     else {
+//         scene.debugLayer.show({
+//             overlay: true,//覆盖模式打开
+//         });
+//     }
+// }
 
-document.addEventListener("keydown", function (event) {
-    if (event.altKey && event.shiftKey && event.keyCode === 68) {
-        togglerDebugLayer();
-    }
-});
+// document.addEventListener("keydown", function (event) {
+//     if (event.altKey && event.shiftKey && event.keyCode === 68) {
+//         togglerDebugLayer();
+//     }
+// });
 
 
 function MyLoadingScreen() {
