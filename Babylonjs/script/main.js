@@ -3,7 +3,12 @@
 
 var canvas = document.getElementById("renderCanvas"); // Get the canvas element
 var engine = new BABYLON.Engine(canvas, true, null, true);
-
+let XuanHuiPoSuiJi_aoTexture1 =null;
+let XuanHuiPoSuiJi_aoTexture2 =null;
+let ZhiShaJi_aoTexture1 = null;
+let ZhiShaJi_aoTexture2 = null;
+let YuanZhuiPoSuiJi_aoTexture1 = null;
+let YuanZhuiPoSuiJi_aoTexture2 = null;
 //debug快捷键 shift+alt+d
 function togglerDebugLayer() {
     var scene = engine.scenes[0];
@@ -138,11 +143,11 @@ var createScene = function () {
     BABYLON.SceneLoader.Append("model/SheBei/", "XuanHuiPoSuiJi.gltf", scene, function (meshes) {
         scene.getTransformNodeByID("XuanHuiPoSuiJi_G").position = new BABYLON.Vector3(-4, 0, 0);
 
-        let XuanHuiPoSuiJi_aoTexture = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao2.jpg", scene);
-        XuanHuiPoSuiJi_aoTexture.vScale = -1;
-        XuanHuiPoSuiJi_aoTexture.coordinatesIndex = 1;
+         XuanHuiPoSuiJi_aoTexture1 = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao2.jpg", scene);
+        XuanHuiPoSuiJi_aoTexture1.vScale = -1;
+        XuanHuiPoSuiJi_aoTexture1.coordinatesIndex = 1;
 
-        let XuanHuiPoSuiJi_aoTexture2 = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao.jpg", scene);
+         XuanHuiPoSuiJi_aoTexture2 = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao.jpg", scene);
         XuanHuiPoSuiJi_aoTexture2.vScale = -1;
         XuanHuiPoSuiJi_aoTexture2.coordinatesIndex = 1;
 
@@ -160,14 +165,14 @@ var createScene = function () {
 
         // 添加ao
 
-        M_XuanHuiPoSuiJi_Paint_Main.ambientTexture = XuanHuiPoSuiJi_aoTexture;
-        M_XuanHuiPoSuiJi_Metal_Iron.ambientTexture = XuanHuiPoSuiJi_aoTexture;
-        M_XuanHuiPoSuiJi_Metal_Iron_Crimson.ambientTexture = XuanHuiPoSuiJi_aoTexture;
-        M_XuanHuiPoSuiJi_Metal_Iron_Gray.ambientTexture = XuanHuiPoSuiJi_aoTexture;
-        M_XuanHuiPoSuiJi_Metal_Steel_Silver.ambientTexture = XuanHuiPoSuiJi_aoTexture;
-        M_XuanHuiPoSuiJi_Steel_Black.ambientTexture = XuanHuiPoSuiJi_aoTexture;
-        M_XuanHuiPoSuiJi_Plastic_Black.ambientTexture = XuanHuiPoSuiJi_aoTexture;
-        M_XuanHuiPoSuiJi_Screw_Steel.ambientTexture = XuanHuiPoSuiJi_aoTexture;
+        M_XuanHuiPoSuiJi_Paint_Main.ambientTexture = XuanHuiPoSuiJi_aoTexture1;
+        M_XuanHuiPoSuiJi_Metal_Iron.ambientTexture = XuanHuiPoSuiJi_aoTexture1;
+        M_XuanHuiPoSuiJi_Metal_Iron_Crimson.ambientTexture = XuanHuiPoSuiJi_aoTexture1;
+        M_XuanHuiPoSuiJi_Metal_Iron_Gray.ambientTexture = XuanHuiPoSuiJi_aoTexture1;
+        M_XuanHuiPoSuiJi_Metal_Steel_Silver.ambientTexture = XuanHuiPoSuiJi_aoTexture1;
+        M_XuanHuiPoSuiJi_Steel_Black.ambientTexture = XuanHuiPoSuiJi_aoTexture1;
+        M_XuanHuiPoSuiJi_Plastic_Black.ambientTexture = XuanHuiPoSuiJi_aoTexture1;
+        M_XuanHuiPoSuiJi_Screw_Steel.ambientTexture = XuanHuiPoSuiJi_aoTexture1;
 
         M_XuanHuiPoSuiJi_Logo_Normal.ambientTexture = Logo_Alpha_Ao;
 
@@ -239,9 +244,12 @@ var createScene = function () {
     BABYLON.SceneLoader.Append("model/SheBei/", "ZhiShaJi.gltf", scene, function (meshes) {
         scene.getTransformNodeByID("ZhiShaJi_G").position = new BABYLON.Vector3(4, 0, 0);
 
-        let ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao2.jpg", scene);
-        ZhiShaJi_aoTexture.vScale = -1;
-        ZhiShaJi_aoTexture.coordinatesIndex = 1;
+        ZhiShaJi_aoTexture1 = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao2.jpg", scene);
+        ZhiShaJi_aoTexture1.vScale1 = -1;
+        ZhiShaJi_aoTexture1.coordinatesIndex1 = 1;
+        ZhiShaJi_aoTexture2 = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao.jpg", scene);
+      //  ZhiShaJi_aoTexture.vScale1 = -1;
+      //  ZhiShaJi_aoTexture.coordinatesIndex1 = 1;
 
         //材质
         let M_ZhiShaJi_Logo_Texture = scene.getMaterialByID("M_ZhiShaJi_Logo_Texture");
@@ -254,12 +262,12 @@ var createScene = function () {
 
 
         //材质调整
-        M_ZhiShaJi_Metal_Iron_Black.ambientTexture = ZhiShaJi_aoTexture;
-        M_ZhiShaJi_Metal_Iron_Gray.ambientTexture = ZhiShaJi_aoTexture;
-        M_ZhiShaJi_Metal_Steel_Silver.ambientTexture = ZhiShaJi_aoTexture;
-        M_ZhiShaJi_Paint_Less.ambientTexture = ZhiShaJi_aoTexture;
-        M_ZhiShaJi_Paint_Main.ambientTexture = ZhiShaJi_aoTexture;
-        M_ZhiShaJi_Metal_Iron_Reseda.ambientTexture = ZhiShaJi_aoTexture;
+        M_ZhiShaJi_Metal_Iron_Black.ambientTexture = ZhiShaJi_aoTexture1;
+        M_ZhiShaJi_Metal_Iron_Gray.ambientTexture = ZhiShaJi_aoTexture1;
+        M_ZhiShaJi_Metal_Steel_Silver.ambientTexture = ZhiShaJi_aoTexture1;
+        M_ZhiShaJi_Paint_Less.ambientTexture = ZhiShaJi_aoTexture1;
+        M_ZhiShaJi_Paint_Main.ambientTexture = ZhiShaJi_aoTexture1;
+        M_ZhiShaJi_Metal_Iron_Reseda.ambientTexture = ZhiShaJi_aoTexture1;
 
 
         M_ZhiShaJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
@@ -313,10 +321,10 @@ var createScene = function () {
 
     BABYLON.SceneLoader.Append("model/SheBei/", "YuanZhuiPoSuiJi.gltf", scene, function (meshes) {
 
-        let YuanZhuiPoSuiJi_aoTexture = new BABYLON.Texture("model/SheBei/YuanZhuiPoSuiJi_Ao2.jpg", scene);
-        YuanZhuiPoSuiJi_aoTexture.vScale = -1;
-        YuanZhuiPoSuiJi_aoTexture.coordinatesIndex = 1;
-
+         YuanZhuiPoSuiJi_aoTexture1 = new BABYLON.Texture("model/SheBei/YuanZhuiPoSuiJi_Ao2.jpg", scene);
+        YuanZhuiPoSuiJi_aoTexture1.vScale = -1;
+        YuanZhuiPoSuiJi_aoTexture1.coordinatesIndex = 1;
+        YuanZhuiPoSuiJi_aoTexture2 = new BABYLON.Texture("model/SheBei/YuanZhuiPoSuiJi_Ao.jpg", scene);
         //材质调整
 
         let M_YuanZhuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Main");
@@ -335,16 +343,16 @@ var createScene = function () {
         let M_YuanZhuiPoSuiJi_Plastic_Black = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Plastic_Black");
 
         // 添加ao
-        M_YuanZhuiPoSuiJi_Paint_Main.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-        M_YuanZhuiPoSuiJi_Paint_Less.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-        M_YuanZhuiPoSuiJi_Metal_Brass.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-        M_YuanZhuiPoSuiJi_Metal_Iron_Black.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-        M_YuanZhuiPoSuiJi_Metal_Iron_Gray.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-        M_YuanZhuiPoSuiJi_Metal_Steel_Silver.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-        M_YuanZhuiPoSuiJi_Plastic_Black.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-        M_YuanZhuiPoSuiJi_Screw_Steel.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-        M_YuanZhuiPoSuiJi_Metal_Iron.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-        M_YuanZhuiPoSuiJi_Metal_Iron_Crimson.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
+        M_YuanZhuiPoSuiJi_Paint_Main.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Paint_Less.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Brass.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Iron_Black.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Iron_Gray.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Steel_Silver.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Plastic_Black.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Screw_Steel.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Iron.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Iron_Crimson.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
 
         M_YuanZhuiPoSuiJi_Logo_Normal.ambientTexture = Logo_Alpha_Ao;
 

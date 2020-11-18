@@ -61,14 +61,10 @@ let animationChangeArr = [
         {
             btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false,
             val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" },
-            // cameraAnimNormolPosition: [-Math.PI/2, 1.47, 2.64],
-            // cameraAnimExploitPosition: [0, 1.386, 6.953],
-            // cameraAnimTargetNormolPosition: [new BABYLON.Vector3(3.13, 0.249, 0)],
-            // cameraAnimTargetExploitPosition: [new BABYLON.Vector3(2.86, 1.7929, 0)]
-            cameraAnimExploitPosition: [-Math.PI/2, 1.47, 2.64],
-            cameraAnimNormolPosition: [0, 1.386, 6.953],
-            cameraAnimTargetExploitPosition: [new BABYLON.Vector3(3.13, 0.249, 0)],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(2.86, 1.7929, 0)]
+            cameraAnimExploitPosition: [0, 1.386, 6.953],
+          //  cameraAnimNormolPosition: [0, 1.386, 6.953],
+            cameraAnimTargetExploitPosition: [new BABYLON.Vector3(2.86, 1.7929, 0)],
+          //  cameraAnimTargetNormolPosition: [new BABYLON.Vector3(2.86, 1.7929, 0)]
         },
     ],
     //second
@@ -90,9 +86,9 @@ let animationChangeArr = [
         {
             btnName: "modelbtn2", name: "YuanZhuiPoSuiJi", exploitd: false,
             val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" },
-            cameraAnimNormolPosition: [8, 2, 3],
+         //   cameraAnimNormolPosition: [8, 2, 3],
             cameraAnimExploitPosition: [0, 1.3939, 5.6],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
+         //   cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
             cameraAnimTargetExploitPosition: [new BABYLON.Vector3(0, 1.5, 0)]
         },
     ],
@@ -116,10 +112,10 @@ let animationChangeArr = [
         {
             btnName: "modelbtn3", name: "ZhiShaJi", exploitd: false,
             val: { exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" },
-            cameraAnimNormolPosition: [12, 2, 3],
-            cameraAnimExploitPosition: [1, 2, 3],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.3, 0)],
-            cameraAnimTargetExploitPosition: [new BABYLON.Vector3(-4, 2, 0)]
+        //    cameraAnimNormolPosition: [12, 2, 3],
+            cameraAnimExploitPosition: [Math.PI/2, 1.4, 5.845],
+       //     cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.3, 0)],
+            cameraAnimTargetExploitPosition: [new BABYLON.Vector3(-4, 1.727, 0)]
         }
     ]
 ]
@@ -170,8 +166,13 @@ function animationStart(animationName, keys, animCamera) {
     if (keys) {
         ag.start(false, 2, ag.from, ag.to)
         let activecam1 = scene.getCameraByID("Camera")
+<<<<<<< HEAD
      //   console.log( "this is animCamera : ",animCamera)
         cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
+=======
+        console.log( "this is animCamera : ",animCamera)
+        cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetExploitPosition, ...animCamera.cameraAnimExploitPosition)
+>>>>>>> 6af838d1b310939ea59c8552757b29f045e8d4b0
         // cameraPostionAnimate(activecam1,...animCamera.cameraAnimExploitPosition,...animCamera.cameraAnimTargetExploitPosition)
     }
     else {
@@ -259,7 +260,7 @@ function modelExploit(name) {
 
 // 第二版爆炸逻辑 
 function modelExploitV2(num,name, isExploit) {
-   // console.log("this is name : ",name);
+    console.log("this is name : ",name);
     let timeout = 1000;
     let animIndex = animationChangeArr[num].filter((value, index) => { if (value.btnName == name) { return value } })
    // console.log("this is animIndex : ",animIndex)
@@ -393,10 +394,12 @@ function materialXuanHuiPoSuiJiChangeAoTexture(isExploitd) {
         let XuanHuiPoSuiJi_aoTexture = null;
     //爆炸后
     if (isExploitd) {
-        XuanHuiPoSuiJi_aoTexture   = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao.jpg", scene);
+        XuanHuiPoSuiJi_aoTexture = XuanHuiPoSuiJi_aoTexture2
+       // XuanHuiPoSuiJi_aoTexture   = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao.jpg", scene);
     }
     else {
-         XuanHuiPoSuiJi_aoTexture = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao2.jpg", scene);
+        XuanHuiPoSuiJi_aoTexture = XuanHuiPoSuiJi_aoTexture1
+      //   XuanHuiPoSuiJi_aoTexture = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao2.jpg", scene);
 
     }
 
@@ -427,10 +430,12 @@ function materialZhiShaJiChangeAoTexture(isExploitd) {
     let ZhiShaJi_aoTexture = null;
     //爆炸后
     if (isExploitd) {
-         ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao.jpg", scene);
+        ZhiShaJi_aoTexture =ZhiShaJi_aoTexture2
+        // ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao.jpg", scene);
     }
     else {
-         ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao2.jpg", scene);
+        ZhiShaJi_aoTexture =ZhiShaJi_aoTexture1
+        // ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao2.jpg", scene);
 
     }
     ZhiShaJi_aoTexture.vScale = -1;
@@ -463,24 +468,40 @@ function materialYuanZhuiPoSuiJiChangeAoTexture(isExploitd) {
     let M_YuanZhuiPoSuiJi_Plastic_Black = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Plastic_Black");
     let YuanZhuiPoSuiJi_aoTexture = null;
     if (isExploitd) {
-        YuanZhuiPoSuiJi_aoTexture = new BABYLON.Texture("model/SheBei/YuanZhuiPoSuiJi_Ao.jpg", scene);
+     //   YuanZhuiPoSuiJi_aoTexture=YuanZhuiPoSuiJi_aoTexture2
+        YuanZhuiPoSuiJi_aoTexture2.vScale = -1;
+        YuanZhuiPoSuiJi_aoTexture2.coordinatesIndex = 1;
+        // 添加ao
+        M_YuanZhuiPoSuiJi_Paint_Main.ambientTexture = YuanZhuiPoSuiJi_aoTexture2;
+        M_YuanZhuiPoSuiJi_Paint_Less.ambientTexture = YuanZhuiPoSuiJi_aoTexture2;
+        M_YuanZhuiPoSuiJi_Metal_Brass.ambientTexture = YuanZhuiPoSuiJi_aoTexture2;
+        M_YuanZhuiPoSuiJi_Metal_Iron_Black.ambientTexture = YuanZhuiPoSuiJi_aoTexture2;
+        M_YuanZhuiPoSuiJi_Metal_Iron_Gray.ambientTexture = YuanZhuiPoSuiJi_aoTexture2;
+        M_YuanZhuiPoSuiJi_Metal_Steel_Silver.ambientTexture = YuanZhuiPoSuiJi_aoTexture2;
+        M_YuanZhuiPoSuiJi_Plastic_Black.ambientTexture = YuanZhuiPoSuiJi_aoTexture2;
+        M_YuanZhuiPoSuiJi_Screw_Steel.ambientTexture = YuanZhuiPoSuiJi_aoTexture2;
+        M_YuanZhuiPoSuiJi_Metal_Iron.ambientTexture = YuanZhuiPoSuiJi_aoTexture2;
+        M_YuanZhuiPoSuiJi_Metal_Iron_Crimson.ambientTexture = YuanZhuiPoSuiJi_aoTexture2;
+       // YuanZhuiPoSuiJi_aoTexture = new BABYLON.Texture("model/SheBei/YuanZhuiPoSuiJi_Ao.jpg", scene);
 
     } else {
-        YuanZhuiPoSuiJi_aoTexture = new BABYLON.Texture("model/SheBei/YuanZhuiPoSuiJi_Ao2.jpg", scene);
+        YuanZhuiPoSuiJi_aoTexture1.vScale = -1;
+        YuanZhuiPoSuiJi_aoTexture1.coordinatesIndex = 1;
+        // 添加ao
+        M_YuanZhuiPoSuiJi_Paint_Main.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Paint_Less.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Brass.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Iron_Black.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Iron_Gray.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Steel_Silver.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Plastic_Black.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Screw_Steel.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Iron.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+        M_YuanZhuiPoSuiJi_Metal_Iron_Crimson.ambientTexture = YuanZhuiPoSuiJi_aoTexture1;
+       // YuanZhuiPoSuiJi_aoTexture=YuanZhuiPoSuiJi_aoTexture1
+      //  YuanZhuiPoSuiJi_aoTexture = new BABYLON.Texture("model/SheBei/YuanZhuiPoSuiJi_Ao2.jpg", scene);
     }
-    YuanZhuiPoSuiJi_aoTexture.vScale = -1;
-    YuanZhuiPoSuiJi_aoTexture.coordinatesIndex = 1;
-    // 添加ao
-    M_YuanZhuiPoSuiJi_Paint_Main.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-    M_YuanZhuiPoSuiJi_Paint_Less.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-    M_YuanZhuiPoSuiJi_Metal_Brass.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-    M_YuanZhuiPoSuiJi_Metal_Iron_Black.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-    M_YuanZhuiPoSuiJi_Metal_Iron_Gray.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-    M_YuanZhuiPoSuiJi_Plastic_Black.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-    M_YuanZhuiPoSuiJi_Screw_Steel.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-    M_YuanZhuiPoSuiJi_Metal_Iron.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
-    M_YuanZhuiPoSuiJi_Metal_Iron_Crimson.ambientTexture = YuanZhuiPoSuiJi_aoTexture;
+
 
    
 
@@ -726,7 +747,7 @@ function initscene() {
     id = localStorage.getItem("id")
     // id = "1"
     paramsw = id;
-    // console.log(paramsw);
+    console.log(paramsw);
     let modelname = "modelbtn" + paramsw;
     // let colorname ="colorbtn" + paramsw
     nextModelAnim = modelname;
