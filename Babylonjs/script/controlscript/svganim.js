@@ -44,7 +44,9 @@ let animationArr = [
 
 
 let animationChangeArr = [
-    [{
+    //first
+    [
+        {
         cameraAnimNormolPosition: [1, 2, 3],
         cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.5, 0)],
     }, {
@@ -65,6 +67,7 @@ let animationChangeArr = [
         cameraAnimTargetExploitPosition: [new BABYLON.Vector3(4, 1.6, 0)]
     },
     ],
+    //second
     [
         {
 
@@ -90,6 +93,7 @@ let animationChangeArr = [
             cameraAnimTargetExploitPosition: [new BABYLON.Vector3(0, 1.5, 0)]
         },
     ],
+    //third
     [
     {
 
@@ -384,8 +388,8 @@ function materialXuanHuiPoSuiJiBlue() {
 
     M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.00784313725490196, 0.047058823529411764, 0.11372549019607843);
     M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
-    M_XuanHuiPoSuiJi_Paint_Main.metallic = 0.27;
-    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.19;
+    M_XuanHuiPoSuiJi_Paint_Main.metallic = 1;
+    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.43;
 
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
@@ -404,8 +408,8 @@ function materialXuanHuiPoSuiJiYellow() {
 
     M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
     M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.45;
-    M_XuanHuiPoSuiJi_Paint_Main.metallic = 0.2;
-    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.14;
+    M_XuanHuiPoSuiJi_Paint_Main.metallic = 1;
+    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.45;
 
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
@@ -488,11 +492,12 @@ function materialYuanZhuiPoSuiJiBlack() {
     let M_YuanZhuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Texture");
     let M_YuanZhuiPoSuiJi_Metal_Steel_Silver = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Steel_Silver");
     let M_YuanZhuiPoSuiJi_Paint_Less = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Less");
+    let M_YuanZhuiPoSuiJi_Logo_Normal = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Normal");
 
-    M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
+    M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0, 0, 0);
     M_YuanZhuiPoSuiJi_Paint_Main.metallic = 1;
-    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.2;
-    M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.02;
+    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.45;
+    M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
 
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.41568627450980394, 0.28627450980392155, 0.00392156862745098);
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.26;
@@ -503,8 +508,15 @@ function materialYuanZhuiPoSuiJiBlack() {
     M_YuanZhuiPoSuiJi_Paint_Less.metallicF0Factor = 0.5;
     M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
 
-    M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.4392156862745098, 0.4392156862745098, 0.4392156862745098);
-    M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.14;
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.2196078431372549, 0.16470588235294117, 0.0392156862745098);
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.metallic = 1;
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.21;
+
+    M_YuanZhuiPoSuiJi_Logo_Normal.albedoColor = M_YuanZhuiPoSuiJi_Paint_Main.albedoColor;
+    M_YuanZhuiPoSuiJi_Logo_Normal.metallicTexture = M_YuanZhuiPoSuiJi_Paint_Main.metallicTexture;
+    M_YuanZhuiPoSuiJi_Logo_Normal.metallic = M_YuanZhuiPoSuiJi_Paint_Main.metallic;
+    M_YuanZhuiPoSuiJi_Logo_Normal.roughness = M_YuanZhuiPoSuiJi_Paint_Main.roughness;
+    M_YuanZhuiPoSuiJi_Logo_Normal.metallicF0Factor = M_YuanZhuiPoSuiJi_Paint_Main.metallicF0Factor;
 }
 //材质调整 YuanZhuiPoSuiJi  Blue
 function materialYuanZhuiPoSuiJiBlue() {
@@ -513,14 +525,16 @@ function materialYuanZhuiPoSuiJiBlue() {
     let M_YuanZhuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Texture");
     let M_YuanZhuiPoSuiJi_Metal_Steel_Silver = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Steel_Silver");
     let M_YuanZhuiPoSuiJi_Paint_Less = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Less");
+    let M_YuanZhuiPoSuiJi_Logo_Normal = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Normal");
 
     M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.00784313725490196, 0.047058823529411764, 0.11372549019607843);
     M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
-    M_YuanZhuiPoSuiJi_Paint_Main.metallic = 0.27;
-    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.19;
+    M_YuanZhuiPoSuiJi_Paint_Main.metallic = 1;
+    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.43;
 
-    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.1803921568627451, 0.1803921568627451, 0.1803921568627451);
-    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.18;
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.2, 0.2, 0.2);
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.metallic = 1;
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.21;
 
     M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.09803921568627451, 0, 0);
     M_YuanZhuiPoSuiJi_Paint_Less.metallic = 0;
@@ -530,6 +544,13 @@ function materialYuanZhuiPoSuiJiBlue() {
 
     M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.4392156862745098, 0.4392156862745098, 0.4392156862745098);
     M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.14;
+
+    
+    M_YuanZhuiPoSuiJi_Logo_Normal.albedoColor = M_YuanZhuiPoSuiJi_Paint_Main.albedoColor;
+    M_YuanZhuiPoSuiJi_Logo_Normal.metallicTexture = M_YuanZhuiPoSuiJi_Paint_Main.metallicTexture;
+    M_YuanZhuiPoSuiJi_Logo_Normal.metallic = M_YuanZhuiPoSuiJi_Paint_Main.metallic;
+    M_YuanZhuiPoSuiJi_Logo_Normal.roughness = M_YuanZhuiPoSuiJi_Paint_Main.roughness;
+    M_YuanZhuiPoSuiJi_Logo_Normal.metallicF0Factor = M_YuanZhuiPoSuiJi_Paint_Main.metallicF0Factor;
 }
 
 //材质调整 YuanZhuiPoSuiJi  Yellow
@@ -539,14 +560,16 @@ function materialYuanZhuiPoSuiJiYellow() {
     let M_YuanZhuiPoSuiJi_Logo_Texture = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Texture");
     let M_YuanZhuiPoSuiJi_Metal_Steel_Silver = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Steel_Silver");
     let M_YuanZhuiPoSuiJi_Paint_Less = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Less");
+    let M_YuanZhuiPoSuiJi_Logo_Normal = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Normal");
 
     M_YuanZhuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.36470588235294116, 0.18823529411764706, 0);
     M_YuanZhuiPoSuiJi_Paint_Main.bumpTexture.level = 0.45;
-    M_YuanZhuiPoSuiJi_Paint_Main.metallic = 0.2;
-    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.14;
+    M_YuanZhuiPoSuiJi_Paint_Main.metallic = 1;
+    M_YuanZhuiPoSuiJi_Paint_Main.roughness = 0.45;
 
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.2, 0.2, 0.2);
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.metallic = 1;
-    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.05;
+    M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.21;
 
     M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.23921568627450981, 0.23921568627450981, 0.23921568627450981);
     M_YuanZhuiPoSuiJi_Paint_Less.metallic = 1;
@@ -556,6 +579,12 @@ function materialYuanZhuiPoSuiJiYellow() {
 
     M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
     M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.5;
+
+    M_YuanZhuiPoSuiJi_Logo_Normal.albedoColor = M_YuanZhuiPoSuiJi_Paint_Main.albedoColor;
+    M_YuanZhuiPoSuiJi_Logo_Normal.metallicTexture = M_YuanZhuiPoSuiJi_Paint_Main.metallicTexture;
+    M_YuanZhuiPoSuiJi_Logo_Normal.metallic = M_YuanZhuiPoSuiJi_Paint_Main.metallic;
+    M_YuanZhuiPoSuiJi_Logo_Normal.roughness = M_YuanZhuiPoSuiJi_Paint_Main.roughness;
+    M_YuanZhuiPoSuiJi_Logo_Normal.metallicF0Factor = M_YuanZhuiPoSuiJi_Paint_Main.metallicF0Factor;
 }
 
 function initscene() {
