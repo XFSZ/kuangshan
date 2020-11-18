@@ -93,8 +93,8 @@
     <div class="buttom-box">
       <div class="leftbtn">
 
-        <div class="image-introduction-box">
-          <!-- <div class="image-introduction-bg" style="width: 100%; height: 50px;  background-color: #d50000;  mix-blend-mode: color;"> </div> -->
+        <div id="imageIntroductionBox" class="image-introduction-box">
+          <!-- <div class="image-introduction-bg" style="width: 100%; height: 50px; visibility:hidden;  background-color: #d50000;  mix-blend-mode: color;"> </div> -->
           <img  src="./ui/pic/redbg.png" class="image-introduction-bg"></img>
           <img  id="imgId" src="./ui/pic/A1.png" class="image-introduction"> </img>
           <!-- </div> -->
@@ -138,23 +138,22 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <!-- <div style="width: 300px; height: 100px"></div> -->
-                <div style="width: 400px; height: 76px;"></div>
+                <div style="width: 400px; height: 64px;"></div>
               </div>
               <div class="carousel-item">
-                <div style="width: 400px; height: 76px;"></div>
+                <div style="width: 400px; height: 64px;"></div>
               </div>
               <div class="carousel-item">
-                <div style="width: 400px; height: 76px;"></div>
+                <div style="width: 400px; height: 64px;"></div>
               </div>
               <div class="carousel-item">
-                <div style="width: 400px; height: 76px;"></div>
+                <div style="width: 400px; height: 64px;"></div>
               </div>
             </div>
   
             <!-- 左右切换按钮 -->
             <a
               class="carousel-control-prev"
-           
               href="#myCarousel"
               data-slide="prev"
             >
@@ -216,7 +215,8 @@
 
 
         
-    let currentModelNum = 1;
+    let nextModelNum = 1;
+    let currentModelNum  = nextModelNum; 
     let modelIntroImgPath=[["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"],["ui/pic/B1.png","ui/pic/B2.png","ui/pic/B3.png"],["ui/pic/C1.png","ui/pic/C2.png","ui/pic/C3.png"]];
     let imgpath=["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"]
     let iconpath=["ui/pic/l1.png","ui/pic/l2.png","ui/pic/l3.png"]
@@ -232,6 +232,14 @@
     changeImgSrc(event.to)
     if(event.from==3 && event.to==2){
       modelExploitV2(nextModelAnim,false)
+      $(".carousel-control-prev").removeAttr('data-slide');
+      $(".carousel-control-next").removeAttr('data-slide');
+      setTimeout(()=>{
+      $(".carousel-control-prev").attr('data-slide','prev');
+      $(".carousel-control-next").attr('data-slide','next');
+      },2000)
+      $('#imageIntroductionBox').css("visibility","visible");
+    // mouseEvenTimeOut = false
     }
 })
 
@@ -240,6 +248,8 @@
       checkitem();
       changeImgSrc(0);
       clickEvent(1);
+      $("#icon1").attr('src',icon2path[0]);
+
     });
 
     function checkitem() {
@@ -263,31 +273,43 @@
     function changeImgSrc(arg){
       //$("#imgId").attr('src',imgpath[arg]);
       if(arg!=3){
-        
         $("#imgId").attr('src',modelIntroImgPath[currentModelNum][arg]);
       let activecam1 = scene.getCameraByID("Camera")
       let animCamera = animationChangeArr[currentModelNum][arg]
         cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
       }
       else{
+        $('#imageIntroductionBox').css("visibility","hidden");
         modelExploitV2(nextModelAnim,true)
+        $(".carousel-control-prev").removeAttr('data-slide');
+      $(".carousel-control-next").removeAttr('data-slide');
+      setTimeout(()=>{
+      $(".carousel-control-prev").attr('data-slide','prev');
+      $(".carousel-control-next").attr('data-slide','next');
+      },2000)
+      
       }
 
     }
     function clickEvent(args){
-      currentModelNum = args-1
+      nextModelNum = currentModelNum;
+      currentModelNum = args-1;
+      if(currentModelNum != nextModelNum){
+     // currentModelNum = args-1
       changeImgSrc(0);
       $('.carousel').carousel(0)
+      $('#imageIntroductionBox').css("visibility","visible");
      // modelExploit(nextModelAnim)
       for(let i =1;i<iconpath.length+1;i++){
              if(i==args){
-               
               $("#icon"+i).attr('src',icon2path[i-1]);
              }
              else{
               $("#icon"+i).attr('src',iconpath[i-1]);
              }
       }
+      }
+
     }
   </script>
   
