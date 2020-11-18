@@ -255,19 +255,26 @@ function inithtml(){
       changeImgSrc(id-1);
       clickEvent(id);
       $("#icon"+id).attr('src',icon2path[id-1]);
+    //   setTimeout(()=>{
+    //   $("#modelbtn1").css("pointer-events","auto")
+    //   $("#modelbtn2").css("pointer-events","auto")
+    //   $("#modelbtn3").css("pointer-events","auto")
+    //  },2500)
+}
+window.onload= function(){
       setTimeout(()=>{
       $("#modelbtn1").css("pointer-events","auto")
       $("#modelbtn2").css("pointer-events","auto")
       $("#modelbtn3").css("pointer-events","auto")
-     },5000)
+     },3000)
 }
-  $(document).ready(function () {
-    // setTimeout(()=>{
-    //   $("#modelbtn1").css("pointer-events","auto")
-    //   $("#modelbtn2").css("pointer-events","auto")
-    //   $("#modelbtn3").css("pointer-events","auto")
-    //  },5000)
-  });
+  // $(document).ready(function () {
+  //   setTimeout(()=>{
+  //     $("#modelbtn1").css("pointer-events","auto")
+  //     $("#modelbtn2").css("pointer-events","auto")
+  //     $("#modelbtn3").css("pointer-events","auto")
+  //    },3000)
+  // });
 function timeoutbtn(){
       $("#modelbtn1").css("pointer-events","none")
       $("#modelbtn2").css("pointer-events","none")
@@ -337,7 +344,7 @@ function timeoutbtn(){
       nextModelNum = currentModelNum;
       currentModelNum = args-1;
       if(currentModelNum != nextModelNum){
-        
+      //  modelExploitV2(currentModelNum,nextModelAnim,false)
      // currentModelNum = args-1
     // materialXuanHuiPoSuiJiChangeAoTexture(false)
     hotSpotControl(0,0);
