@@ -21,9 +21,10 @@ function iframehidden(){
     iframeVal.height ="0%";
 
     initpage.hidden = false;
-    
+
     iframeVal.hidden = true;
-   
+    window.parent.initscene();
+    window.parent.inithtml()
 //    setTimeout(()=>{
    // window.parent.initscene()
    
