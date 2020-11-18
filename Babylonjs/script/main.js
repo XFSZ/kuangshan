@@ -162,7 +162,7 @@ var createScene = function () {
         M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.vScale = 30;
         M_XuanHuiPoSuiJi_Paint_Main.metallicTexture  = new BABYLON.Texture("model/SheBei/Specular.jpg", scene);
         M_XuanHuiPoSuiJi_Paint_Main.metallic = 1;
-        M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.6;
+        M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.43;
         M_XuanHuiPoSuiJi_Paint_Main.metallicF0Factor = 0.6;
     
         M_XuanHuiPoSuiJi_Metal_Iron.metallic = 1;
@@ -181,10 +181,13 @@ var createScene = function () {
         M_XuanHuiPoSuiJi_Logo_Normal.albedoColor = M_XuanHuiPoSuiJi_Paint_Main.albedoColor;
         M_XuanHuiPoSuiJi_Logo_Normal.opacityTexture = new BABYLON.Texture("model/SheBei/Logo_Alpha_Ao.png");
         M_XuanHuiPoSuiJi_Logo_Normal.opacityTexture.vScale = -1;
-        M_XuanHuiPoSuiJi_Logo_Normal.bumpTexture = new BABYLON.Texture('model/SheBei/Logo_Normal.png')
+        M_XuanHuiPoSuiJi_Logo_Normal.bumpTexture = new BABYLON.Texture('model/SheBei/Logo_Normal.jpg')
         M_XuanHuiPoSuiJi_Logo_Normal.bumpTexture.vScale = -1;
         M_XuanHuiPoSuiJi_Logo_Normal.transparencyMode = 3;
-        M_XuanHuiPoSuiJi_Logo_Normal.roughness = 0.5;
+        M_XuanHuiPoSuiJi_Logo_Normal.metallicTexture = M_XuanHuiPoSuiJi_Paint_Main.metallicTexture;
+        M_XuanHuiPoSuiJi_Logo_Normal.metallic = M_XuanHuiPoSuiJi_Paint_Main.metallic;
+        M_XuanHuiPoSuiJi_Logo_Normal.roughness = M_XuanHuiPoSuiJi_Paint_Main.roughness;
+        M_XuanHuiPoSuiJi_Logo_Normal.metallicF0Factor = M_XuanHuiPoSuiJi_Paint_Main.metallicF0Factor;
     
     
         M_XuanHuiPoSuiJi_Metal_Iron_Crimson.albedoColor = new BABYLON.Color3(0.1333333, 0.027450980, 0.0274509);

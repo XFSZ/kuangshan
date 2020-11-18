@@ -46,7 +46,7 @@ let animationArr = [
     {
         btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false,
         val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" },
-        cameraAnimNormolPosition: [ 1,2,3],
+        cameraAnimNormolPosition: [ 1.5,1.42,3],
         cameraAnimExploitPosition: [ 1,2,3],
         cameraAnimTargetNormolPosition: [ new BABYLON.Vector3(4, 0.5, 0)],
         cameraAnimTargetExploitPosition: [ new BABYLON.Vector3(4, 1.6, 0)]
@@ -54,7 +54,7 @@ let animationArr = [
     {
         btnName: "modelbtn2", name: "YuanZhuiPoSuiJi", exploitd: false,
         val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" },
-        cameraAnimNormolPosition: [ 2,2,3],
+        cameraAnimNormolPosition: [ 1.5,1.42,3],
         cameraAnimExploitPosition: [ 1,2,3],
         cameraAnimTargetNormolPosition: [ new BABYLON.Vector3(0, 0.5, 0)],
         cameraAnimTargetExploitPosition: [ new BABYLON.Vector3(0, 1.5, 0)]
@@ -62,7 +62,7 @@ let animationArr = [
     {
         btnName: "modelbtn3", name: "ZhiShaJi", exploitd: false,
         val: { exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" },
-        cameraAnimNormolPosition: [ 3,2,3],
+        cameraAnimNormolPosition: [ 1.5,1.42,3],
         cameraAnimExploitPosition: [ 1,2,3],
         cameraAnimTargetNormolPosition: [ new BABYLON.Vector3(-4, 0.3, 0)],
         cameraAnimTargetExploitPosition: [ new BABYLON.Vector3(-4, 2, 0)]
@@ -283,28 +283,26 @@ function btnrander(type, name, path) {
 //材质调整 XuanHuiPoSuiJi Black
 function materialXuanHuiPoSuiJiBlack() {
 
-    // let M_XuanHuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Screw_Steel");
     let M_XuanHuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_Screw_Steel");
     let M_XuanHuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_XuanHuiPoSuiJi_Paint_Main");
     let M_XuanHuiPoSuiJi_Logo_Normal = scene.getMaterialByID("M_XuanHuiPoSuiJi_Logo_Normal")
 
-    M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
+    M_XuanHuiPoSuiJi_Paint_Main.albedoColor = new BABYLON.Color3(0, 0, 0);
     M_XuanHuiPoSuiJi_Paint_Main.metallic = 1;
-    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.2;
-    M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.02;
-
-    // M_XuanHuiPoSuiJi_AN_Screw_Steel.albedoColor = new BABYLON.Color3(0.1411764705882353, 0.09411764705882353, 0);
-    // M_XuanHuiPoSuiJi_AN_Screw_Steel.roughness = 0.24;
-
+    M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.45;
+    M_XuanHuiPoSuiJi_Paint_Main.bumpTexture.level = 0.5;
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.1411764705882353, 0.09411764705882353, 0);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
 
     M_XuanHuiPoSuiJi_Logo_Normal.albedoColor = M_XuanHuiPoSuiJi_Paint_Main.albedoColor;
+    M_XuanHuiPoSuiJi_Logo_Normal.metallicTexture = M_XuanHuiPoSuiJi_Paint_Main.metallicTexture;
+    M_XuanHuiPoSuiJi_Logo_Normal.metallic = M_XuanHuiPoSuiJi_Paint_Main.metallic;
+    M_XuanHuiPoSuiJi_Logo_Normal.roughness = M_XuanHuiPoSuiJi_Paint_Main.roughness;
+    M_XuanHuiPoSuiJi_Logo_Normal.metallicF0Factor = M_XuanHuiPoSuiJi_Paint_Main.metallicF0Factor;
 
 }
 //材质调整 XuanHuiPoSuiJi Blue
 function materialXuanHuiPoSuiJiBlue() {
-    // let M_XuanHuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Screw_Steel");
     let M_XuanHuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_Screw_Steel");
     let M_XuanHuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_XuanHuiPoSuiJi_Paint_Main");
     let M_XuanHuiPoSuiJi_Logo_Normal = scene.getMaterialByID("M_XuanHuiPoSuiJi_Logo_Normal")
@@ -314,17 +312,17 @@ function materialXuanHuiPoSuiJiBlue() {
     M_XuanHuiPoSuiJi_Paint_Main.metallic = 0.27;
     M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.19;
 
-    // M_XuanHuiPoSuiJi_AN_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
-    // M_XuanHuiPoSuiJi_AN_Screw_Steel.roughness = 0.24;
-
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
 
     M_XuanHuiPoSuiJi_Logo_Normal.albedoColor = M_XuanHuiPoSuiJi_Paint_Main.albedoColor;
+    M_XuanHuiPoSuiJi_Logo_Normal.metallicTexture = M_XuanHuiPoSuiJi_Paint_Main.metallicTexture;
+    M_XuanHuiPoSuiJi_Logo_Normal.metallic = M_XuanHuiPoSuiJi_Paint_Main.metallic;
+    M_XuanHuiPoSuiJi_Logo_Normal.roughness = M_XuanHuiPoSuiJi_Paint_Main.roughness;
+    M_XuanHuiPoSuiJi_Logo_Normal.metallicF0Factor = M_XuanHuiPoSuiJi_Paint_Main.metallicF0Factor;
 }
 //材质调整  XuanHuiPoSuiJi Yellow
 function materialXuanHuiPoSuiJiYellow() {
-    // let M_XuanHuiPoSuiJi_AN_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_AN_Screw_Steel");
     let M_XuanHuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_XuanHuiPoSuiJi_Screw_Steel");
     let M_XuanHuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_XuanHuiPoSuiJi_Paint_Main");
     let M_XuanHuiPoSuiJi_Logo_Normal = scene.getMaterialByID("M_XuanHuiPoSuiJi_Logo_Normal")
@@ -334,13 +332,14 @@ function materialXuanHuiPoSuiJiYellow() {
     M_XuanHuiPoSuiJi_Paint_Main.metallic = 0.2;
     M_XuanHuiPoSuiJi_Paint_Main.roughness = 0.14;
 
-    // M_XuanHuiPoSuiJi_AN_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
-    // M_XuanHuiPoSuiJi_AN_Screw_Steel.roughness = 0.24;
-
     M_XuanHuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.03, 0.03, 0.03);
     M_XuanHuiPoSuiJi_Screw_Steel.roughness = 0.24;
 
     M_XuanHuiPoSuiJi_Logo_Normal.albedoColor = M_XuanHuiPoSuiJi_Paint_Main.albedoColor;
+    M_XuanHuiPoSuiJi_Logo_Normal.metallicTexture = M_XuanHuiPoSuiJi_Paint_Main.metallicTexture;
+    M_XuanHuiPoSuiJi_Logo_Normal.metallic = M_XuanHuiPoSuiJi_Paint_Main.metallic;
+    M_XuanHuiPoSuiJi_Logo_Normal.roughness = M_XuanHuiPoSuiJi_Paint_Main.roughness;
+    M_XuanHuiPoSuiJi_Logo_Normal.metallicF0Factor = M_XuanHuiPoSuiJi_Paint_Main.metallicF0Factor;
 }
 //材质调整 ZhiShaJi Black
 function materialZhiShaJiBlack() {
@@ -507,8 +506,8 @@ function initscene() {
   //  setTimeout( ()=> {
     initCamera();
     initAnim(nextModelAnim);
-   loadPic();
-   hotSpot();
+//    loadPic();
+//    hotSpot();
    // },1000)
     // setTimeout(()=>{mouseEvenTimeOut = false},2000)
 }
