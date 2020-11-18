@@ -62,9 +62,9 @@ let animationChangeArr = [
             btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false,
             val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" },
             cameraAnimExploitPosition: [0, 1.386, 6.953],
-          //  cameraAnimNormolPosition: [0, 1.386, 6.953],
+           cameraAnimNormolPosition: [-Math.PI/2, 1.47, 2.64],
             cameraAnimTargetExploitPosition: [new BABYLON.Vector3(2.86, 1.7929, 0)],
-          //  cameraAnimTargetNormolPosition: [new BABYLON.Vector3(2.86, 1.7929, 0)]
+           cameraAnimTargetNormolPosition: [new BABYLON.Vector3(3.13, 0.249, 0)]
         },
     ],
     //second
@@ -86,9 +86,9 @@ let animationChangeArr = [
         {
             btnName: "modelbtn2", name: "YuanZhuiPoSuiJi", exploitd: false,
             val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" },
-         //   cameraAnimNormolPosition: [8, 2, 3],
+           cameraAnimNormolPosition: [-0.96351, 1.303, 2.75],
             cameraAnimExploitPosition: [0, 1.3939, 5.6],
-         //   cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
+           cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-0.6374, 0.1744, 0)],
             cameraAnimTargetExploitPosition: [new BABYLON.Vector3(0, 1.5, 0)]
         },
     ],
@@ -112,9 +112,9 @@ let animationChangeArr = [
         {
             btnName: "modelbtn3", name: "ZhiShaJi", exploitd: false,
             val: { exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" },
-        //    cameraAnimNormolPosition: [12, 2, 3],
+           cameraAnimNormolPosition: [-Math.PI/2, 1.357, 1.935],
             cameraAnimExploitPosition: [Math.PI/2, 1.4, 5.845],
-       //     cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.3, 0)],
+           cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.080, 0)],
             cameraAnimTargetExploitPosition: [new BABYLON.Vector3(-4, 1.727, 0)]
         }
     ]
@@ -166,15 +166,15 @@ function animationStart(animationName, keys, animCamera) {
     if (keys) {
         ag.start(false, 2, ag.from, ag.to)
         let activecam1 = scene.getCameraByID("Camera")
-        console.log( "this is animCamera : ",animCamera)
+        //console.log( "this is animCamera : ",animCamera)
         cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetExploitPosition, ...animCamera.cameraAnimExploitPosition)
         // cameraPostionAnimate(activecam1,...animCamera.cameraAnimExploitPosition,...animCamera.cameraAnimTargetExploitPosition)
     }
     else {
         ag.start(false, 2, ag.to, ag.from)
-        //let activecam1 = scene.getCameraByID("Camera")
+        let activecam1 = scene.getCameraByID("Camera")
         //console.log( "this is animCamera2 : ",animCamera)
-       // cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
+       cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
         //  cameraPostionAnimate(activecam1,...animCamera.cameraAnimNormolPosition,...animCamera.cameraAnimTargetNormolPosition)
     }
     return ag.to * (1000 / 2) + 100
@@ -215,6 +215,43 @@ function modelChange(currenModelAnim, nextModelAnim) {
     // cameraPostionAnimate(activecam1,...animIn[0].cameraAnimNormolPosition,...animIn[0].cameraAnimTargetNormolPosition)
     let inTimeOut = 1000;
     inTimeOut = animationInOut(animIn[0].val.inout, "in")
+    setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
+    // setTimeout(() => {
+    //     // resetColorBtn();   // 重置 颜色按钮
+    //     //入场
+    //     let inTimeOut = 1000;
+    //     inTimeOut = animationInOut(animIn[0].val.inout, "in")
+    //     setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
+
+    // }, timeout)
+
+
+}
+// 退场逻辑   已爆炸的执行 爆炸退场  未爆炸的执行 普通退场
+function modelChangeV2(cnum,nnum,currenModelAnim, nextModelAnim) {
+    // 退场
+    let timeout = 1000;
+  //  console.log("num : ",animationChangeArr[num])
+    let animIn = animationChangeArr[cnum][3]
+    let animOut = animationChangeArr[nnum][3]
+    console.log("animOut : ",animOut)
+    console.log("animIn : ",animIn)
+    if (animOut.exploitd) {
+        // 已爆炸
+        timeout = animationInOut(animOut.val.exploitout, "exploitd")
+        animOut.exploitd = false;
+      //  resetExploitBtn();    // 重置 爆炸按钮 
+
+    } else {
+        //未爆炸
+        timeout = animationInOut(animOut.val.inout, "out")
+   }
+
+    let activecam1 = scene.getCameraByID("Camera")
+    cameraArcRotateAnimate(activecam1, ...animIn.cameraAnimTargetNormolPosition, ...animIn.cameraAnimNormolPosition)
+    // cameraPostionAnimate(activecam1,...animIn[0].cameraAnimNormolPosition,...animIn[0].cameraAnimTargetNormolPosition)
+    let inTimeOut = 1000;
+    inTimeOut = animationInOut(animIn.val.inout, "in")
     setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
     // setTimeout(() => {
     //     // resetColorBtn();   // 重置 颜色按钮
