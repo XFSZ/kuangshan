@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta
       name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      content="width=device-width, user-scalable=no, shrink-to-fit=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <title>顺达重矿</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="control.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <style>
       html,
       body {
@@ -47,15 +48,19 @@
         width: 100%;
       }
     </style>
-      <script type="text/javascript">
-        try {
-            if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-                window.location.href = "./mobile/index.html";
-            } 
-        } catch (e) {}
+    <script type="text/javascript">
+      try {
+        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+          window.location.href = "./mobile/index.html";
+        }
+      } catch (e) {}
     </script>
-    <script src="./animation/player/lottie.js"></script>
+    <script src="animation/player/lottie.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="script/babylon.js"></script>
+    <script src="script/babylon.gui.min.js"></script>
     <script src="script/babylonjs.loaders.min.js"></script>
     <script src="script/pep.js"></script>
     <script src="script/babylon.shadowOnlyMaterial.min.js"></script>
@@ -63,7 +68,7 @@
   </head>
   <body>
     <!-- <div class="UITest"><img src="./textures/UI.png" alt=""></div> -->
-    <iframe
+    <!-- <iframe
       id="ifr"
       name="indexIfr"
       width="100%"
@@ -73,8 +78,10 @@
       marginheight="0"
       marginwidth="0"
       src="./index/index.html"
-    ></iframe>
+    ></iframe> -->
+    
     <canvas id="renderCanvas"></canvas>
+    
     <script src="script/main.js"></script>
     <div id="loadingScreen_Container">
       <div class="loadingLogo">
@@ -123,14 +130,56 @@
         ></div>
       </div>
     </div>
-    <div class="buttom-box">
+    <div class="buttombox">
+      <div style="width: 300px;height: 200px;  background-color: #d50000;  mix-blend-mode: color;"></div>
+      <div class="carousel-box">
+        <div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
+ 
+          <!-- 指示符 -->
+          <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+          </ul>
+         
+          <!-- 轮播图片 -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div style="width: 300px;height: 200px;  "></div>
+            </div>
+            <div class="carousel-item">
+              <div style="width: 300px;height: 200px;"></div>
+            </div>
+            <div class="carousel-item">
+              <div style="width: 300px;height: 200px;"></div>
+            </div>
+          </div>
+         
+          <!-- 左右切换按钮 -->
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+         
+        </div>
+    </div>
+    </div>
+    <!-- <div class="buttom-box">
       <div
         class="btn buttom-btnsize btnposi"
         id="displaybtn1"
         onclick="mouseup('display','displaybtn1')"
       ></div>
-    </div>
+    </div> -->
   </body>
+  <script>
+    $('.carousel').carousel({
+      interval:false,
+      keyboard:false,   
+    })
+  </script>
   <script src="script/controlscript/modelcontrol.js"></script>
   <script src="script/controlscript/svganim.js"></script>
   <script src="script/controlscript/cameracontrol.js"></script>

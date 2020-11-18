@@ -463,6 +463,7 @@ function initscene() {
     btnrander('color', 'colorbtn3', './animation/datac3.json');
     btnrander('display', 'displaybtn1', './animation/dataplus2.json');
     id = localStorage.getItem("id")
+    id = "1"
     paramsw = id;
     console.log(paramsw);
     let modelname = "modelbtn" + paramsw;
@@ -476,6 +477,8 @@ function initscene() {
   //  setTimeout( ()=> {
     initCamera();
     initAnim(nextModelAnim);
+    loadPic();
+    hotSpot();
    // },1000)
     // setTimeout(()=>{mouseEvenTimeOut = false},2000)
 }
@@ -499,7 +502,9 @@ function initAnim(nextModelAnim) {
     // inTimeOut = animationInOut(animIn[0].val.inout, "in")
     // setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
 }
-
+window.onload=function(){
+    initscene();
+}
 
 
 
