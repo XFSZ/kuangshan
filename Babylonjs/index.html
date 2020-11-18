@@ -256,6 +256,23 @@ function inithtml(){
       clickEvent(id);
       $("#icon"+id).attr('src',icon2path[id-1]);
 }
+  $(document).ready(function () {
+    setTimeout(()=>{
+      $("#modelbtn1").css("pointer-events","auto")
+      $("#modelbtn2").css("pointer-events","auto")
+      $("#modelbtn3").css("pointer-events","auto")
+     },5000)
+  });
+function timeoutbtn(){
+      $("#modelbtn1").css("pointer-events","none")
+      $("#modelbtn2").css("pointer-events","none")
+      $("#modelbtn3").css("pointer-events","none")
+  setTimeout(()=>{
+      $("#modelbtn1").css("pointer-events","auto")
+      $("#modelbtn2").css("pointer-events","auto")
+      $("#modelbtn3").css("pointer-events","auto")
+     },2000)
+}
 
     // $(document).ready(function () {
     //  // initscene();
@@ -296,7 +313,7 @@ function inithtml(){
       else{
         $('#imageIntroductionBox').css("visibility","hidden");
         modelExploitV2(currentModelNum,nextModelAnim,true)
-       
+        timeoutbtn()
         $(".carousel-control-prev").removeAttr('data-slide');
       $(".carousel-control-next").removeAttr('data-slide');
       setTimeout(()=>{
@@ -314,6 +331,7 @@ function inithtml(){
       nextModelNum = currentModelNum;
       currentModelNum = args-1;
       if(currentModelNum != nextModelNum){
+        
      // currentModelNum = args-1
     // materialXuanHuiPoSuiJiChangeAoTexture(false)
     hotSpotControl(0,0);
