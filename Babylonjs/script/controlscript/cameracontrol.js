@@ -11,7 +11,7 @@ function cameraArcRotateAndPostionAnimate(activecam, movepostion, targetposition
      
       // move the camera target
       animLookAt(activecam, targetposition),
-      
+
       ...animArcRotateCameraMove(activecam,alpha,beta,radius),
        // move the camera position
        animMove(activecam, movepostion),
@@ -21,7 +21,7 @@ function cameraArcRotateAndPostionAnimate(activecam, movepostion, targetposition
 }
 // 带有 alpha, beta, radius  的 相机动画
 function cameraArcRotateAnimate(activecam, targetposition,alpha, beta, radius){
-  console.log("this is ArcRotate : ",alpha,beta,radius)
+ // console.log("this is ArcRotate : ",alpha,beta,radius)
   let animations = []
 
     animations = [
@@ -35,7 +35,7 @@ function cameraArcRotateAnimate(activecam, targetposition,alpha, beta, radius){
 }
 // 带有   postion 的 相机动画
 function cameraPostionAnimate(activecam, movepostion, targetposition) {
-  console.log("this is target : ",targetposition)
+ // console.log("this is target : ",targetposition)
   // create two animations that should happen simultaneously
   let animations = []
   animations = [

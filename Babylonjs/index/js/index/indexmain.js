@@ -23,6 +23,9 @@ function iframehidden(){
     initpage.hidden = false;
 
     iframeVal.hidden = true;
+    //window.parent.document.getElementById("modelbtn1")
+    //window.parent.document.getElementById("modelbtn2")
+    //window.parent.document.getElementById("modelbtn3")
     window.parent.initscene();
     window.parent.inithtml()
 //    setTimeout(()=>{
