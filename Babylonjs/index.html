@@ -104,17 +104,17 @@
       <div class="rightbtn">
         <div class="color-box">
         <div
-          class="btncss btnsize"
+          class="colorbtncss btnsize"
           id="colorbtn1"
           onclick="mouseup('color','colorbtn1')"
         ></div>
         <div
-          class="btncss btnsize"
+          class="colorbtncss btnsize"
           id="colorbtn2"
           onclick="mouseup('color','colorbtn2')"
         ></div>
         <div
-          class="btncss btnsize"
+          class="colorbtncss btnsize"
           id="colorbtn3"
           onclick="mouseup('color','colorbtn3')"
         ></div>
@@ -250,18 +250,23 @@
 })
 
 function inithtml(){
-  id = localStorage.getItem("id")
+      id = localStorage.getItem("id")
       checkitem();
       changeImgSrc(id-1);
       clickEvent(id);
       $("#icon"+id).attr('src',icon2path[id-1]);
-}
-  $(document).ready(function () {
-    setTimeout(()=>{
+      setTimeout(()=>{
       $("#modelbtn1").css("pointer-events","auto")
       $("#modelbtn2").css("pointer-events","auto")
       $("#modelbtn3").css("pointer-events","auto")
      },5000)
+}
+  $(document).ready(function () {
+    // setTimeout(()=>{
+    //   $("#modelbtn1").css("pointer-events","auto")
+    //   $("#modelbtn2").css("pointer-events","auto")
+    //   $("#modelbtn3").css("pointer-events","auto")
+    //  },5000)
   });
 function timeoutbtn(){
       $("#modelbtn1").css("pointer-events","none")
