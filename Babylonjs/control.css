@@ -118,14 +118,14 @@
 
   .carousel-box{
     width:400px;
-    /* height: 76px; */
-    /* display: flex; */
+    height: 76px;
+    display: flex;
     flex-direction: column;
     pointer-events: auto;
     /* margin-bottom: 22px; */
     align-items: center;
     justify-content: flex-end;
-    margin-top: -30px;
+    margin-top: -12px;
   }
   .imgclass{
     width:100%;
