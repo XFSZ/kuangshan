@@ -68,7 +68,7 @@
   </head>
   <body>
     <!-- <div class="UITest"><img src="./textures/UI.png" alt=""></div> -->
-    <!-- <iframe
+    <iframe
       id="ifr"
       name="indexIfr"
       width="100%"
@@ -78,7 +78,7 @@
       marginheight="0"
       marginwidth="0"
       src="./index/index.html"
-    ></iframe> -->
+    ></iframe>
 
     <canvas id="renderCanvas"></canvas>
     <script src="script/main.js"></script>
@@ -90,7 +90,7 @@
         </div>
       </div>
     </div>
-    <div class="buttom-box">
+    <div id="initPageButton" class="buttom-box" hidden = true >
       <div class="leftbtn">
 
         <div id="imageIntroductionBox" class="image-introduction-box">
@@ -231,14 +231,19 @@
     checkitem()
     changeImgSrc(event.to)
     if(event.from==3 && event.to==2){
+      let ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao2.jpg", scene);
       modelExploitV2(nextModelAnim,false)
       $(".carousel-control-prev").removeAttr('data-slide');
       $(".carousel-control-next").removeAttr('data-slide');
       setTimeout(()=>{
       $(".carousel-control-prev").attr('data-slide','prev');
       $(".carousel-control-next").attr('data-slide','next');
-      },2000)
+      materialXuanHuiPoSuiJiChangeAoTexture(false)
+      materialZhiShaJiChangeAoTexture(false)
+      materialYuanZhuiPoSuiJiChangeAoTexture(false)
+      },1500)
       $('#imageIntroductionBox').css("visibility","visible");
+     
     // mouseEvenTimeOut = false
     }
 })
@@ -287,7 +292,9 @@
       $(".carousel-control-prev").attr('data-slide','prev');
       $(".carousel-control-next").attr('data-slide','next');
       },2000)
-      
+      materialXuanHuiPoSuiJiChangeAoTexture(true)
+      materialZhiShaJiChangeAoTexture(true)
+      materialYuanZhuiPoSuiJiChangeAoTexture(true)
       }
 
     }
@@ -296,6 +303,10 @@
       currentModelNum = args-1;
       if(currentModelNum != nextModelNum){
      // currentModelNum = args-1
+    // materialXuanHuiPoSuiJiChangeAoTexture(false)
+      materialXuanHuiPoSuiJiChangeAoTexture(false)
+      materialZhiShaJiChangeAoTexture(false)
+      materialYuanZhuiPoSuiJiChangeAoTexture(false)
       changeImgSrc(0);
       $('.carousel').carousel(0)
       $('#imageIntroductionBox').css("visibility","visible");
