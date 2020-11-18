@@ -46,7 +46,10 @@
   .leftbtn{
     display: flex;
     flex-direction: column;
-    margin-left: 16px;
+    /* margin-left: 16px; */
+    position: absolute;
+    right: 14px;
+    bottom: 260px;
   }
   .rightbtn{
     display: flex;
@@ -94,7 +97,7 @@
      /* width: 300px;
      height: 100px; */
      mix-blend-mode: color;
-     margin-top: -12px;
+     /* margin-top: -12px; */
   }
 
   .image-introduction{
@@ -102,7 +105,7 @@
      left: 18px;
   }
  .image-introduction-box{
-  margin-top: 12px;
+  /* margin-top: 12px; */
   }
 
 
