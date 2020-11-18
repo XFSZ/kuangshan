@@ -43,8 +43,8 @@ function hotSpot(modelname,picnum){
     console.log(mesh)
    // let hotSpotButton = BABYLON.GUI.Button.CreateImageOnlyButton(`HS_${name}`,`model/pic/btn${name}.jpg`)
     let hotSpotButton = BABYLON.GUI.Button.CreateImageOnlyButton(`HS_${modelname}_${picnum}`,`model/pic/${modelname}4_${picnum}.png`)
-    hotSpotButton.width = "36px";
-    hotSpotButton.height = "36px";
+    hotSpotButton.width = "112px";
+    hotSpotButton.height = "27px";
     hotSpotButton.thickness = 0;
     advancedTexture.addControl(hotSpotButton);
     hotSpotButton.linkWithMesh(mesh);
