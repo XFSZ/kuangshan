@@ -23,6 +23,7 @@ function cameraArcRotateAndPostionAnimate(activecam, movepostion, targetposition
 function cameraArcRotateAnimate(activecam, targetposition,alpha, beta, radius){
   console.log("this is ArcRotate : ",alpha,beta,radius)
   let animations = []
+
     animations = [
          // move the camera target
          animLookAt(activecam, targetposition),
@@ -30,7 +31,6 @@ function cameraArcRotateAnimate(activecam, targetposition,alpha, beta, radius){
       ...animArcRotateCameraMove(activecam,alpha,beta,radius),
    
     ];
-
   scene.beginDirectAnimation(activecam, animations, 0, 120, false, 0.8);
 }
 // 带有   postion 的 相机动画
@@ -98,9 +98,9 @@ function animLookAt(camera, lookAt) {
  */
 
 function animArcRotateCameraMove(camera, alpha, beta, radius) {
-  let alphaAnim = new BABYLON.Animation('movecam', 'alpha', 120, BABYLON.Animation.ANIMATIONTYPE_FLOAT);
-  let betaAnim = new BABYLON.Animation('movecam', 'beta', 120, BABYLON.Animation.ANIMATIONTYPE_FLOAT);
-  let radiusAnim = new BABYLON.Animation('movecam', 'radius', 120, BABYLON.Animation.ANIMATIONTYPE_FLOAT);
+  let alphaAnim = new BABYLON.Animation('movecam1', 'alpha', 120, BABYLON.Animation.ANIMATIONTYPE_FLOAT);
+  let betaAnim = new BABYLON.Animation('movecam2', 'beta', 120, BABYLON.Animation.ANIMATIONTYPE_FLOAT);
+  let radiusAnim = new BABYLON.Animation('movecam3', 'radius', 120, BABYLON.Animation.ANIMATIONTYPE_FLOAT);
      // reseting the alpha and beta to a much simpler version
     //  alpha = alpha % (Math.PI * 2);
     //  beta = beta % (Math.PI * 2);
