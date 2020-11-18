@@ -258,7 +258,7 @@ function modelExploitV2(num,name, isExploit) {
     console.log("this is name : ",name);
     let timeout = 1000;
     let animIndex = animationChangeArr[num].filter((value, index) => { if (value.btnName == name) { return value } })
-    console.log("this is animIndex : ",animIndex)
+   // console.log("this is animIndex : ",animIndex)
     animIndex[0].exploitd = isExploit;
     timeout = animationStart(animIndex[0].val.exploit, animIndex[0].exploitd, animIndex[0])
     setTimeout(() => { mouseEvenTimeOut = false }, timeout)
@@ -326,7 +326,7 @@ function mouseup(type, name) {
             nextModelAnim = name;
             if (currenModelAnim !== nextModelAnim) {
                 modelChange(currenModelAnim, nextModelAnim);
-                console.log("123")
+           //     console.log("123")
                 // getactivecamera()
                 // animateCameraToPosition(activecam,10, 600,new BABYLON.Vector3(100, 100, 200))
                 mouseEvenTimeOut = true
