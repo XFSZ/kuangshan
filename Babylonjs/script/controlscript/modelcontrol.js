@@ -38,13 +38,13 @@ function hotSpot(modelname,picnum){
      name = "1"
     // let CoT = new BABYLON.TransformNode("root");
     let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("GUI", true, scene);
-    let mesh = scene.getTransformNodeByID("root");
-    //let mesh = scene.getTransformNodeByID(`${modelname}4_${picnum}`);
+    //let mesh = scene.getTransformNodeByID("root");
+    let mesh = scene.getTransformNodeByID(`${modelname}4_${picnum}`);
     console.log(mesh)
    // let hotSpotButton = BABYLON.GUI.Button.CreateImageOnlyButton(`HS_${name}`,`model/pic/btn${name}.jpg`)
     let hotSpotButton = BABYLON.GUI.Button.CreateImageOnlyButton(`HS_${modelname}_${picnum}`,`model/pic/${modelname}4_${picnum}.png`)
-    hotSpotButton.width = "36px";
-    hotSpotButton.height = "36px";
+    hotSpotButton.width = "112px";
+    hotSpotButton.height = "27px";
     hotSpotButton.thickness = 0;
     advancedTexture.addControl(hotSpotButton);
     hotSpotButton.linkWithMesh(mesh);
@@ -71,9 +71,19 @@ function hotSpot(modelname,picnum){
 let modelHotSpotArr=['A','B','C'];
 function initHotSpot(){
   for(let i =0;i<modelHotSpotArr.length;i++){
-    for(let j=0;j<6;j++){
+    if(modelHotSpotArr[i]=='C')
+    {    
+       for(let j=0;j<6;j++){
       hotSpot(modelHotSpotArr[i],j+1)
     }
+    hotSpot(modelHotSpotArr[i],'1_b')
+    hotSpot(modelHotSpotArr[i],'2_b')
+    }else{
+      for(let j=0;j<6;j++){
+        hotSpot(modelHotSpotArr[i],j+1)
+      }
+    }
+
   }
 }
 
