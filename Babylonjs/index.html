@@ -215,7 +215,7 @@
 
 
         
-    let nextModelNum = 1;
+    let nextModelNum = 0;
     let currentModelNum  = nextModelNum; 
     let modelIntroImgPath=[["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"],["ui/pic/B1.png","ui/pic/B2.png","ui/pic/B3.png"],["ui/pic/C1.png","ui/pic/C2.png","ui/pic/C3.png"]];
     let imgpath=["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"]
@@ -232,6 +232,7 @@
     changeImgSrc(event.to)
     if(event.from==3 && event.to==2){
       let ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao2.jpg", scene);
+      hotSpotControl(currentModelNum,0);
       modelExploitV2(nextModelAnim,false)
       $(".carousel-control-prev").removeAttr('data-slide');
       $(".carousel-control-next").removeAttr('data-slide');
@@ -248,14 +249,23 @@
     }
 })
 
-    $(document).ready(function () {
-     // initscene();
+function inithtml(){
+  id = localStorage.getItem("id")
       checkitem();
-      changeImgSrc(0);
-      clickEvent(1);
-      $("#icon1").attr('src',icon2path[0]);
+      changeImgSrc(id-1);
+      clickEvent(id);
+      $("#icon"+id).attr('src',icon2path[id-1]);
+}
 
-    });
+    // $(document).ready(function () {
+    //  // initscene();
+    //   id = localStorage.getItem("id")
+    //   checkitem();
+    //   changeImgSrc(id-1);
+    //   clickEvent(id);
+    //   $("#icon"+id).attr('src',icon2path[id-1]);
+
+    // });
 
     function checkitem() {
       // check function
@@ -286,6 +296,7 @@
       else{
         $('#imageIntroductionBox').css("visibility","hidden");
         modelExploitV2(nextModelAnim,true)
+        hotSpotControl(currentModelNum,1);
         $(".carousel-control-prev").removeAttr('data-slide');
       $(".carousel-control-next").removeAttr('data-slide');
       setTimeout(()=>{
@@ -304,6 +315,9 @@
       if(currentModelNum != nextModelNum){
      // currentModelNum = args-1
     // materialXuanHuiPoSuiJiChangeAoTexture(false)
+    hotSpotControl(0,0);
+    hotSpotControl(1,0);
+    hotSpotControl(2,0);
       materialXuanHuiPoSuiJiChangeAoTexture(false)
       materialZhiShaJiChangeAoTexture(false)
       materialYuanZhuiPoSuiJiChangeAoTexture(false)

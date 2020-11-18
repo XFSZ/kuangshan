@@ -730,7 +730,7 @@ function initscene() {
     initCamera();
     initAnim(nextModelAnim);
    //     loadPic();
-   // initHotSpot()
+    initHotSpot()
     //    hotSpot();
     // },1000)
     // setTimeout(()=>{mouseEvenTimeOut = false},2000)
@@ -756,12 +756,12 @@ function initAnim(nextModelAnim) {
     // inTimeOut = animationInOut(animIn[0].val.inout, "in")
     // setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
 }
-window.onload = function () {
-    setTimeout(() => {
-        initscene()
-    }, 500)
+// window.onload = function () {
+//     setTimeout(() => {
+//         initscene()
+//     }, 500)
 
-}
+// }
 
 
 
