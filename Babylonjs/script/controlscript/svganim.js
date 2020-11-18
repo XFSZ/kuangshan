@@ -166,13 +166,8 @@ function animationStart(animationName, keys, animCamera) {
     if (keys) {
         ag.start(false, 2, ag.from, ag.to)
         let activecam1 = scene.getCameraByID("Camera")
-<<<<<<< HEAD
-     //   console.log( "this is animCamera : ",animCamera)
-        cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
-=======
         console.log( "this is animCamera : ",animCamera)
         cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetExploitPosition, ...animCamera.cameraAnimExploitPosition)
->>>>>>> 6af838d1b310939ea59c8552757b29f045e8d4b0
         // cameraPostionAnimate(activecam1,...animCamera.cameraAnimExploitPosition,...animCamera.cameraAnimTargetExploitPosition)
     }
     else {
