@@ -142,6 +142,10 @@ var createScene = function () {
         XuanHuiPoSuiJi_aoTexture.vScale = -1;
         XuanHuiPoSuiJi_aoTexture.coordinatesIndex = 1;
 
+        let XuanHuiPoSuiJi_aoTexture2 = new BABYLON.Texture("model/SheBei/XuanHuiPoSuiJi_Ao.jpg", scene);
+        XuanHuiPoSuiJi_aoTexture2.vScale = -1;
+        XuanHuiPoSuiJi_aoTexture2.coordinatesIndex = 1;
+
 
         //材质调整
         let M_XuanHuiPoSuiJi_Steel_Black = scene.getMaterialByID("M_XuanHuiPoSuiJi_Steel_Black");
