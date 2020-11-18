@@ -477,8 +477,8 @@ function initscene() {
   //  setTimeout( ()=> {
     initCamera();
     initAnim(nextModelAnim);
-    loadPic();
-    hotSpot();
+   // loadPic();
+  //  hotSpot();
    // },1000)
     // setTimeout(()=>{mouseEvenTimeOut = false},2000)
 }
