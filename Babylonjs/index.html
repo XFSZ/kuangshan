@@ -208,6 +208,9 @@
     </div> -->
   </body>
   <script>
+
+
+        
     let currentModelNum = 1;
     let modelIntroImgPath=[["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"],["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"],["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"]];
     let imgpath=["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"]
@@ -251,11 +254,14 @@
     function changeImgSrc(arg){
       //$("#imgId").attr('src',imgpath[arg]);
       $("#imgId").attr('src',modelIntroImgPath[currentModelNum][arg]);
-      
+      let activecam1 = scene.getCameraByID("Camera")
+      let animCamera = animationChangeArr[currentModelNum-1][arg]
+        cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
     }
     function clickEvent(args){
       currentModelNum = args-1
       changeImgSrc(0);
+      $('.carousel').carousel(0)
       for(let i =1;i<iconpath.length+1;i++){
              if(i==args){
                

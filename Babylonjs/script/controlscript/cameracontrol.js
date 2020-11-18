@@ -8,11 +8,13 @@ function getactivecamera() {
 function cameraArcRotateAndPostionAnimate(activecam, movepostion, targetposition,alpha, beta, radius){
   let animations = []
     animations = [
-      // move the camera position
-      animMove(activecam, movepostion),
+     
       // move the camera target
       animLookAt(activecam, targetposition),
+      
       ...animArcRotateCameraMove(activecam,alpha,beta,radius),
+       // move the camera position
+       animMove(activecam, movepostion),
     ];
  
   scene.beginDirectAnimation(activecam, animations, 0, 120, false, 0.8);
@@ -22,10 +24,11 @@ function cameraArcRotateAnimate(activecam, targetposition,alpha, beta, radius){
   console.log("this is ArcRotate : ",alpha,beta,radius)
   let animations = []
     animations = [
+         // move the camera target
+         animLookAt(activecam, targetposition),
       // move the camera position
       ...animArcRotateCameraMove(activecam,alpha,beta,radius),
-      // move the camera target
-      animLookAt(activecam, targetposition),
+   
     ];
 
   scene.beginDirectAnimation(activecam, animations, 0, 120, false, 0.8);
@@ -36,10 +39,11 @@ function cameraPostionAnimate(activecam, movepostion, targetposition) {
   // create two animations that should happen simultaneously
   let animations = []
   animations = [
-    // move the camera position
-    animMove(activecam, movepostion),
     // move the camera target
     animLookAt(activecam, targetposition),
+    // move the camera position
+    animMove(activecam, movepostion),
+
   ];
 
   // start both animations
