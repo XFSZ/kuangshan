@@ -65,7 +65,7 @@ var createScene = function () {
     camera.maxZ = 10000;
 
     // camera.upperBetaLimit = 1.5;
-    camera.lowerRadiusLimit = 1;
+    camera.lowerRadiusLimit = 1.3;
     camera.upperRadiusLimit = 7;
 
     //相机惯性
@@ -124,11 +124,15 @@ var createScene = function () {
 
     let Logo_NormalTexture = new BABYLON.Texture('model/SheBei/Logo_Normal.jpg')
     Logo_NormalTexture.vScale = -1;
+    Logo_NormalTexture.level = 0.23;
 
     let NormalTexture = new BABYLON.Texture("model/SheBei/Normal.jpg", scene);
     NormalTexture.level = 0.45;
     NormalTexture.uScale = 30;
     NormalTexture.vScale = 30;
+
+    let Logo_Texture = new BABYLON.Texture("model/SheBei/ShenYangShunDa_alpha_ShenYangShunDa.png");
+    Logo_Texture.vScale = -1;
 
 
     BABYLON.SceneLoader.Append("model/SheBei/", "XuanHuiPoSuiJi.gltf", scene, function (meshes) {
@@ -255,8 +259,7 @@ var createScene = function () {
 
 
         M_ZhiShaJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
-        M_ZhiShaJi_Logo_Texture.opacityTexture = new BABYLON.Texture("model/SheBei/ShenYangShunDa_alpha_ShenYangShunDa.png");
-        M_ZhiShaJi_Logo_Texture.opacityTexture.vScale = -1;
+        M_ZhiShaJi_Logo_Texture.opacityTexture = Logo_Texture;
         M_ZhiShaJi_Logo_Texture.transparencyMode = 3;
         M_ZhiShaJi_Logo_Texture.metallic = 1;
         M_ZhiShaJi_Logo_Texture.roughness = 0;
@@ -343,8 +346,7 @@ var createScene = function () {
 
         //材质调整
         M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
-        M_YuanZhuiPoSuiJi_Logo_Texture.opacityTexture = new BABYLON.Texture("model/SheBei/ShenYangShunDa_alpha_ShenYangShunDa.png");
-        M_YuanZhuiPoSuiJi_Logo_Texture.opacityTexture.vScale = -1;
+        M_YuanZhuiPoSuiJi_Logo_Texture.opacityTexture = Logo_Texture;
         M_YuanZhuiPoSuiJi_Logo_Texture.transparencyMode = 3;
         M_YuanZhuiPoSuiJi_Logo_Texture.metallic = 1;
         M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.5;
@@ -364,7 +366,7 @@ var createScene = function () {
         M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.05;
         M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture = NormalTexture;
 
-        M_YuanZhuiPoSuiJi_Metal_Brass.albedoColor = new BABYLON.Color3(0.3411764705882353, 0.27058823529411763, 0.0784313725490196);
+        M_YuanZhuiPoSuiJi_Metal_Brass.albedoColor = new BABYLON.Color3(0.34901960784313724, 0.34901960784313724, 0.34901960784313724);
         M_YuanZhuiPoSuiJi_Metal_Brass.metallic = 1;
         M_YuanZhuiPoSuiJi_Metal_Brass.roughness = 0.08;
 
@@ -387,6 +389,10 @@ var createScene = function () {
         M_YuanZhuiPoSuiJi_Metal_Iron.albedoColor = new BABYLON.Color3(0.22745098039215686, 0.24313725490196078, 0.25098039215686274);
         M_YuanZhuiPoSuiJi_Metal_Iron.roughness = 0.08;
         M_YuanZhuiPoSuiJi_Metal_Iron.metallic = 1;
+
+        M_YuanZhuiPoSuiJi_Screw_Steel.albedoColor = new BABYLON.Color3(0.1803921568627451, 0.1803921568627451, 0.1803921568627451);
+        M_YuanZhuiPoSuiJi_Screw_Steel.roughness = 0.05;
+        M_YuanZhuiPoSuiJi_Screw_Steel.metallic = 1;
 
         M_YuanZhuiPoSuiJi_Logo_Normal.albedoColor = M_YuanZhuiPoSuiJi_Paint_Main.albedoColor;
         M_YuanZhuiPoSuiJi_Logo_Normal.opacityTexture = Logo_Alpha_Ao;

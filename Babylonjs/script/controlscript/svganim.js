@@ -47,22 +47,22 @@ let animationChangeArr = [
     //first
     [
         {
-            cameraAnimNormolPosition: [1, 2, 3],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.5, 0)],
+            cameraAnimNormolPosition: [Math.PI/2, Math.PI/2, 3],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.31, 0)],
         }, {
 
-            cameraAnimNormolPosition: [2, 2, 3],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.5, 0)],
+            cameraAnimNormolPosition: [1, 1.47, 2.64],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.31, 0)],
         }, {
 
-            cameraAnimNormolPosition: [3, 2, 3],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.5, 0)],
+            cameraAnimNormolPosition: [-Math.PI/2, 1.47, 2.64],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(3.13, 0.249, 0)],
         },
         {
             btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false,
             val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" },
             cameraAnimNormolPosition: [4, 2, 3],
-            cameraAnimExploitPosition: [1, 2, 3],
+            cameraAnimExploitPosition: [0, 1.3939, 5.6],
             cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.5, 0)],
             cameraAnimTargetExploitPosition: [new BABYLON.Vector3(4, 1.6, 0)]
         },
@@ -70,25 +70,24 @@ let animationChangeArr = [
     //second
     [
         {
-
-            cameraAnimNormolPosition: [5, 2, 3],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
+            cameraAnimNormolPosition: [Math.PI/2, 1.357, 2.5],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.38, 0)],
         },
         {
 
-            cameraAnimNormolPosition: [6, 2, 3],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
+            cameraAnimNormolPosition: [2.176, 1.15135, 2.301],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.38, 0)],
         },
         {
 
-            cameraAnimNormolPosition: [7, 2, 3],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
+            cameraAnimNormolPosition: [-0.96351, 1.303, 2.75],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-0.6374, 0.1744, 0)],
         },
         {
             btnName: "modelbtn2", name: "YuanZhuiPoSuiJi", exploitd: false,
             val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" },
             cameraAnimNormolPosition: [8, 2, 3],
-            cameraAnimExploitPosition: [1, 2, 3],
+            cameraAnimExploitPosition: [0, 1.3939, 5.6],
             cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
             cameraAnimTargetExploitPosition: [new BABYLON.Vector3(0, 1.5, 0)]
         },
@@ -97,18 +96,18 @@ let animationChangeArr = [
     [
         {
 
-            cameraAnimNormolPosition: [9, 2, 3],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.3, 0)],
+            cameraAnimNormolPosition: [Math.PI/2, 1.357, 1.935],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.080, 0)],
         },
         {
 
-            cameraAnimNormolPosition: [10, 2, 3],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.3, 0)],
+            cameraAnimNormolPosition: [2.176, 1.15135, 1.935],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.080, 0)],
         },
         {
 
-            cameraAnimNormolPosition: [11, 2, 3],
-            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.3, 0)],
+            cameraAnimNormolPosition: [-Math.PI/2, 1.357, 1.935],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.080, 0)],
         },
         {
             btnName: "modelbtn3", name: "ZhiShaJi", exploitd: false,
