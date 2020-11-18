@@ -257,10 +257,9 @@ function modelExploit(name) {
 
 // 第二版爆炸逻辑 
 function modelExploitV2(num,name, isExploit) {
-   // console.log("this is name : ",name);
+    console.log("this is name : ",name);
     let timeout = 1000;
     let animIndex = animationChangeArr[num].filter((value, index) => { if (value.btnName == name) { return value } })
-    //console.log("this is animIndex : ",animIndex)
     animIndex[0].exploitd = isExploit;
     timeout = animationStart(animIndex[0].val.exploit, animIndex[0].exploitd, animIndex[0])
     setTimeout(() => { mouseEvenTimeOut = false }, timeout)
@@ -723,7 +722,7 @@ function initscene() {
     id = localStorage.getItem("id")
     // id = "1"
     paramsw = id;
-    // console.log(paramsw);
+    console.log(paramsw);
     let modelname = "modelbtn" + paramsw;
     // let colorname ="colorbtn" + paramsw
     nextModelAnim = modelname;
