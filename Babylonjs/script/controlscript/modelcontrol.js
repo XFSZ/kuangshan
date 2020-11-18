@@ -34,10 +34,13 @@ const setCamHotspot = (cam, target, position, speed = defaulSpeed, frameCount = 
 
   return frameCount / speed * 1000;
 };
+
+
 function hotSpot(modelname, picnum, alpha, varval) {
   //name = "1"
   // let CoT = new BABYLON.TransformNode("root");
-  let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(`${modelname}4_${picnum}`, true, scene);
+ // let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(`${modelname}4_${picnum}`, true, scene);
+ 
   //let mesh = scene.getTransformNodeByID("root");
   let mesh = scene.getTransformNodeByID(`${modelname}4_${picnum}`);
   //console.log(mesh)
@@ -75,7 +78,9 @@ function hotSpot(modelname, picnum, alpha, varval) {
 }
 let modelHotSpotArr = ['A', 'B', 'C'];
 let varvals = {};
+let advancedTexture = null;
 function initHotSpot(num, arg) {
+  advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("root", true, scene);
   // console.log("this is num : ",num)
   for (let i = 0; i < modelHotSpotArr.length; i++) {
     console.log( modelHotSpotArr[i])
