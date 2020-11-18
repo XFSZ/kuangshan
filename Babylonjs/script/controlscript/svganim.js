@@ -42,6 +42,81 @@ let animationArr = [
 ]
 */
 
+
+let animationChangeArr = [
+    [{
+        cameraAnimNormolPosition: [1, 2, 3],
+        cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.5, 0)],
+    }, {
+
+        cameraAnimNormolPosition: [2, 2, 3],
+        cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.5, 0)],
+    }, {
+
+        cameraAnimNormolPosition: [3, 2, 3],
+        cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.5, 0)],
+    },
+    {
+        btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false,
+        val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" },
+        cameraAnimNormolPosition: [4, 2, 3],
+        cameraAnimExploitPosition: [1, 2, 3],
+        cameraAnimTargetNormolPosition: [new BABYLON.Vector3(4, 0.5, 0)],
+        cameraAnimTargetExploitPosition: [new BABYLON.Vector3(4, 1.6, 0)]
+    },
+    ],
+    [
+        {
+
+            cameraAnimNormolPosition: [5, 2, 3],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
+        },
+        {
+
+            cameraAnimNormolPosition: [6, 2, 3],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
+        },
+        {
+
+            cameraAnimNormolPosition: [7, 2, 3],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
+        },
+        {
+            btnName: "modelbtn2", name: "YuanZhuiPoSuiJi", exploitd: false,
+            val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" },
+            cameraAnimNormolPosition: [8, 2, 3],
+            cameraAnimExploitPosition: [1, 2, 3],
+            cameraAnimTargetNormolPosition: [new BABYLON.Vector3(0, 0.5, 0)],
+            cameraAnimTargetExploitPosition: [new BABYLON.Vector3(0, 1.5, 0)]
+        },
+    ],
+    [
+    {
+
+        cameraAnimNormolPosition: [9, 2, 3],
+        cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.3, 0)],
+    },
+    {
+   
+        cameraAnimNormolPosition: [10, 2, 3],
+        cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.3, 0)],
+    },
+    {
+
+        cameraAnimNormolPosition: [11, 2, 3],
+        cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.3, 0)],
+    },
+    {
+        btnName: "modelbtn3", name: "ZhiShaJi", exploitd: false,
+        val: { exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" },
+        cameraAnimNormolPosition: [12, 2, 3],
+        cameraAnimExploitPosition: [1, 2, 3],
+        cameraAnimTargetNormolPosition: [new BABYLON.Vector3(-4, 0.3, 0)],
+        cameraAnimTargetExploitPosition: [new BABYLON.Vector3(-4, 2, 0)]
+    }
+]
+]
+
 let animationArr = [
     {
         btnName: "modelbtn1", name: "XuanHuiPoSuiJi", exploitd: false,
@@ -82,20 +157,20 @@ function animDirection(anim, val) {
     anim.play()
 }
 // 爆炸动画
-function animationStart(animationName, keys,animCamera) {
+function animationStart(animationName, keys, animCamera) {
 
     let ag = scene.getAnimationGroupByName(animationName);
     if (keys) {
         ag.start(false, 2, ag.from, ag.to)
-        let activecam1 =  scene.getCameraByID("Camera") 
-        cameraArcRotateAnimate (activecam1,...animIn[0].cameraAnimTargetNormolPosition,...animIn[0].cameraAnimNormolPosition)
-       // cameraPostionAnimate(activecam1,...animCamera.cameraAnimExploitPosition,...animCamera.cameraAnimTargetExploitPosition)
+        let activecam1 = scene.getCameraByID("Camera")
+        cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
+        // cameraPostionAnimate(activecam1,...animCamera.cameraAnimExploitPosition,...animCamera.cameraAnimTargetExploitPosition)
     }
     else {
         ag.start(false, 2, ag.to, ag.from)
-        let activecam1 =  scene.getCameraByID("Camera") 
-        cameraArcRotateAnimate (activecam1,...animIn[0].cameraAnimTargetNormolPosition,...animIn[0].cameraAnimNormolPosition)
-      //  cameraPostionAnimate(activecam1,...animCamera.cameraAnimNormolPosition,...animCamera.cameraAnimTargetNormolPosition)
+        let activecam1 = scene.getCameraByID("Camera")
+        cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
+        //  cameraPostionAnimate(activecam1,...animCamera.cameraAnimNormolPosition,...animCamera.cameraAnimTargetNormolPosition)
     }
     return ag.to * (1000 / 2) + 100
 }
@@ -130,9 +205,9 @@ function modelChange(currenModelAnim, nextModelAnim) {
         timeout = animationInOut(animOut[0].val.inout, "out")
     }
 
-    let activecam1 =  scene.getCameraByID("Camera") 
-    cameraArcRotateAnimate (activecam1,...animIn[0].cameraAnimTargetNormolPosition,...animIn[0].cameraAnimNormolPosition)
-   // cameraPostionAnimate(activecam1,...animIn[0].cameraAnimNormolPosition,...animIn[0].cameraAnimTargetNormolPosition)
+    let activecam1 = scene.getCameraByID("Camera")
+    cameraArcRotateAnimate(activecam1, ...animIn[0].cameraAnimTargetNormolPosition, ...animIn[0].cameraAnimNormolPosition)
+    // cameraPostionAnimate(activecam1,...animIn[0].cameraAnimNormolPosition,...animIn[0].cameraAnimTargetNormolPosition)
     let inTimeOut = 1000;
     inTimeOut = animationInOut(animIn[0].val.inout, "in")
     setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
@@ -168,7 +243,7 @@ function modelExploit(name) {
     let timeout = 1000;
     let animIndex = animationArr.filter((value, index) => { if (value.btnName == name) { return value } })
     animIndex[0].exploitd = !animIndex[0].exploitd;
-    timeout = animationStart(animIndex[0].val.exploit, animIndex[0].exploitd,animIndex[0])
+    timeout = animationStart(animIndex[0].val.exploit, animIndex[0].exploitd, animIndex[0])
     setTimeout(() => { mouseEvenTimeOut = false }, timeout)
 
 }
@@ -484,14 +559,14 @@ function materialYuanZhuiPoSuiJiYellow() {
 }
 
 function initscene() {
-   // btnrander('model', 'modelbtn1', './animation/datam1.json');
-  //  btnrander('model', 'modelbtn2', './animation/datam2.json');
-  //  btnrander('model', 'modelbtn3', './animation/datam3.json');
+    // btnrander('model', 'modelbtn1', './animation/datam1.json');
+    //  btnrander('model', 'modelbtn2', './animation/datam2.json');
+    //  btnrander('model', 'modelbtn3', './animation/datam3.json');
     btnrander('color', 'colorbtn1', './animation/datac1.json');
     btnrander('color', 'colorbtn2', './animation/datac2.json');
     btnrander('color', 'colorbtn3', './animation/datac3.json');
     btnrander('display', 'displaybtn1', './animation/dataplus2.json');
-   // id = localStorage.getItem("id")
+    // id = localStorage.getItem("id")
     id = "1"
     paramsw = id;
     console.log(paramsw);
@@ -503,22 +578,22 @@ function initscene() {
     currenColor = nextColor;
     mouseup('model', modelname);
     mouseup('color', 'colorbtn2');
-  //  setTimeout( ()=> {
+    //  setTimeout( ()=> {
     initCamera();
     initAnim(nextModelAnim);
-//    loadPic();
-//    hotSpot();
-   // },1000)
+    //    loadPic();
+    //    hotSpot();
+    // },1000)
     // setTimeout(()=>{mouseEvenTimeOut = false},2000)
 }
 function initCamera() {
     // let animName = "camera_in";
-  //  getactivecamera()  //获取相机
-   
+    //  getactivecamera()  //获取相机
+
     let animIn = animationArr.filter((value, index) => { if (value.btnName == nextModelAnim) { return value } })
-    let activecam1 =  scene.getCameraByID("Camera") 
-    cameraArcRotateAnimate (activecam1,...animIn[0].cameraAnimTargetNormolPosition,...animIn[0].cameraAnimNormolPosition)
-   // cameraPostionAnimate(activecam1,...animIn[0].cameraAnimNormolPosition,...animIn[0].cameraAnimTargetNormolPosition)
+    let activecam1 = scene.getCameraByID("Camera")
+    cameraArcRotateAnimate(activecam1, ...animIn[0].cameraAnimTargetNormolPosition, ...animIn[0].cameraAnimNormolPosition)
+    // cameraPostionAnimate(activecam1,...animIn[0].cameraAnimNormolPosition,...animIn[0].cameraAnimTargetNormolPosition)
 
     // setTimeout(function () {
     //     let ag = scene.getAnimationGroupByName(animName);
@@ -532,11 +607,11 @@ function initAnim(nextModelAnim) {
     // inTimeOut = animationInOut(animIn[0].val.inout, "in")
     // setTimeout(() => { mouseEvenTimeOut = false }, inTimeOut)
 }
-window.onload=function(){
-    setTimeout(()=>{
+window.onload = function () {
+    setTimeout(() => {
         initscene()
-    },500)
-    
+    }, 500)
+
 }
 
 
