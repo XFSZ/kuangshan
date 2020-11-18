@@ -19,22 +19,22 @@
     font-family: OPPOSans;
     color: rgb(233, 27, 151);
   }
- .btn{
+ .btncss{
   pointer-events: auto;
   cursor: pointer;
    /* width: 20%; */
  }
- .btnclick{
+ /* .btnclick{
    position: absolute;
 
- }
+ } */
  .modelbtnsize{
    width: 60px;
    height: 60px;
  }
  .btnsize{
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 }
 .buttom-btnsize{
   width: 110px;
@@ -80,13 +80,42 @@
     justify-content: flex-end;
 
   }
+  .color-box{
+    display: flex;
+    justify-content: center;
+  }
+  .change-box{
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .image-introduction-bg{
+     /* width: 300px;
+     height: 100px; */
+     mix-blend-mode: color;
+     margin-top: -12px;
+  }
+
+  .image-introduction{
+     position: absolute;
+     left: 18px;
+  }
+ .image-introduction-box{
+  margin-top: 12px;
+  }
+
+
+  
+
+
   .carousel-box{
     width:300px;
-    height:200px;
+    height:100px;
     display: flex;
     flex-direction: column;
     pointer-events: auto;
-    margin-bottom: 22px;
+    /* margin-bottom: 22px; */
     align-items: center;
     justify-content: flex-end;
   }
@@ -95,3 +124,75 @@
     /* height:100%; */
     height: 200px; 
   }
+
+  .carousel-control-prev .carousel-control-prev-icon{
+    width: 20px;
+    height: 40px;
+    background-image:url(./ui/pic/left.png)
+  }
+  .carousel-control-next .carousel-control-next-icon{
+    width: 20px;
+    height: 40px;
+    background-image:url(./ui/pic/right.png)
+  }
+
+  .carousel .carousel-indicators li {
+    box-sizing: content-box;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-indent: -999px;
+    pointer-events: none;
+    border-style: solid; 
+    border-width: 2px 2px 2px 2px;
+    border-color:#d50000;
+    /* cursor: pointer; */
+    /* background-color: #fff; */
+    background-color:rgba(1, 1, 1, 0);
+    background-clip: inherit;
+    /* border-top: 10px solid transparent; */
+    /* border-bottom: 10px solid transparent; */
+    /* border-top: 2px solid ; */
+    /* border-bottom: 2px solid ; */
+    opacity: 1;
+    transition: opacity 0s ease;
+}
+
+.carousel .carousel-indicators .active {
+  background-clip: inherit;
+  background-color:#d50000;
+  opacity: 1;
+}
+.carousel .carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  margin-bottom: 13%;
+  list-style: none;
+}
+ 
+.carousel-inner .carousel-item{
+  /* position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; */
+  transition: -webkit-transform 0s ease-in-out;
+  transition: transform 0s ease-in-out;
+  transition: transform 0s ease-in-out,-webkit-transform 0s ease-in-out;
+}
+

@@ -539,8 +539,9 @@ var createScene = function () {
      
 
     // BABYLON.Animation.CreateAndStartAnimation('light', scene.environmentTexture, 'rotationY', 30, 1000, 0, Math.PI * 2);
-  
+    
     return scene;
+    
 };
 /******* End of the create scene function ******/
 
@@ -557,5 +558,7 @@ window.addEventListener("resize", function () {
 });
 // let ag = engine.scenes[0].getAnimationGroupByName('XuanHuiPoSuiJi_BaoZha');
 
-
+// window.onload=function(){
+//     initscene();
+// }
 // ag.stop();

@@ -79,9 +79,8 @@
       marginwidth="0"
       src="./index/index.html"
     ></iframe> -->
-    
+
     <canvas id="renderCanvas"></canvas>
-    
     <script src="script/main.js"></script>
     <div id="loadingScreen_Container">
       <div class="loadingLogo">
@@ -93,78 +92,112 @@
     </div>
     <div class="button-box">
       <div class="leftbtn">
-        <div id="modelbtn1">
-          <div
-            class="btn modelbtnsize btnclick"
-            onclick="mouseup('model','modelbtn1')"
-          ></div>
+
+        <div class="image-introduction-box">
+          <!-- <div class="image-introduction-bg" style="width: 100%; height: 50px;  background-color: #d50000;  mix-blend-mode: color;"> </div> -->
+          <img  src="./ui/pic/redbg.png" class="image-introduction-bg"></img>
+          <img  id="imgId" src="./ui/pic/A1.png" class="image-introduction"> </img>
+          <!-- </div> -->
         </div>
-        <div id="modelbtn2">
-          <div
-            class="btn modelbtnsize btnclick"
-            onclick="mouseup('model','modelbtn2')"
-          ></div>
-        </div>
-        <div id="modelbtn3">
-          <div
-            class="btn modelbtnsize btnclick"
-            onclick="mouseup('model','modelbtn3')"
-          ></div>
-        </div>
+
       </div>
       <div class="rightbtn">
+        <div class="color-box">
         <div
-          class="btn btnsize"
+          class="btncss btnsize"
           id="colorbtn1"
           onclick="mouseup('color','colorbtn1')"
         ></div>
         <div
-          class="btn btnsize"
+          class="btncss btnsize"
           id="colorbtn2"
           onclick="mouseup('color','colorbtn2')"
         ></div>
         <div
-          class="btn btnsize"
+          class="btncss btnsize"
           id="colorbtn3"
           onclick="mouseup('color','colorbtn3')"
         ></div>
+        </div>
+
+        <div class="carousel-box">
+          <div
+            id="myCarousel"
+            class="carousel slide "
+            data-ride="carousel"
+          >
+            <!-- 指示符 -->
+            <ul class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ul>
+  
+            <!-- 轮播图片 -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div style="width: 300px; height: 100px"></div>
+              </div>
+              <div class="carousel-item">
+                <div style="width: 300px; height: 100px"></div>
+              </div>
+              <div class="carousel-item">
+                <div style="width: 300px; height: 100px"></div>
+              </div>
+            </div>
+  
+            <!-- 左右切换按钮 -->
+            <a
+              class="carousel-control-prev"
+           
+              href="#myCarousel"
+              data-slide="prev"
+            >
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a
+              class="carousel-control-next"
+          
+              href="#myCarousel"
+              data-slide="next"
+            >
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+        </div>
+         <div class="change-box">
+
+        <div id="modelbtn1">
+          <div
+            class="btncss modelbtnsize "
+            onclick="mouseup('model','modelbtn1');clickEvent(1);"
+          >
+        <img id="icon1" src="./ui/pic/l1.png" alt="">
+        </div>
+        </div>
+        <div id="modelbtn2">
+          <div
+            class="btncss modelbtnsize "
+            onclick="mouseup('model','modelbtn2');clickEvent(2);"
+          >
+          <img id="icon2" style="mask: red;" src="./ui/pic/l2.png" alt="">
+        </div>
+        </div>
+        <div id="modelbtn3">
+          <div
+            class="btncss modelbtnsize "
+            onclick="mouseup('model','modelbtn3');clickEvent(3);"
+          >
+          <img id="icon3" src="./ui/pic/l3.png" alt="">
+        </div>
+        </div>
+
+         </div>
       </div>
     </div>
     <div class="buttombox">
-      <div style="width: 300px;height: 200px;  background-color: #d50000;  mix-blend-mode: color;"></div>
-      <div class="carousel-box">
-        <div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
- 
-          <!-- 指示符 -->
-          <ul class="carousel-indicators">
-            <li data-target="#demo" data-slide-to="0" class="active"></li>
-            <li data-target="#demo" data-slide-to="1"></li>
-            <li data-target="#demo" data-slide-to="2"></li>
-          </ul>
-         
-          <!-- 轮播图片 -->
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div style="width: 300px;height: 200px;  "></div>
-            </div>
-            <div class="carousel-item">
-              <div style="width: 300px;height: 200px;"></div>
-            </div>
-            <div class="carousel-item">
-              <div style="width: 300px;height: 200px;"></div>
-            </div>
-          </div>
-         
-          <!-- 左右切换按钮 -->
-          <a class="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </a>
-          <a class="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </a>
-         
-        </div>
-    </div>
+      <!-- <div style="width: 300px;height: 200px;  background-color: #d50000;  mix-blend-mode: color;"></div> -->
+
     </div>
     <!-- <div class="buttom-box">
       <div
@@ -175,12 +208,61 @@
     </div> -->
   </body>
   <script>
-    $('.carousel').carousel({
-      interval:false,
-      keyboard:false,   
-    })
+    let imgpath=["ui/pic/A1.png","ui/pic/A2.png","ui/pic/A3.png"]
+    let iconpath=["ui/pic/l1.png","ui/pic/l2.png","ui/pic/l3.png"]
+    let icon2path=["ui/pic/l2.png","ui/pic/l3.png","ui/pic/l1.png"]
+    $(".carousel").carousel({
+      interval: false,
+      keyboard: false,
+      wrap: false,
+    });
+ 
+   $('#myCarousel').on('slid.bs.carousel', function (event) {
+    checkitem()
+    changeImgSrc(event.to)
+})
+
+    $(document).ready(function () {
+     // initscene();
+      checkitem();
+      changeImgSrc(0)
+    });
+
+    function checkitem() {
+      // check function
+      var $this = $("#myCarousel");
+
+      if ($(".carousel-inner .carousel-item:first").hasClass("active")) {
+        $(".carousel-control-prev").css("opacity",0.4)
+        $(".carousel-control-next").css("opacity",1)
+  
+      } else if ($(".carousel-inner .carousel-item:last").hasClass("active")) {
+        $(".carousel-control-prev").css("opacity",1)
+        $(".carousel-control-next").css("opacity",0.4)
+ 
+      } else {
+        $(".carousel-control-prev").css("opacity",1)
+        $(".carousel-control-next").css("opacity",1)
+      }
+    }
+
+    function changeImgSrc(arg){
+      $("#imgId").attr('src',imgpath[arg]);
+    }
+    function clickEvent(args){
+      for(let i =1;i<iconpath.length+1;i++){
+             if(i==args){
+              $("#icon"+i).attr('src',icon2path[i-1]);
+             }
+             else{
+              $("#icon"+i).attr('src',iconpath[i-1]);
+             }
+      }
+      
+    }
   </script>
+  
   <script src="script/controlscript/modelcontrol.js"></script>
-  <script src="script/controlscript/svganim.js"></script>
   <script src="script/controlscript/cameracontrol.js"></script>
+  <script src="script/controlscript/svganim.js"></script>
 </html>
