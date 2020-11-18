@@ -68,7 +68,7 @@
   </head>
   <body>
     <!-- <div class="UITest"><img src="./textures/UI.png" alt=""></div> -->
-    <!-- <iframe
+    <iframe
       id="ifr"
       name="indexIfr"
       width="100%"
@@ -78,7 +78,7 @@
       marginheight="0"
       marginwidth="0"
       src="./index/index.html"
-    ></iframe> -->
+    ></iframe>
 
     <canvas id="renderCanvas"></canvas>
     <script src="script/main.js"></script>
@@ -90,7 +90,7 @@
         </div>
       </div>
     </div>
-    <div class="buttom-box">
+    <div id="initPageButton" class="buttom-box" hidden = true >
       <div class="leftbtn">
 
         <div id="imageIntroductionBox" class="image-introduction-box">
@@ -239,6 +239,8 @@
       $(".carousel-control-prev").attr('data-slide','prev');
       $(".carousel-control-next").attr('data-slide','next');
       materialXuanHuiPoSuiJiChangeAoTexture(false)
+      materialZhiShaJiChangeAoTexture(false)
+      materialYuanZhuiPoSuiJiChangeAoTexture(false)
       },1500)
       $('#imageIntroductionBox').css("visibility","visible");
      
@@ -291,6 +293,8 @@
       $(".carousel-control-next").attr('data-slide','next');
       },2000)
       materialXuanHuiPoSuiJiChangeAoTexture(true)
+      materialZhiShaJiChangeAoTexture(true)
+      materialYuanZhuiPoSuiJiChangeAoTexture(true)
       }
 
     }
@@ -299,7 +303,10 @@
       currentModelNum = args-1;
       if(currentModelNum != nextModelNum){
      // currentModelNum = args-1
-     materialXuanHuiPoSuiJiChangeAoTexture(false)
+    // materialXuanHuiPoSuiJiChangeAoTexture(false)
+      materialXuanHuiPoSuiJiChangeAoTexture(false)
+      materialZhiShaJiChangeAoTexture(false)
+      materialYuanZhuiPoSuiJiChangeAoTexture(false)
       changeImgSrc(0);
       $('.carousel').carousel(0)
       $('#imageIntroductionBox').css("visibility","visible");

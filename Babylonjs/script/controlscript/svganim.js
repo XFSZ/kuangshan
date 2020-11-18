@@ -419,10 +419,10 @@ function materialZhiShaJiChangeAoTexture(isExploitd) {
     let ZhiShaJi_aoTexture = null;
     //爆炸后
     if (isExploitd) {
-        let ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao.jpg", scene);
+         ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao.jpg", scene);
     }
     else {
-        let ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao2.jpg", scene);
+         ZhiShaJi_aoTexture = new BABYLON.Texture("model/SheBei/ZhiShaJi_Ao2.jpg", scene);
 
     }
     ZhiShaJi_aoTexture.vScale = -1;
@@ -444,7 +444,6 @@ function materialYuanZhuiPoSuiJiChangeAoTexture(isExploitd) {
     let M_YuanZhuiPoSuiJi_Paint_Main = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Main");
     let M_YuanZhuiPoSuiJi_Paint_Less = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Paint_Less");
 
-    let M_YuanZhuiPoSuiJi_Logo_Normal = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Logo_Normal");
 
     let M_YuanZhuiPoSuiJi_Screw_Steel = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Screw_Steel");
     let M_YuanZhuiPoSuiJi_Metal_Iron = scene.getMaterialByID("M_YuanZhuiPoSuiJi_Metal_Iron");
@@ -716,8 +715,8 @@ function initscene() {
     btnrander('color', 'colorbtn2', './animation/datac2.json');
     btnrander('color', 'colorbtn3', './animation/datac3.json');
     btnrander('display', 'displaybtn1', './animation/dataplus2.json');
-    // id = localStorage.getItem("id")
-    id = "1"
+    id = localStorage.getItem("id")
+    // id = "1"
     paramsw = id;
     console.log(paramsw);
     let modelname = "modelbtn" + paramsw;
@@ -731,7 +730,8 @@ function initscene() {
     //  setTimeout( ()=> {
     initCamera();
     initAnim(nextModelAnim);
-    //    loadPic();
+        loadPic();
+    initHotSpot()
     //    hotSpot();
     // },1000)
     // setTimeout(()=>{mouseEvenTimeOut = false},2000)

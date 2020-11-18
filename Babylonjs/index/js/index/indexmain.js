@@ -15,12 +15,17 @@ function openThree(){
     iframehidden()
 }
 function iframehidden(){
+    let initpage = window.parent.document.getElementById("initPageButton")
     let iframeVal =  window.parent.document.getElementById("ifr")
-    iframeVal.width ="0%"
-    iframeVal.height ="0%"
-    iframeVal.hidden = true
+    iframeVal.width ="0%";
+    iframeVal.height ="0%";
+
+    initpage.hidden = false;
+    
+    iframeVal.hidden = true;
+   
 //    setTimeout(()=>{
-    window.parent.initscene()
+   // window.parent.initscene()
    
    
 //    },2000)

@@ -34,16 +34,17 @@ const setCamHotspot = (cam, target, position, speed = defaulSpeed, frameCount = 
   
     return frameCount / speed * 1000;
   };
-function hotSpot(name){
+function hotSpot(modelname,picnum){
      name = "1"
     // let CoT = new BABYLON.TransformNode("root");
     let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("GUI", true, scene);
     let mesh = scene.getTransformNodeByID("root");
+    //let mesh = scene.getTransformNodeByID(`${modelname}4_${picnum}`);
     console.log(mesh)
    // let hotSpotButton = BABYLON.GUI.Button.CreateImageOnlyButton(`HS_${name}`,`model/pic/btn${name}.jpg`)
-    let hotSpotButton = BABYLON.GUI.Button.CreateImageOnlyButton(`HS_name`,`model/pic/bg.jpg`)
-    // hotSpotButton.width = "36px";
-    // hotSpotButton.height = "36px";
+    let hotSpotButton = BABYLON.GUI.Button.CreateImageOnlyButton(`HS_${modelname}_${picnum}`,`model/pic/${modelname}4_${picnum}.png`)
+    hotSpotButton.width = "36px";
+    hotSpotButton.height = "36px";
     hotSpotButton.thickness = 0;
     advancedTexture.addControl(hotSpotButton);
     hotSpotButton.linkWithMesh(mesh);
@@ -67,38 +68,14 @@ function hotSpot(name){
     //       "The Ergonomic designed handle, make it comfortable for carrying.");
   //     });
 }
-// var id = location.search;
-// let params = decodeURI(id).replace(/[^\d]/g, "");
-// var id = localStorage.getItem("id")
-// let params = id
-// var animArr = [
-//     { name: "XuanHuiPoSuiJi", val: { exploit: "XuanHuiPoSuiJi_BaoZha", exploitout: "XuanHuiPoSuiJi_BaoZha_Inout", inout: "XuanHuiPoSuiJi_inout" } },
-//     { name: "YuanZhuiPoSuiJi", val: { exploit: "YuanZhuiPoSuiJi_BaoZha", exploitout: "YuanZhuiPoSuiJi_BaoZha_Inout", inout: "YuanZhuiPoSuiJi_inout" } },
-//     { name: "ZhiShaJi", val: { exploit: "ZhiShaJi_BaoZha", exploitout: "ZhiShaJi_BaoZha_Inout", inout: "ZhiShaJi_inout" } }]
+let modelHotSpotArr=['A','B','C'];
+function initHotSpot(){
+  for(let i =0;i<modelHotSpotArr.length;i++){
+    for(let j=0;j<6;j++){
+      hotSpot(modelHotSpotArr[i],j+1)
+    }
+  }
+}
 
 
-// function initAnimation(animationName) {
-//     setTimeout(function () {
-//         let ag = scene.getAnimationGroupByName(animationName);
-//         ag.start(false, 2, ag.from, ag.to)
-//         // setTimeout(()=>{mouseEvenTimeOut=false})
-//     }, 1000);
 
-// }
-// // function startAnimation(animationName) {
-// //     let ag = scene.getAnimationGroupByName(animationName);
-// //     ag.start()
-// // }
-// window.onload = function () {
-//     (function () {
-//         if (params == '1') {
-//             initAnimation('XuanHuiPoSuiJi_inout');
-//         }
-//         if (params == '2') {
-//             initAnimation('YuanZhuiPoSuiJi_inout');
-//         }
-//         if (params == '3') {
-//             initAnimation('ZhiShaJi_inout');
-//         }
-//     })()
-// }
