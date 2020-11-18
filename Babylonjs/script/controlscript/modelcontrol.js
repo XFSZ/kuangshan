@@ -34,18 +34,22 @@ const setCamHotspot = (cam, target, position, speed = defaulSpeed, frameCount = 
   
     return frameCount / speed * 1000;
   };
-function hotSpot(){
+function hotSpot(name){
+     name = "1"
     // let CoT = new BABYLON.TransformNode("root");
     let advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("GUI", true, scene);
     let mesh = scene.getTransformNodeByID("root");
     console.log(mesh)
-    const hotSpotButton = BABYLON.GUI.Button.CreateImageOnlyButton("testbtn","model/pic/bg.jpg")
-    hotSpotButton.width = "36px";
-    hotSpotButton.height = "36px";
+   // let hotSpotButton = BABYLON.GUI.Button.CreateImageOnlyButton(`HS_${name}`,`model/pic/btn${name}.jpg`)
+    let hotSpotButton = BABYLON.GUI.Button.CreateImageOnlyButton(`HS_name`,`model/pic/bg.jpg`)
+    // hotSpotButton.width = "36px";
+    // hotSpotButton.height = "36px";
     hotSpotButton.thickness = 0;
     advancedTexture.addControl(hotSpotButton);
     hotSpotButton.linkWithMesh(mesh);
-
+    hotSpotButton.onPointerClickObservable.add(() => {
+      console.log("fuck me!!!")
+    });
    // hotSpotButton.onPointerClickObservable.add(() => {
   //      let ct = setCamHotspot(scene.getCameraByID("Camera") , new BABYLON.Vector3(0, 1.517, 0.014), new BABYLON.Vector3(0.6814, 1.8248, 0.679));
   //      console.log("this is btn : ",ct)
