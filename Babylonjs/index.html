@@ -305,6 +305,7 @@ function timeoutbtn(){
     function changeImgSrc(arg){
       //$("#imgId").attr('src',imgpath[arg]);
       if(arg!=3){
+        console.log("what")
         $("#imgId").attr('src',modelIntroImgPath[currentModelNum][arg]);
       let activecam1 = scene.getCameraByID("Camera")
       let animCamera = animationChangeArr[currentModelNum][arg]
