@@ -47,9 +47,9 @@ function hotSpot(name){
     hotSpotButton.thickness = 0;
     advancedTexture.addControl(hotSpotButton);
     hotSpotButton.linkWithMesh(mesh);
-    hotSpotButton.onPointerClickObservable.add(() => {
-      console.log("fuck me!!!")
-    });
+    // hotSpotButton.onPointerClickObservable.add(() => {
+    //  // console.log("fuck me!!!")
+    // });
    // hotSpotButton.onPointerClickObservable.add(() => {
   //      let ct = setCamHotspot(scene.getCameraByID("Camera") , new BABYLON.Vector3(0, 1.517, 0.014), new BABYLON.Vector3(0.6814, 1.8248, 0.679));
   //      console.log("this is btn : ",ct)
