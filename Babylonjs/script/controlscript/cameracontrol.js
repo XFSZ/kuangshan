@@ -102,32 +102,38 @@ function animArcRotateCameraMove(camera, alpha, beta, radius) {
   let betaAnim = new BABYLON.Animation('movecam2', 'beta', 120, BABYLON.Animation.ANIMATIONTYPE_FLOAT);
   let radiusAnim = new BABYLON.Animation('movecam3', 'radius', 120, BABYLON.Animation.ANIMATIONTYPE_FLOAT);
      // reseting the alpha and beta to a much simpler version
-    //  alpha = alpha % (Math.PI * 2);
-    //  beta = beta % (Math.PI * 2);
-    //  if (alpha < 0) {
-    //      alpha += Math.PI * 2;
-    //  }
-    //  if (beta < 0) {
-    //      beta += Math.PI * 2;
-    //  }
+   //  console.log("alpha0",alpha)
+  //   console.log("beta0",beta)
+    let cameraalpha0 = camera.alpha % (Math.PI * 2);
+    let camerabeta0 = camera.beta % (Math.PI * 2);
+     if (cameraalpha0 < 0) {
+      cameraalpha0 += Math.PI * 2;
+     }
+     if (camerabeta0 < 0) {
+      camerabeta0 += Math.PI * 2;
+     }
      
      // used to find the shortest curve IE. if angle == 3PI/2 => take the -1PI/2 instead
-    //  let alpha = camera.alpha;
-    //  if (Math.abs(this.alpha - alpha) > Math.PI) {
-    //      alpha = camera.alpha + (Math.PI * 2);
-    //  }
+     let cameraalpha1 = alpha;
+     if (Math.abs(cameraalpha0 - cameraalpha1) > Math.PI) {
+      cameraalpha1 = cameraalpha0 + (Math.PI * 2);
+     }
 
-    //  let beta = camera.beta;
-    //  if (Math.abs(this.beta - beta) > Math.PI) {
-    //      beta = camera.beta + (Math.PI * 2);
-    //  }
+     let camerabeta1 = beta;
+     if (Math.abs(camerabeta0 - camerabeta1) > Math.PI) {
+      camerabeta1 = camerabeta0 + (Math.PI * 2);
+     }
+   // console.log("alpha",alpha)
+   // console.log("beta",beta)
+    // console.log("cameraalpha",cameraalpha)
+    // console.log("camerabeta",camerabeta)
   alphaAnim.setKeys([
-    { frame: 0, value: camera.alpha },
-    { frame: 120, value: alpha },
+    { frame: 0, value: cameraalpha0 },
+    { frame: 120, value: cameraalpha1 },
   ]);
   betaAnim.setKeys([
-    { frame: 0, value: camera.beta },
-    { frame: 120, value: beta },
+    { frame: 0, value: camerabeta0 },
+    { frame: 120, value: camerabeta1 },
   ]);
   radiusAnim.setKeys([
     { frame: 0, value: camera.radius },

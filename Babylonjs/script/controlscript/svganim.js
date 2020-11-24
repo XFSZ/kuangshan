@@ -683,11 +683,11 @@ function materialYuanZhuiPoSuiJiBlack() {
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.41568627450980394, 0.28627450980392155, 0.00392156862745098);
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.26;
 
-    M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.23921568627450981, 0.23921568627450981, 0.23921568627450981);
+    M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.16862745098039217, 0.16862745098039217, 0.16862745098039217);
     M_YuanZhuiPoSuiJi_Paint_Less.metallic = 1;
-    M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.05;
+    M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.23;
     M_YuanZhuiPoSuiJi_Paint_Less.metallicF0Factor = 0.5;
-    M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
+    // M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
 
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.albedoColor = new BABYLON.Color3(0.2196078431372549, 0.16470588235294117, 0.0392156862745098);
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.metallic = 1;
@@ -721,7 +721,7 @@ function materialYuanZhuiPoSuiJiBlue() {
     M_YuanZhuiPoSuiJi_Paint_Less.metallic = 0;
     M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.35;
     M_YuanZhuiPoSuiJi_Paint_Less.metallicF0Factor = 0.62;
-    M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
+    // M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
 
     M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.4392156862745098, 0.4392156862745098, 0.4392156862745098);
     M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.14;
@@ -752,11 +752,11 @@ function materialYuanZhuiPoSuiJiYellow() {
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.metallic = 1;
     M_YuanZhuiPoSuiJi_Metal_Steel_Silver.roughness = 0.21;
 
-    M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.23921568627450981, 0.23921568627450981, 0.23921568627450981);
+    M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.16862745098039217, 0.16862745098039217, 0.16862745098039217);
     M_YuanZhuiPoSuiJi_Paint_Less.metallic = 1;
-    M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.05;
+    M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.23;
     M_YuanZhuiPoSuiJi_Paint_Less.metallicF0Factor = 0.5;
-    M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
+    // M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture.level = 0.15;
 
     M_YuanZhuiPoSuiJi_Logo_Texture.albedoColor = new BABYLON.Color3(0.07058823529411765, 0.07058823529411765, 0.07058823529411765);
     M_YuanZhuiPoSuiJi_Logo_Texture.roughness = 0.5;

@@ -10,23 +10,23 @@ let ZhiShaJi_aoTexture2 = null;
 let YuanZhuiPoSuiJi_aoTexture1 = null;
 let YuanZhuiPoSuiJi_aoTexture2 = null;
 //debug快捷键 shift+alt+d
-// function togglerDebugLayer() {
-//     var scene = engine.scenes[0];
-//     if (scene.debugLayer.isVisible()) {
-//         scene.debugLayer.hide();
-//     }
-//     else {
-//         scene.debugLayer.show({
-//             overlay: true,//覆盖模式打开
-//         });
-//     }
-// }
+function togglerDebugLayer() {
+    var scene = engine.scenes[0];
+    if (scene.debugLayer.isVisible()) {
+        scene.debugLayer.hide();
+    }
+    else {
+        scene.debugLayer.show({
+            overlay: true,//覆盖模式打开
+        });
+    }
+}
 
-// document.addEventListener("keydown", function (event) {
-//     if (event.altKey && event.shiftKey && event.keyCode === 68) {
-//         togglerDebugLayer();
-//     }
-// });
+document.addEventListener("keydown", function (event) {
+    if (event.altKey && event.shiftKey && event.keyCode === 68) {
+        togglerDebugLayer();
+    }
+});
 
 
 function MyLoadingScreen() {
@@ -372,11 +372,11 @@ var createScene = function () {
         M_YuanZhuiPoSuiJi_Paint_Main.metallicF0Factor = 0.6;
 
 
-        M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.23921568627450981, 0.23921568627450981, 0.23921568627450981);
+        M_YuanZhuiPoSuiJi_Paint_Less.albedoColor = new BABYLON.Color3(0.16862745098039217, 0.16862745098039217, 0.16862745098039217);
         M_YuanZhuiPoSuiJi_Paint_Less.emissiveColor = new BABYLON.Color3(0, 0, 0);
         M_YuanZhuiPoSuiJi_Paint_Less.metallic = 1;
-        M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.05;
-        M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture = NormalTexture;
+        M_YuanZhuiPoSuiJi_Paint_Less.roughness = 0.23;
+        // M_YuanZhuiPoSuiJi_Paint_Less.bumpTexture = NormalTexture;
 
         M_YuanZhuiPoSuiJi_Metal_Brass.albedoColor = new BABYLON.Color3(0.34901960784313724, 0.34901960784313724, 0.34901960784313724);
         M_YuanZhuiPoSuiJi_Metal_Brass.metallic = 1;
