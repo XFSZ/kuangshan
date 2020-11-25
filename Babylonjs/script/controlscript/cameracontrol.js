@@ -102,8 +102,9 @@ function animArcRotateCameraMove(camera, alpha, beta, radius) {
   let betaAnim = new BABYLON.Animation('movecam2', 'beta', 120, BABYLON.Animation.ANIMATIONTYPE_FLOAT);
   let radiusAnim = new BABYLON.Animation('movecam3', 'radius', 120, BABYLON.Animation.ANIMATIONTYPE_FLOAT);
      // reseting the alpha and beta to a much simpler version
-   //  console.log("alpha0",alpha)
-  //   console.log("beta0",beta)
+  //  console.log("alpha0",alpha)
+  //  console.log("beta0",beta)
+  //  console.log("camera0",camera)
     let cameraalpha0 = camera.alpha % (Math.PI * 2);
     let camerabeta0 = camera.beta % (Math.PI * 2);
      if (cameraalpha0 < 0) {
@@ -113,20 +114,20 @@ function animArcRotateCameraMove(camera, alpha, beta, radius) {
       camerabeta0 += Math.PI * 2;
      }
      
-     // used to find the shortest curve IE. if angle == 3PI/2 => take the -1PI/2 instead
-     let cameraalpha1 = alpha;
-     if (Math.abs(cameraalpha0 - cameraalpha1) > Math.PI) {
-      cameraalpha1 = cameraalpha0 + (Math.PI * 2);
-     }
+     //  // used to find the shortest curve IE. if angle == 3PI/2 => take the -1PI/2 instead
+      let cameraalpha1 = alpha;
+    // if (Math.abs(cameraalpha1 - cameraalpha0) > Math.PI) {
+    //  cameraalpha1 = cameraalpha0 + (Math.PI * 2);
+    // }
 
      let camerabeta1 = beta;
-     if (Math.abs(camerabeta0 - camerabeta1) > Math.PI) {
-      camerabeta1 = camerabeta0 + (Math.PI * 2);
-     }
-   // console.log("alpha",alpha)
-   // console.log("beta",beta)
-    // console.log("cameraalpha",cameraalpha)
-    // console.log("camerabeta",camerabeta)
+   //  if (Math.abs(camerabeta0 - camerabeta1) > Math.PI) {
+   //   camerabeta1 = camerabeta0 + (Math.PI * 2);
+   //  }
+  // console.log("cameraalpha0",cameraalpha0)
+  // console.log("camerabeta0",camerabeta0)
+  //  console.log("cameraalpha1",cameraalpha1)
+  //  console.log("camerabeta1",camerabeta1)
   alphaAnim.setKeys([
     { frame: 0, value: cameraalpha0 },
     { frame: 120, value: cameraalpha1 },
@@ -139,6 +140,19 @@ function animArcRotateCameraMove(camera, alpha, beta, radius) {
     { frame: 0, value: camera.radius },
     { frame: 120, value: radius },
   ]);
+
+  // alphaAnim.setKeys([
+  //   { frame: 0, value: camera.alpha },
+  //   { frame: 120, value: alpha },
+  // ]);
+  // betaAnim.setKeys([
+  //   { frame: 0, value: camera.beta },
+  //   { frame: 120, value: beta },
+  // ]);
+  // radiusAnim.setKeys([
+  //   { frame: 0, value: camera.radius },
+  //   { frame: 120, value: radius },
+  // ]);
   // easing
   const easingFun = new BABYLON.CubicEase();
   easingFun.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);

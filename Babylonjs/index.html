@@ -315,12 +315,12 @@ function timeoutbtn(){
     }
 
     function changeImgSrc(arg){
-      //$("#imgId").attr('src',imgpath[arg]);
       if(arg!=3){
-     //   console.log("what")
+      //  console.log("what",arg)
         $("#imgId").attr('src',modelIntroImgPath[currentModelNum][arg]);
       let activecam1 = scene.getCameraByID("Camera")
       let animCamera = animationChangeArr[currentModelNum][arg]
+     // console.log("nani",animCamera)
         cameraArcRotateAnimate(activecam1, ...animCamera.cameraAnimTargetNormolPosition, ...animCamera.cameraAnimNormolPosition)
       }
       else{
